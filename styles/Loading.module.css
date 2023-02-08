@@ -1,0 +1,58 @@
+
+.loading-body {
+    position: absolute;
+    background:var(--color-main);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .loading-body .container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  .loading-body span {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    animation: speed 2s infinite ease-in-out;
+  }
+  .loading-body .one {
+    background: #0062ff;
+    animation-delay: 1.5s;
+  }
+  .loading-body .two {
+    background: #ff1500;
+    animation-delay: 1s;
+  }
+  .loading-body .three {
+    background: #ffbf00;
+    animation-delay: 0.5s;
+  }
+  .loading-body .four {
+    background: #00ff44;
+  }
+  @keyframes speed {
+    0% {
+      transform: translate(0%);
+      border-radius: 50%;
+    }
+    25% {
+      transform: translate(150%) scale(0.5);
+      border-radius: 0%;
+    }
+    50% {
+      transform: translate(150%, 150%);
+      border-radius: 50%;
+    }
+    75% {
+      transform: translate(0, 150%) scale(0.5);
+      border-radius: 0%;
+    }
+  }

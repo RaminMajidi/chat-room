@@ -1,26 +1,121 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(Loading.module.css);
+
+
+@font-face {
+    font-family: tanha;
+    src: url('../public/font/tanha/Tanha-FD-WOL.eot');
+    src: url('../public/font/tanha/Tanha-FD-WOL.eot?#iefix') format('FontName-opentype'),
+         url('../public/font/tanha/Tanha-FD-WOL.woff') format('woff'),
+         url('../public/font/tanha/Tanha-FD-WOL.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family:Poppins;
+    src:url('../public/font/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+:root{
+
+    --color-main:#111;
+    --color-pray:#333;
+    --color-text:#fff;
+    --color-gray:#777;
+    --color-orange:#ffb400;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 * {
-  box-sizing: border-box;
+  direction: rtl;
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+    cursor: none;
+    text-decoration: none;
+    font-family:"tanha",Tahoma,"Poppins",sans-serif ;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+body{
+  background-color: var(--color-main);
+  overflow-x: hidden;
+}
+
+a,.cursor-pointer{
+  cursor: pointer !important;
+}
+
+.nav-link{
+  position: relative;
+  transition: all .5s ease-in-out;
+}
+.nav-icon{
+  display: flex;
+  position: absolute;
+  color: #fff;
+  order: 3;
+  z-index: 10000;
+}
+.nav-link.active{
+  background-color: var(--color-orange);
+}
+.nav-link:hover{
+  background-color: var(--color-orange);
+}
+
+.clip-path{
+  position: absolute;
+  display: inline-block;
+  width:100%;
+  height:12vh;
+  top: 0;
+  left: 0;
+  background-color: #ffb400;
+  clip-path: polygon(0 0, 100% 0, 73% 100%, 27% 100%);
+  z-index: 0;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root{
+      --color-main:#fff;
+      --color-pray:#ddd;
+      --color-text:#111;
+      --color-gray:#444;  
+   }
+} 
+
+@media (min-width: 1024px) { 
+  .nav-link,.nav-icon,.nav-text{
+      cursor: pointer;
+      outline: none;
+      border: none;
   }
-  body {
-    color: white;
-    background: black;
+  .nav-text{
+      position: absolute;
+      width: 0;
+      order: 1;
+      max-height: 3rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: left;
+      transition: all .4s ease-in-out;
+      overflow: hidden;
+  }
+  .nav-link:hover .nav-text ,
+  .nav-link:focus .nav-text{
+      width: 10rem;
+      opacity:1;
+  }
+  .clip-path{
+      width: 24rem;
+      height: 100%;
+      clip-path: polygon(0 0, 50% 0, 100% 100%, 0% 100%);
   }
 }

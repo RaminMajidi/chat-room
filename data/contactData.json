@@ -1,0 +1,69 @@
+{
+"subTitle":[
+{
+"id":1,
+"title":"خجالتی نباش !",
+"desc":"با خیال راحت با من در تماس باشید. من همیشه آماده بحث در مورد پروژه های جدید، ایده های خلاقانه یا فرصت هایی هستم تا بخشی از چشم اندازهای شما باشم."
+}
+],
+"stringItems":[
+{
+    "id":1,
+    "title":"نشانی :",
+    "text":"اصفهان - شهرستان لنجان",
+    "icon_name":"map-pin",
+    "icon_type":"solid"
+}
+],
+"linkItems":[
+{
+"id":1,
+"title":"ایمیل :",
+"text":"ramindev01@gmail.com",
+"link":"mailto:ramindev01@gmail.com",
+"icon_name":"envelope",
+"icon_type":"solid"
+},
+{
+"id":2,
+"title":"تلفن :",
+"text":"09917572781",
+"link":"Tel:+989917572781",
+"icon_name":"phone-call",
+"icon_type":"solid"
+
+}
+],
+"Socials":[
+{
+"id":1,
+"title":"تلگرام",
+"link":"https://t.me/ramindev01",
+"icon_name":"telegram",
+"icon_type":"logo"
+},
+{
+"id":2,
+"title":"اینستاگرام",
+"link":"https://www.instagram.com/ramindev01/",
+"icon_name":"instagram",
+"icon_type":"logo"
+},
+{
+"id":3,
+"title":"گیت هاب",
+"link":"https://github.com/RaminMajidi",
+"icon_name":"github",
+"icon_type":"logo"
+},
+{
+"id":4,
+"title":"لینکدین",
+"link":"https://www.linkedin.com/in/ramindev01/",
+"icon_name":"linkedin-square",
+"icon_type":"logo"
+}
+]
+
+}
+
