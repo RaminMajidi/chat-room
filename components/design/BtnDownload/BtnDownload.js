@@ -1,4 +1,5 @@
 import {saveAs} from "file-saver"
+import Image from "next/image";
 
 const BtnDownload = ({url,text,classes})=>{
 
