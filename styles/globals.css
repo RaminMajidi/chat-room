@@ -3,8 +3,6 @@
 @tailwind utilities;
 @import url(Loading.module.css);
 
-
-
 @font-face {
     font-family: tanha;
     src: url('../public/font/tanha/Tanha-FD-WOL.eot');
@@ -23,7 +21,6 @@
   }
 
 :root{
-
     --color-main:#111;
     --color-pray:#333;
     --color-text:#fff;
@@ -31,16 +28,14 @@
     --color-orange:#ffb400;
 }
 
-
-
 * {
-  direction: rtl;
+    direction: rtl;
     margin: 0;
     padding: 0;
     box-sizing:  border-box;
     cursor: none;
     text-decoration: none;
-    font-family:"tanha",Tahoma,"Poppins",sans-serif ;
+    font-family:"tanha","Poppins",Tahoma,sans-serif ;
 }
 
 body{
@@ -52,23 +47,8 @@ a,.cursor-pointer{
   cursor: pointer !important;
 }
 
-.nav-link{
-  position: relative;
-  transition: all .5s ease-in-out;
-}
-.nav-icon{
-  display: flex;
-  position: absolute;
-  color: #fff;
-  order: 3;
-  z-index: 10000;
-}
-.nav-link.active{
-  background-color: var(--color-orange);
-}
-.nav-link:hover{
-  background-color: var(--color-orange);
-}
+
+
 
 .clip-path{
   position: absolute;
@@ -93,27 +73,6 @@ a,.cursor-pointer{
 } 
 
 @media (min-width: 1024px) { 
-  .nav-link,.nav-icon,.nav-text{
-      cursor: pointer;
-      outline: none;
-      border: none;
-  }
-  .nav-text{
-      position: absolute;
-      width: 0;
-      order: 1;
-      max-height: 3rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-align: left;
-      transition: all .4s ease-in-out;
-      overflow: hidden;
-  }
-  .nav-link:hover .nav-text ,
-  .nav-link:focus .nav-text{
-      width: 10rem;
-      opacity:1;
-  }
   .clip-path{
       width: 24rem;
       height: 100%;
