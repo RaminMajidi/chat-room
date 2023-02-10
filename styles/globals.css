@@ -27,7 +27,9 @@
     --color-gray:#777;
     --color-orange:#ffb400;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 * {
     direction: rtl;
     margin: 0;

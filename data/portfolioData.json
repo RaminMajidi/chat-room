@@ -33,6 +33,72 @@
         "url":"https://bmi-app-js.netlify.app/",
         "coverImg":"/images/portfolio/contactApp.png",
         "images":[]
+    },
+    {
+        "id":0,
+        "title":"doz-Game",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://dozgame.netlify.app/",
+        "coverImg":"/images/portfolio/dozGame.png",
+        "images":[]
+    },
+    {
+        "id":1,
+        "title":"bmi-App",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/bmiApp.png",
+        "images":[]
+    },
+    {
+        "id":2,
+        "title":"contacts-App",
+        "category":"MiniProject",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["indexed-DB"],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/contactApp.png",
+        "images":[]
+    },
+    {
+        "id":0,
+        "title":"doz-Game",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://dozgame.netlify.app/",
+        "coverImg":"/images/portfolio/dozGame.png",
+        "images":[]
+    },
+    {
+        "id":1,
+        "title":"bmi-App",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/bmiApp.png",
+        "images":[]
+    },
+    {
+        "id":2,
+        "title":"contacts-App",
+        "category":"MiniProject",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["indexed-DB"],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/contactApp.png",
+        "images":[]
     }
 ]
 }
