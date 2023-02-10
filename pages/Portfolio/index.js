@@ -8,6 +8,7 @@ import { Alert } from "../../utils/Alert"
 import Image from "next/image"
 import Link from "next/link"
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import NotItem from "../../components/design/NotItem/NotItem"
 
 
 const Portfolio = (props)=>{
@@ -32,9 +33,6 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
 }
     return(
         <>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
         {filterData ? (
         <Layout title={"Portfolio"} activeNavItem={"portfolio"}>
         <PageTitle topicTitle={"MY"} topicTitle2={"PORTFOLIO"} belowTitle={"WORKS"}/>
@@ -49,7 +47,7 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
             {filterData.length ? (
                 filterData.map((item,index)=>(
                 <AnimationOnScroll key={index} duration={2} offset={230} initiallyVisible={index<3?true:false} animateIn="animate__bounceInLeft" animateOut="animate__bounceOutLeft">
-                <Link href={"#"} key={item.title}>
+                <Link href={`/Portfolio/${item.title}`} key={item.title}>
                 <div key={item.id} className="group relative overflow-hidden">
                     <div className="absolute bg-[var(--color-orange)] opacity-0 group-hover:opacity-100  duration-700 ease-in-out cursor-pointer right-0 flex justify-center items-center w-full h-56 md:max-w-[350px] lg:max-w-[400px] md:mx-2 my-4 rounded-2xl">
                         <h2 className="text-2xl text-slate-100 font-[Poppins]">{item.title}</h2>
@@ -62,12 +60,7 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
                 </AnimationOnScroll>
                 ))
             ) :
-             (
-                <div className="animate__animated animate__zoomIn">
-                    <Image width={400} height={200} src={"/images/not-item.png"} alt="Not-Item" />
-                    <p className="text-[var(--color-orange)] text-2xl font-bold  text-center"> آیتمی یافت نشد !!!</p>
-                </div>
-             )}
+             (<NotItem/>)}
         </div>
         </Layout>
         ) : (<Loading/>)}
