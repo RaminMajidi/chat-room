@@ -20,7 +20,7 @@ if(portfolioData){
         <Layout activeNavItem={"portfolio"} title={title}>
         {item ? (
            <section>
-           <Image src={item.coverImg} width={1000} height={500} alt={item.title} className="mx-auto my-3 p-2"/>
+           <Image onLoadingComplete={(image)=>{image.classList.remove("opacity-0")}} src={item.coverImg} width={1000} height={500} alt={item.title} className="opacity-0 mx-auto my-3 p-2"/>
            <article className=" w-full max-w-4xl mx-auto flex justify-start items-center flex-wrap p-2">
            <div className="p-2 w-full h-10 flex items-center md:w-[50%] text-[var(--color-text)]">
             <i className='bx bxl-sketch text-3xl text-red-600'></i>
@@ -32,7 +32,7 @@ if(portfolioData){
             </div>
             <div className="p-2 w-full h-10 flex items-center md:w-[50%] text-[var(--color-text)]">
             <i className='bx bx-code-alt text-3xl text-red-600'></i>
-            <p className="mr-3 text-lg font-bold"><span>زبانها : </span><span>{item.languages.length ? item.languages.join(' , ') :"فاقد آیتم!"}</span></p>
+            <p className="mr-3 text-lg font-bold"><span>زبانها : </span><span>{item.languages?.length ? item.languages.join(' , ') :"فاقد آیتم!"}</span></p>
             </div>
             <div className="p-2 w-full h-10 flex items-center md:w-[50%] text-[var(--color-text)]">
             <i className='bx bx-link-alt text-3xl text-red-600'></i>

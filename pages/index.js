@@ -26,7 +26,7 @@ const Home =(props)=> {
               <div className='clip-path'></div>
               <section className='relative w-[100%] min-h-screen flex flex-col lg:flex-row-reverse justify-start items-center'>
               <div className=' relative flex w-[220px] h-[220px] rounded-full border-8 border-solid border-[var(--color-main)] lg:rounded-3xl lg:pt-3  lg:border-none  bg-transparent lg:w-[30vw] lg:min-w-[250px] lg:ml-3 lg:h-[85vh] lg:shadow-[10px_15px_15px_0px_rgba(0,0,0,0.8)] mt-1'>
-                <Image alt='My-Image'  src={myImg} width={700} height={1000} className="bg-[#000] pt-2 rounded-full lg:rounded-3xl text-slate-200 "/>
+                <Image onLoadingComplete={(image)=>{image.classList.remove("opacity-0")}} alt='My-Image'  src={"/images/"+data.image} width={700} height={1000} className="opacity-0 bg-[#000] pt-2 rounded-full lg:rounded-3xl text-slate-200 "/>
               </div>
               <div className='lg:ml-14 z-20'>
                 <h1 className='animate__animated animate__flash animate__delay-2s text-[var(--color-orange)] text-2xl lg:text-5xl md:text-4xl font-bold text-center p-1 '>{data.title}</h1>

@@ -50,10 +50,10 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
                 <Link href={`/Portfolio/${item.title}`} key={item.title} className="">
                 <div key={item.id} className="group relative overflow-hidden ">
                     <div className="absolute bg-[var(--color-orange)] opacity-0 group-hover:opacity-100  duration-700 ease-in-out cursor-pointer right-0 flex justify-center items-center w-full h-56 md:max-w-[350px] lg:max-w-[400px] md:mx-2 my-4 rounded-2xl">
-                        <h2 className="text-2xl text-slate-100 font-[Poppins]">{item.title}</h2>
+                        <h2 className="cursor-pointer text-2xl text-slate-100 font-[Poppins]">{item.title}</h2>
                     </div>
                     <div className="w-full h-56 md:max-w-[350px] lg:max-w-[400px] md:mx-2 my-4 rounded-2xl">
-                        <Image width={1300} height={600}  src={item.coverImg}  alt={`${item.title}`} className=" w-full h-full rounded-2xl"/>
+                        <Image onLoadingComplete={(image)=>{image.classList.remove("opacity-0")}} width={1300} height={600}  src={item.coverImg}  alt={`${item.title}`} className=" opacity-0 w-full h-full rounded-2xl"/>
                     </div>   
                 </div>
                 </Link>
