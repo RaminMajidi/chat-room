@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url(Loading.module.css);
+@import url(BtnBack.module.css);
 
 @font-face {
     font-family: tanha;
@@ -46,7 +47,7 @@ body{
   overflow-x: hidden;
 }
 
-a,.cursor-pointer{
+a,.cursor-pointer,button{
   cursor: pointer !important;
 }
 
