@@ -30,6 +30,7 @@
 html{
   scroll-behavior: smooth;
 }
+
 * {
     direction: rtl;
     margin: 0;
@@ -63,7 +64,6 @@ a,.cursor-pointer{
   clip-path: polygon(0 0, 100% 0, 73% 100%, 27% 100%);
   z-index: 0;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root{

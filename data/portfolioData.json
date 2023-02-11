@@ -7,7 +7,7 @@
         "category":"App",
         "yearOf":"2021",
         "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
+        "packeages":["formik","animate.css","axios"],
         "url":"https://dozgame.netlify.app/",
         "coverImg":"/images/portfolio/dozGame.png",
         "images":[]
