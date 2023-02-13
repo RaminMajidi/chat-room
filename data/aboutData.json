@@ -1,0 +1,161 @@
+{
+    "personalInfos":[
+        {
+            "id":0,
+            "sub":"firstName",
+            "title":"نام",
+            "text":"رامین"
+        },
+        {
+            "id":1,
+            "sub":"lastName",
+            "title":"نام خانوادگی",
+            "text":"مجیدی"
+        },
+        {
+            "id":2,
+            "sub":"age",
+            "title":"سن",
+            "text":"27"
+        },
+        {
+            "id":3,
+            "sub":"condition",
+            "title":"وضعیت",
+            "text":"دردسترس"
+        },
+        {
+            "id":4,
+            "sub":"nationality",
+            "title":"ملیت",
+            "text":"ایرانی"
+        },
+        {
+            "id":5,
+            "sub":"address",
+            "title":"آدرس",
+            "text":"اصفهان"
+        },
+        {
+            "id":6,
+            "sub":"phone",
+            "title":"تلفن",
+            "text":"09917572781"
+        },
+        {
+            "id":7,
+            "sub":"email",
+            "title":"ایمیل",
+            "text":"ramindev01@gmail.com"
+        }
+    ],
+    "sideItems":[
+        {
+            "id":0,
+            "title":"سالهای فعالیت",
+            "value":2
+        },
+        {
+            "id":1,
+            "title":"پروژه انجام شده",
+            "value":10
+        },
+        {
+            "id":2,
+            "title":"مشتری های راضی",
+            "value":7
+        }
+    ],
+    "skills":[
+        {
+            "id":0,
+            "title":"html",
+            "percent":98
+        },
+        {
+            "id":2,
+            "title":"css",
+            "percent":80
+        },
+        {
+            "id":3,
+            "title":"javascript",
+            "percent":75
+        },
+        {
+            "id":4,
+            "title":"bootstrap",
+            "percent":95
+        },
+        {
+            "id":5,
+            "title":"tailwind",
+            "percent":50
+        },
+        {
+            "id":6,
+            "title":"react-js",
+            "percent":85
+        },
+        {
+            "id":7,
+            "title":"next-js",
+            "percent":50
+        }
+    ],
+    "subskills":[
+        {
+            "id":0,
+            "title":"PhotoShop",
+            "img":"/images/photoshop.svg"
+        },
+        {
+            "id":1,
+            "title":"postman",
+            "img":"/images/postman.svg"
+        },
+        {
+            "id":2,
+            "title":"swagger",
+            "img":"/images/swagger.svg"
+        },
+        {
+            "id":3,
+            "title":"my-sql",
+            "img":"/images/mysql.svg"
+        },
+        {
+            "id":4,
+            "title":"wordpress",
+            "img":"/images/Wordpress.png"
+        }
+
+    ],
+    "exANDed":[
+        {
+            "id":0,
+            "tiltle":"کاردانی - مهندسی نرم افزار",
+            "college":"آزاداسلامی-واحدلنجان",
+            "sYear":"مهر 1394",
+            "eYear":"اسفند 1396",
+            "desc":"مشغول به تحصیل در رشته مهندسی نرم افزار در دانشگاه آزاد اسلامی واحد لنجان بوده ام ."
+        },
+        {
+            "id":1,
+            "tiltle":"خود آموز",
+            "college":"یوتیوب-تاپلرن-کدیاد",
+            "sYear":"فروردین 1400",
+            "eYear":"فروردین 1401",
+            "desc":"به صورت خودآموز شروع به یادگیری مباحث برنامه نویسی و طراحی سایت کردم."
+        },
+        {
+            "id":2,
+            "tiltle":"برنامه نویس React",
+            "college":"سازمان فنی حرفه ای",
+            "sYear":"اردیبهشت 1401",
+            "eYear":"خرداد 1401",
+            "desc":"با شرکت در دوره برنامه نویسی React موسسه فن پردازان موفق به یادگیری و اخذ مدرک این دوره React شدم ."
+        }
+    ]
+}
+    
