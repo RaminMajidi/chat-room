@@ -23,7 +23,7 @@
 
 :root{
     --color-main:#111;
-    --color-pray:#333;
+    --color-pray:rgb(51, 51, 51);
     --color-text:#fff;
     --color-gray:#999;
     --color-orange:#ffb400;

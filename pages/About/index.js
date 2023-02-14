@@ -5,6 +5,7 @@ import PageTitle from "../../components/design/PageTitle/PageTitle"
 import PersonalInfos from "../../components/about/PersonalInfos"
 import BtnDownload from "../../components/design/BtnDownload/BtnDownload"
 import SideItems from "../../components/about/SideItems"
+import Skills from "../../components/about/Skills"
 import { useEffect, useState } from "react"
 import { getData } from "../../utils/GetData"
 import { Alert } from "../../utils/Alert"
@@ -27,13 +28,20 @@ const About = (props)=>{
         {data ? (
           <Layout title={"About"} activeNavItem={"about"}>
           <PageTitle topicTitle={"ABOUT "} topicTitle2={"ME"} belowTitle={"RESUME"}/>
-           <section className="mt-4 flex flex-col lg:flex-row justify-center items-center w-full lg:w-[85%] mx-auto max-w-6xl">
+           <section className="mt-4 w-full lg:w-[85%] mx-auto max-w-6xl">
+            <article className=" flex flex-col lg:flex-row justify-start my-8">
             <div className="flex flex-col justify-start items-start px-2 py-1">
             <PersonalInfos data={data.personalInfos}/>
             <BtnDownload classes={"mr-3"}/>
             </div>
               <SideItems data={data.sideItems}/>
+            </article>
+            <article>
+            <Skills data={data.skills}/>
+            </article>
            </section>
+
+           
         </Layout>
         ) : (<Loading/>)}
          </>
