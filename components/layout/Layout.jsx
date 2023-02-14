@@ -19,7 +19,7 @@ const Layout = ({title,children,activeNavItem,classes})=>{
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>     
         </Head>
         <Header activeNavItem={activeNavItem}/>
-        <section className={`animate__animated animate__zoomIn w-full h-full mx-auto mb-[5rem] lg:mb-0 bg-transparent ${classes}`}>
+        <section className={`overflow-hidden animate__animated animate__zoomIn w-full h-full mx-auto mb-[5rem] lg:mb-0 bg-transparent ${classes}`}>
         {children}
         </section>
         </>
