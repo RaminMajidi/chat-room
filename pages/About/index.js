@@ -6,6 +6,7 @@ import PersonalInfos from "../../components/about/PersonalInfos"
 import BtnDownload from "../../components/design/BtnDownload/BtnDownload"
 import SideItems from "../../components/about/SideItems"
 import Skills from "../../components/about/Skills"
+import SubSkills from "../../components/about/SubSkills"
 import { useEffect, useState } from "react"
 import { getData } from "../../utils/GetData"
 import { Alert } from "../../utils/Alert"
@@ -38,6 +39,7 @@ const About = (props)=>{
             </article>
             <article>
             <Skills data={data.skills}/>
+            <SubSkills data={data.subskills}/>
             </article>
            </section>
 

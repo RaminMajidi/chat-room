@@ -2,7 +2,6 @@ import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Skills =({data})=>{
-console.log(data)
 
     return(
         <section className=' w-full p-1 my-10'>
