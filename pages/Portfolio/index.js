@@ -36,10 +36,10 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
         {filterData ? (
         <Layout title={"Portfolio"} activeNavItem={"portfolio"}>
         <PageTitle topicTitle={"MY"} topicTitle2={"PORTFOLIO"} belowTitle={"WORKS"}/>
-        <div  className=" w-full flex flex-row-reverse justify-center max-w-7xl mx-auto  mt-32 flex-wrap">
+        <div  className="w-full flex flex-row-reverse justify-center max-w-7xl mx-auto  mt-32 flex-wrap">
         {categorys &&
             categorys.map((item,index)=>(
-            <button  key={index} onClick={()=>filterHandeler(item)} className={`${item == filter ? "text-[var(--color-orange)]" : "text-[var(--color-text)]"} text-xl  font-[Poppins] tracking-wide my-2 mx-3 p-1`}>{item}</button>
+            <button  key={index} onClick={()=>filterHandeler(item)} className={`${item == filter ? "text-[var(--color-orange)]" : "text-[var(--color-text)]"} text-base md:text-xl  font-[Poppins] tracking-wide my-1 mx-1 p-1`}>{item}</button>
             )) 
         }
         </div>
