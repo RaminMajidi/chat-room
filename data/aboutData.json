@@ -133,6 +133,11 @@
             "id":4,
             "title":"wordpress",
             "img":"/images/Wordpress.png"
+        },
+        {
+            "id":5,
+            "title":"GitHub",
+            "img":"/images/GitHub.png"
         }
 
     ],

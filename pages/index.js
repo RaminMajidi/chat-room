@@ -31,7 +31,7 @@ const Home =(props)=> {
               <div className='lg:ml-14 z-20 py-3 px-5'>
                 <h1 className='animate__animated animate__flash animate__delay-1s text-[var(--color-orange)] py-1 text-2xl lg:text-5xl md:text-4xl font-bold'>{data.title}</h1>
                 <h2 className='animate__animated animate__flash animate__delay-2s an font-[Poppins] text-[var(--color-gray)] py-1 text-lg lg:text-3xl md:text-2xl  mt-3 font-bold tracking-widest	'>{data.subTitle}</h2>
-                <p className='animate__animated animate__pulse animate__delay-5s   lg:inline-block lg:w-[50vw]  text-[var(--color-text)] py-1 text-justify leading-8 text-lg lg:text-xl lg:leading-10'>{data.desc}</p>
+                <p className='animate__animated animate__pulse animate__delay-4s   lg:inline-block lg:w-[50vw]  text-[var(--color-text)] py-1 text-justify leading-8 text-lg lg:text-xl lg:leading-10'>{data.desc}</p>
               <BtnDownload classes={"animate__animated  animate__shakeY animate__delay-3s"}/>
               </div>
               </section>
