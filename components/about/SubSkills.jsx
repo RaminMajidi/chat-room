@@ -5,7 +5,7 @@ import Image from 'next/image';
 const SubSkills =({data})=>{
 
     return(
-        <section className=' w-full p-1 my-5'>
+        <section className='w-full p-1 my-5'>
         <hr className='w-[50%] mx-auto my-8 border-[var(--color-gray)]' />
          <h2 className='text-[var(--color-text)] font-bold text-center text-2xl p-1 mb-8'>مهارتهای فرعی من</h2>
          <div className="flex flex-wrap justify-center px-2 py-1">
