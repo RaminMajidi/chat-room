@@ -4,7 +4,7 @@ import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { GetData } from "../../utils/GetData"
+import GetData from "../../utils/GetData"
 import { Alert } from "../../utils/Alert"
 
 

@@ -1,4 +1,4 @@
-import { GetData } from '../utils/GetData';
+import GetData from '../utils/GetData';
 import { Alert } from '../utils/Alert';
 import Loading from '../components/design/Loading/Loading';
 import Head from 'next/head';

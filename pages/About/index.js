@@ -8,7 +8,7 @@ import Skills from "../../components/about/Skills"
 import SubSkills from "../../components/about/SubSkills"
 import Education from "../../components/about/Education"
 import { useEffect, useState } from "react"
-import {GetData}  from "../../utils/GetData"
+import GetData  from "../../utils/GetData"
 import Alert  from "../../utils/Alert"
 
 

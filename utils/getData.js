@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path";
 
-export async function GetData (filePath,fileName){
+ async function GetData (filePath,fileName){
     const fileAddres = path.join(process.cwd(),filePath,fileName);
     try{
         const jsonData = await fs.readFile(fileAddres);
@@ -10,3 +10,4 @@ export async function GetData (filePath,fileName){
         return error ;
     }
 }
+export default GetData
