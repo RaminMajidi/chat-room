@@ -3,7 +3,7 @@ import Loading from "../components/design/Loading/Loading"
 import Head from "next/head"
 import Link from "next/link"
 import { useState } from "react"
-const index =()=>{
+const Error404 =()=>{
 const [loading,setLoading] =useState(true)
 
     return(
@@ -27,4 +27,4 @@ const [loading,setLoading] =useState(true)
 }
  
 
-export default index
+export default Error404
