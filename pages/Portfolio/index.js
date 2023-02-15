@@ -1,9 +1,8 @@
-import Head from "next/head"
 import { useEffect, useState } from "react"
 import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
-import { getData } from "../../utils/GetData"
+import { GetData } from "../../utils/GetData"
 import { Alert } from "../../utils/Alert"
 import Image from "next/image"
 import Link from "next/link"
@@ -69,7 +68,7 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
 }
 
 export async function getStaticProps(){
-    const data = await getData("data","portfolioData.json");
+    const data = await GetData("data","portfolioData.json");
     if(data.errno){
      return{
        props:{error:"خطای سرور"}

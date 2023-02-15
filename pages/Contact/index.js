@@ -4,7 +4,7 @@ import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { getData } from "../../utils/GetData"
+import { GetData } from "../../utils/GetData"
 import { Alert } from "../../utils/Alert"
 
 
@@ -75,7 +75,7 @@ const Contact = (props)=>{
 
 
 export async function getStaticProps(){
-  const data = await getData("data","contactData.json");
+  const data = await GetData("data","contactData.json");
   if(data.errno){
    return{
      props:{error:"خطای سرور"}

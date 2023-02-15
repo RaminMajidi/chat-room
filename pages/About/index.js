@@ -1,5 +1,4 @@
 import Layout from "../../components/layout/Layout"
-import Head from "next/head"
 import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
 import PersonalInfos from "../../components/about/PersonalInfos"
@@ -9,8 +8,8 @@ import Skills from "../../components/about/Skills"
 import SubSkills from "../../components/about/SubSkills"
 import Education from "../../components/about/Education"
 import { useEffect, useState } from "react"
-import { getData } from "../../utils/GetData"
-import { Alert } from "../../utils/Alert"
+import {GetData}  from "../../utils/GetData"
+import Alert  from "../../utils/Alert"
 
 
 const About = (props)=>{
@@ -23,9 +22,6 @@ const About = (props)=>{
 
     return(
         <>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
         {data ? (
           <Layout title={"About"} activeNavItem={"about"}>
           <PageTitle topicTitle={"ABOUT "} topicTitle2={"ME"} belowTitle={"RESUME"}/>
@@ -52,7 +48,7 @@ const About = (props)=>{
 
 
 export async function getStaticProps(){
-  const data = await getData("data","aboutData.json");
+  const data = await GetData("data","aboutData.json");
   if(data.errno){
    return{
      props:{error:"خطای سرور"}

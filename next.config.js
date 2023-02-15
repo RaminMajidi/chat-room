@@ -6,6 +6,7 @@
 
 // module.exports = nextConfig
 
+
 module.exports = {
   webpack5: true,
   webpack: (config) => {
@@ -14,3 +15,4 @@ module.exports = {
     return config;
   },
 };
+
