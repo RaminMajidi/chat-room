@@ -1,14 +1,14 @@
-module.exports = {
-  webpack: (config, { isServer }) => {
-      if (!isServer) {
-          // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
-          config.resolve.fallback = {
-              fs: false
-          }
-      }
+/**
+ * @type {import('next').NextConfig}
+ */
 
-      return config;
-  }
-}
+module.exports = {
+  webpack5: true,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+
+    return config;
+  },
+};
 
 
