@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 
 
-export const Alert = async (title,icon,btnText="متوجه شدم !")=>{
+ const Alert = async (title,icon,btnText="متوجه شدم !")=>{
 
     Swal.fire({
         title: `${title}`,
@@ -20,3 +20,4 @@ export const Alert = async (title,icon,btnText="متوجه شدم !")=>{
 
 
 }
+export default Alert

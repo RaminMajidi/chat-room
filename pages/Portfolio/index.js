@@ -3,7 +3,7 @@ import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
 import  GetData  from "../../utils/GetData"
-import { Alert } from "../../utils/Alert"
+import  Alert  from "../../utils/Alert"
 import Image from "next/image"
 import Link from "next/link"
 import { AnimationOnScroll } from 'react-animation-on-scroll';
