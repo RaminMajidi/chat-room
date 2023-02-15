@@ -1,3 +1,5 @@
+import fs from "fs/promises"
+import path from "path";
 import Layout from "../../components/layout/Layout"
 import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
@@ -8,7 +10,6 @@ import Skills from "../../components/about/Skills"
 import SubSkills from "../../components/about/SubSkills"
 import Education from "../../components/about/Education"
 import { useEffect, useState } from "react"
-import GetData  from "../../utils/GetData"
 import Alert  from "../../utils/Alert"
 
 
@@ -48,15 +49,17 @@ const About = (props)=>{
 
 
 export async function getStaticProps(){
-  const data = await GetData("data","aboutData.json");
-  if(data.errno){
-   return{
-     props:{error:"خطای سرور"}
-   }
-  }else{
-   return{
-     props:{aboutData:JSON.parse(data)}
-   }
+
+  try{
+    const fileAddres = path.join(process.cwd(),"data","aboutData.json");
+    const data = await fs.readFile(fileAddres);
+    return{
+      props:{aboutData:JSON.parse(data)}
+    }
+  }catch{
+    return{
+      props:{error:"خطای سرور"}
+    }
   }
  }
 

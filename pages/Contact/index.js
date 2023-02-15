@@ -1,10 +1,11 @@
+import fs from "fs/promises"
+import path from "path";
 import Head from "next/head"
 import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import GetData from "../../utils/GetData"
 import  Alert  from "../../utils/Alert"
 
 
@@ -75,15 +76,17 @@ const Contact = (props)=>{
 
 
 export async function getStaticProps(){
-  const data = await GetData("data","contactData.json");
-  if(data.errno){
-   return{
-     props:{error:"خطای سرور"}
-   }
-  }else{
-   return{
-     props:{contactData:JSON.parse(data)}
-   }
+
+  try{
+    const fileAddres = path.join(process.cwd(),"data","contactData.json");
+    const data = await fs.readFile(fileAddres);
+    return{
+      props:{contactData:JSON.parse(data)}
+    }
+  }catch{
+    return{
+      props:{error:"خطای سرور"}
+    }
   }
  }
 

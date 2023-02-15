@@ -1,4 +1,5 @@
-import GetData from '../utils/GetData';
+import fs from "fs/promises"
+import path from "path";
 import Alert from '../utils/Alert';
 import Loading from '../components/design/Loading/Loading';
 import Head from 'next/head';
@@ -43,16 +44,19 @@ const Home =(props)=> {
 }
 
 export async function getStaticProps(){
- const data = await GetData("data","homeData.json");
- if(data.errno){
-  return{
-    props:{error:"خطای سرور"}
-  }
- }else{
+
+try{
+  const fileAddres = path.join(process.cwd(),"data","homeData.json");
+  const data = await fs.readFile(fileAddres);
   return{
     props:{homeData:JSON.parse(data)}
   }
- }
+}catch{
+  return{
+    props:{error:"خطای سرور"}
+  }
+}
+
 }
 
 export default Home

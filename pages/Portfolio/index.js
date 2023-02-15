@@ -1,8 +1,9 @@
+import fs from "fs/promises"
+import path from "path";
 import { useEffect, useState } from "react"
 import Loading from "../../components/design/Loading/Loading"
 import PageTitle from "../../components/design/PageTitle/PageTitle"
 import Layout from "../../components/layout/Layout"
-import  GetData  from "../../utils/GetData"
 import  Alert  from "../../utils/Alert"
 import Image from "next/image"
 import Link from "next/link"
@@ -68,16 +69,18 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
 }
 
 export async function getStaticProps(){
-    const data = await GetData("data","portfolioData.json");
-    if(data.errno){
-     return{
-       props:{error:"خطای سرور"}
-     }
-    }else{
-     return{
-       props:{portfolioData:JSON.parse(data)}
-     }
-    }
+
+    try{
+        const fileAddres = path.join(process.cwd(),"data","portfolioData.json");
+        const data = await fs.readFile(fileAddres);
+        return{
+          props:{portfolioData:JSON.parse(data)}
+        }
+      }catch{
+        return{
+          props:{error:"خطای سرور"}
+        }
+      }
    }
 
 export default Portfolio
