@@ -20,7 +20,7 @@ const Blog =(props)=> {
     <>
       {data ? (
             <Layout title={"Blog"} activeNavItem={"blog"}>
-                <div className="relative">
+                <div className="relative w-72 h-60 mx-auto">
                 <span className={`${imgLoading?"inline-block":"hidden"} rounded-2xl absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
                 <Image onLoadingComplete={(image)=>{
                                 setImgLoading(false)
@@ -29,7 +29,7 @@ const Blog =(props)=> {
                 className="opacity-0 transition-opacity duration-300 ease-in-out mx-auto mt-3"
                 src={"/images/setingSite.gif"} width={400} height={200} alt="Seting"/>
                 </div>
-                <h2 className="text-center my-2 text-[var(--color-orange)]">این قسمت از سایت در حال بروزرسانی است !!!</h2>
+                <h2 className="text-center mt-24 text-[var(--color-orange)]">این قسمت از سایت در حال بروزرسانی است !!!</h2>
             </Layout>
       ) : (<Loading/>)}
 
