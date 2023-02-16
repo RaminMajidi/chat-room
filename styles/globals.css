@@ -66,6 +66,7 @@ a,.cursor-pointer,button{
   z-index: 0;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root{
       --color-main:#fff;

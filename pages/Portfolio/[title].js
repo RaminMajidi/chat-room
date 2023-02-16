@@ -6,9 +6,11 @@ import NotItem from "../../components/design/NotItem/NotItem"
 import Loading from "../../components/design/Loading/Loading"
 import Link from "next/link"
 import BtnBack from "../../components/design/BtnBack/BtnBack"
+import { useState } from "react"
 
 
 const PortfolioPage = (props)=>{
+  const [imgLoading,setImgLoading]=useState(true);
     const {query} = useRouter();
     const {title} = query;
     const item = portfolioData.portfolio.find((item)=>item.title === title)
@@ -18,7 +20,15 @@ if(portfolioData){
         <Layout activeNavItem={""} title={title}>
         {item ? (
            <section>
-           <Image onLoadingComplete={(image)=>{image.classList.remove("opacity-0")}} src={item.coverImg} width={880} height={420} alt={item.title} className="opacity-0 mx-auto my-2 p-2"/>
+            <div className="relative">
+            <span className={`${imgLoading?"inline-block":"hidden"} absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
+           <Image onLoadingComplete={(image)=>{
+            setImgLoading(false)
+            image.classList.remove("opacity-0")
+            }} src={item.coverImg} width={880}
+             height={420} alt={item.title}
+            className="opacity-0 mx-auto my-2 p-2"/>
+            </div>
            <article className=" w-full max-w-4xl mx-auto flex flex-col justify-start px-1  flex-wrap lg:px-4 py-2">
             <div className="px-1 flex flex-wrap w-full justify-start items-center">
                <div className="p-1 my-2 w-full h-10 flex items-center md:max-w-max text-[var(--color-text)]">

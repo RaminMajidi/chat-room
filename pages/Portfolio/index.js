@@ -16,6 +16,7 @@ const Portfolio = (props)=>{
     const[data,setData] = useState();
     const[filterData,setFilterData] = useState([]);
     const[filter,setFilter] = useState("All")
+    const [imgLoading,setImgLoading]=useState(true);
 useEffect(()=>{
 if(props.error){
     Alert(props.error,"error")
@@ -53,7 +54,13 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
                         <h2 className="cursor-pointer text-2xl text-slate-100 font-[Poppins]">{item.title}</h2>
                     </div>
                     <div className="w-full h-56 md:max-w-[320px] lg:max-w-[350px] md:mx-2 my-4 rounded-2xl">
-                        <Image onLoadingComplete={(image)=>{image.classList.remove("opacity-0")}} width={1300} height={600}  src={item.coverImg}  alt={`${item.title}`} className=" opacity-0 w-full h-full rounded-2xl"/>
+                      <span className={`${imgLoading?"inline-block":"hidden"} absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
+                        <Image onLoadingComplete={(image)=>{
+                                setImgLoading(false)
+                                image.classList.remove("opacity-0")
+                              }}
+                             width={1300} height={600}  src={item.coverImg}
+                            alt={`${item.title}`} className=" opacity-0 w-full h-full rounded-2xl"/>
                     </div>   
                 </div>
                 </Link>
