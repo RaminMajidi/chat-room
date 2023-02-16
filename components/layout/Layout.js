@@ -15,6 +15,7 @@ const Layout = ({title,children,activeNavItem,classes})=>{
             <meta name="url" content="https://ramin-majidi.netlify.app" />
             <meta name="description" content="برنامه ساخته شده توسط رامین مجیدی به وسیله Next js" />
             {/* <!-- end My meta --> */}
+            <link rel="icon" href="/favicon.ico" />
             <title>{`RaminMajidi || ${title}`}</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>     
         </Head>

@@ -11,7 +11,7 @@ const Education = ({data})=>{
                 <div key={index} className="flex h-auto min-h-[12rem]  col-span-12 md:col-span-6">
                     <div className="relative h-full">
                     <i className='absolute z-10 top-0 right-0 w-8 h-8 rounded-full bg-[var(--color-orange)] text-center text-white text-xl bx bxs-briefcase'></i>
-                    <span className="absolute top-1 right-[0.9rem] h-[90%] border border-[var(--color-orange)]"></span>
+                    <span className="absolute top-1 right-[0.85rem] rounded-3xl w-1 bg-[var(--color-orange)] h-[90%] border border-[var(--color-orange)]"></span>
                     </div>
                     <div className=" mr-11 w-full p-2 text-[var(--color-text)]">
                         <div className="flex w-full justify-start mb-2">

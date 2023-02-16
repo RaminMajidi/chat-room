@@ -20,9 +20,6 @@ const Home =(props)=> {
 
   return (
     <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       {data ? (
               <Layout title={"Home"} activeNavItem={"home"}>
               <div className='clip-path'></div>
