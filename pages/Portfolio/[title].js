@@ -6,17 +6,26 @@ import NotItem from "../../components/design/NotItem/NotItem"
 import Loading from "../../components/design/Loading/Loading"
 import Link from "next/link"
 import BtnBack from "../../components/design/BtnBack/BtnBack"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const PortfolioPage = (props)=>{
   const [imgLoading,setImgLoading]=useState(true);
-    const {query} = useRouter();
-    const {title} = query;
-    const item = portfolioData.portfolio.find((item)=>item.title === title)
+  const [loading,setLoading] = useState(true)
+  const {query} = useRouter();
+  const {title} = query;
+  const {portfolio} = portfolioData;
+  const [item,setItem] = useState();
 
-if(portfolioData){
+    useEffect(()=>{
+      const itemData = portfolio.find((item)=>item.title === title)
+      setItem(itemData)
+      setLoading(false)
+    },[title])
+
     return(
+      <>
+      {loading ? (<Loading/>) : (
         <Layout activeNavItem={""} title={title}>
         {item ? (
            <section>
@@ -62,17 +71,11 @@ if(portfolioData){
             <BtnBack/>
            </article>
            </section>
-           
         ) : (<NotItem/>)}
-        
         </Layout>
+      )}
+      </>   
     )
-}else{
-    return(
-        <Loading/>
-    )
-}
-
 
 }
 

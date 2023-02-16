@@ -40,7 +40,7 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
         <div  className="w-full flex flex-row-reverse justify-center max-w-7xl mx-auto  mt-32 flex-wrap">
         {categorys &&
             categorys.map((item,index)=>(
-            <button  key={index} onClick={()=>filterHandeler(item)} className={`${item == filter ? "text-[var(--color-orange)]" : "text-[var(--color-text)]"} text-base md:text-xl  font-[Poppins] tracking-wide my-1 mx-1 p-1`}>{item}</button>
+            <button  key={index} onClick={()=>filterHandeler(item)} className={`${item == filter ? "text-[var(--color-orange)]" : "text-[var(--color-text)]"} text-base md:text-xl  font-[Poppins] tracking-wide my-1 mx-1 p-1 select-none`}>{item}</button>
             )) 
         }
         </div>
