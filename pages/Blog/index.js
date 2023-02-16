@@ -20,7 +20,15 @@ const Blog =(props)=> {
     <>
       {data ? (
             <Layout title={"Blog"} activeNavItem={"blog"}>
-                <Image className="mx-auto mt-3" src={"/images/setingSite.gif"} width={400} height={200} alt="Seting"/>
+                <div className="relative">
+                <span className={`${imgLoading?"inline-block":"hidden"} rounded-2xl absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
+                <Image onLoadingComplete={(image)=>{
+                                setImgLoading(false)
+                                image.classList.remove("opacity-0")
+                              }}
+                className="opacity-0 transition-opacity duration-300 ease-in-out mx-auto mt-3"
+                src={"/images/setingSite.gif"} width={400} height={200} alt="Seting"/>
+                </div>
                 <h2 className="text-center my-2 text-[var(--color-orange)]">این قسمت از سایت در حال بروزرسانی است !!!</h2>
             </Layout>
       ) : (<Loading/>)}
