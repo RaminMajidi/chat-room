@@ -28,7 +28,7 @@ const Home =(props)=> {
               <div className='clip-path'></div>
               <section className='relative w-[100%] lg:min-h-screen flex flex-col lg:flex-row-reverse justify-start items-center'>
               <div className=' relative flex w-[180px] h-[180px] rounded-full border-8 border-solid border-[var(--color-main)] lg:rounded-3xl lg:pt-3  lg:border-none  bg-transparent lg:w-[30vw] lg:min-w-[250px] lg:ml-3 lg:h-[85vh] lg:shadow-[10px_15px_15px_0px_rgba(0,0,0,0.8)] mt-1'>
-              <span className={`${imgLoading?"inline-block":"hidden"} absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>     
+              <span className={`${imgLoading?"inline-block":"hidden"} rounded-full lg:rounded-3xl absolute w-full h-full transition-all duration-500 ease-in-out  bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>     
                 <Image onLoadingComplete={(image)=>{
                     setImgLoading(false)
                     image.classList.remove("opacity-0")}}

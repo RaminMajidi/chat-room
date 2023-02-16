@@ -54,7 +54,7 @@ filterCategory == "All" ? (setFilterData(data)) :(setFilterData(data.filter(item
                         <h2 className="cursor-pointer text-2xl text-slate-100 font-[Poppins]">{item.title}</h2>
                     </div>
                     <div className="w-full h-56 md:max-w-[320px] lg:max-w-[350px] md:mx-2 my-4 rounded-2xl">
-                      <span className={`${imgLoading?"inline-block":"hidden"} absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
+                      <span className={`${imgLoading?"inline-block":"hidden"} rounded-2xl absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
                         <Image onLoadingComplete={(image)=>{
                                 setImgLoading(false)
                                 image.classList.remove("opacity-0")

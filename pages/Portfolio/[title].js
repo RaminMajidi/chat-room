@@ -20,14 +20,14 @@ if(portfolioData){
         <Layout activeNavItem={""} title={title}>
         {item ? (
            <section>
-            <div className="relative">
-            <span className={`${imgLoading?"inline-block":"hidden"} absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
+            <div className="relative rounded-xl">
+            <span className={`${imgLoading?"inline-block":"hidden"} rounded-xl absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
            <Image onLoadingComplete={(image)=>{
             setImgLoading(false)
             image.classList.remove("opacity-0")
             }} src={item.coverImg} width={880}
              height={420} alt={item.title}
-            className="opacity-0 mx-auto my-2 p-2"/>
+            className="opacity-0 mx-auto my-2 p-2 rounded-xl"/>
             </div>
            <article className=" w-full max-w-4xl mx-auto flex flex-col justify-start px-1  flex-wrap lg:px-4 py-2">
             <div className="px-1 flex flex-wrap w-full justify-start items-center">
