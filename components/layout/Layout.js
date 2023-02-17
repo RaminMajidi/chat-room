@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../header/Header";
+import BtnMode from "../design/BtnMode/BtnMode";
 
 const Layout = ({title,children,activeNavItem,classes})=>{
 
@@ -7,6 +8,7 @@ const Layout = ({title,children,activeNavItem,classes})=>{
         <>
         <Head>
             {/* <!-- start My meta --> */}
+            <meta name="color-scheme" content=""></meta>
             <meta name="robots" content="index, follow" />
             <meta http-equiv="Cache-Control" content="no-cache" />
             <meta name="designer" content="ramindev01" />
@@ -19,8 +21,9 @@ const Layout = ({title,children,activeNavItem,classes})=>{
             <title>{`RaminMajidi || ${title}`}</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>     
         </Head>
+        <BtnMode/>
         <Header activeNavItem={activeNavItem}/>
-        <section className={`overflow-hidden animate__animated animate__zoomIn w-full h-full mx-auto mb-[5rem] lg:mb-0 bg-transparent ${classes}`}>
+        <section  className={`overflow-hidden animate__animated animate__zoomIn w-full h-full mx-auto mb-[5rem] lg:mb-0 bg-transparent ${classes}`}>
         {children}
         </section>
         </>
