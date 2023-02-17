@@ -3,17 +3,28 @@
 "portfolio":[
     {
         "id":0,
-        "title":"doz-Game",
-        "category":"MiniProject",
-        "yearOf":"2021",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["formik","animate.css","axios"],
-        "url":"https://dozgame.netlify.app/",
-        "coverImg":"/images/portfolio/dozGame.png",
+        "title":"My-Resume",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["Next-js","Tailwind css"],
+        "packeages":["animate.css"],
+        "url":"https://ramin-majidi.netlify.app/",
+        "coverImg":"/images/portfolio/my-site.png",
         "images":[]
     },
     {
         "id":1,
+        "title":"signature-maker",
+        "category":"App",
+        "yearOf":"2023",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["React-js","react-signature-canvas"],
+        "url":"https://signature-maker.netlify.app/",
+        "coverImg":"/images/portfolio/signature-maker.png",
+        "images":[]
+    },
+    {
+        "id":2,
         "title":"bmi-App",
         "category":"App",
         "yearOf":"2021",
@@ -21,17 +32,6 @@
         "packeages":[],
         "url":"https://bmi-app-js.netlify.app/",
         "coverImg":"/images/portfolio/bmiApp.png",
-        "images":[]
-    },
-    {
-        "id":2,
-        "title":"contacts-App",
-        "category":"App",
-        "yearOf":"2021",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["indexed-DB"],
-        "url":"https://bmi-app-js.netlify.app/",
-        "coverImg":"/images/portfolio/contactApp.png",
         "images":[]
     },
     {
@@ -76,6 +76,28 @@
         "packeages":["animate.css"],
         "url":"https://pelates.netlify.app/",
         "coverImg":"/images/portfolio/pelatesSite.png",
+        "images":[]
+    },
+    {
+        "id":7,
+        "title":"doz-Game",
+        "category":"MiniProject",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["formik","animate.css","axios"],
+        "url":"https://dozgame.netlify.app/",
+        "coverImg":"/images/portfolio/dozGame.png",
+        "images":[]
+    },
+    {
+        "id":8,
+        "title":"contacts-App",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["indexed-DB"],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/contactApp.png",
         "images":[]
     }
 ]
