@@ -6,8 +6,8 @@
         "title":"My-Resume",
         "category":"Tempelate",
         "yearOf":"2023",
-        "languages":["Next-js","Tailwind css"],
-        "packeages":["animate.css"],
+        "languages":["JavaScript"],
+        "packeages":["Next-js","Tailwind css","animate.css"],
         "url":"https://ramin-majidi.netlify.app/",
         "coverImg":"/images/portfolio/my-site.png",
         "images":[]
@@ -25,50 +25,17 @@
     },
     {
         "id":2,
-        "title":"bmi-App",
-        "category":"App",
-        "yearOf":"2021",
+        "title":"online-azmon",
+        "category":"Tempelate",
+        "yearOf":"2022",
         "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://bmi-app-js.netlify.app/",
-        "coverImg":"/images/portfolio/bmiApp.png",
+        "packeages":["React-js","API","axios"],
+        "url":"https://onlineazmon.netlify.app/",
+        "coverImg":"/images/portfolio/onlineazmon.png",
         "images":[]
     },
     {
         "id":3,
-        "title":"noghteh-khat-Game",
-        "category":"MiniProject",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://noghteh-khat.netlify.app/",
-        "coverImg":"/images/portfolio/noghteGame.png",
-        "images":[]
-    },
-    {
-        "id":4,
-        "title":"abohava-App",
-        "category":"App",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["API"],
-        "url":"https://abohava-js.netlify.app/",
-        "coverImg":"/images/portfolio/abohavaApp.png",
-        "images":[]
-    },
-    {
-        "id":5,
-        "title":"ToDoList-App",
-        "category":"App",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://todo-ad.netlify.app/",
-        "coverImg":"/images/portfolio/todolistApp.png",
-        "images":[]
-    },
-    {
-        "id":6,
         "title":"pelates-studio",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -79,7 +46,51 @@
         "images":[]
     },
     {
+        "id":4,
+        "title":"bmi-App",
+        "category":"App",
+        "yearOf":"2021",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://bmi-app-js.netlify.app/",
+        "coverImg":"/images/portfolio/bmiApp.png",
+        "images":[]
+    },
+    {
+        "id":5,
+        "title":"noghteh-khat-Game",
+        "category":"MiniProject",
+        "yearOf":"2022",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://noghteh-khat.netlify.app/",
+        "coverImg":"/images/portfolio/noghteGame.png",
+        "images":[]
+    },
+    {
+        "id":6,
+        "title":"abohava-App",
+        "category":"App",
+        "yearOf":"2022",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["API"],
+        "url":"https://abohava-js.netlify.app/",
+        "coverImg":"/images/portfolio/abohavaApp.png",
+        "images":[]
+    },
+    {
         "id":7,
+        "title":"ToDoList-App",
+        "category":"App",
+        "yearOf":"2022",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":[],
+        "url":"https://todo-ad.netlify.app/",
+        "coverImg":"/images/portfolio/todolistApp.png",
+        "images":[]
+    },
+    {
+        "id":8,
         "title":"doz-Game",
         "category":"MiniProject",
         "yearOf":"2021",
@@ -90,7 +101,7 @@
         "images":[]
     },
     {
-        "id":8,
+        "id":9,
         "title":"contacts-App",
         "category":"App",
         "yearOf":"2021",
