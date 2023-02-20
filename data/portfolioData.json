@@ -102,13 +102,24 @@
     },
     {
         "id":9,
-        "title":"contacts-App",
-        "category":"App",
-        "yearOf":"2021",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["indexed-DB"],
-        "url":"https://bmi-app-js.netlify.app/",
-        "coverImg":"/images/portfolio/contactApp.png",
+        "title":"car-gallery",
+        "category":"Tempelate",
+        "yearOf":"2022",
+        "languages":["HTML","CSS"],
+        "packeages":["BootStrap"],
+        "url":"https://cargalley.netlify.app/",
+        "coverImg":"/images/portfolio/car-gallery.png",
+        "images":[]
+    },
+    {
+        "id":10,
+        "title":"motor-gallery",
+        "category":"Tempelate",
+        "yearOf":"2022",
+        "languages":["HTML","CSS"],
+        "packeages":["BootStrap"],
+        "url":"https://motorgallery.netlify.app/",
+        "coverImg":"/images/portfolio/motor-gallery.png",
         "images":[]
     }
 ]
