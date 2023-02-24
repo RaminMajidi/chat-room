@@ -5,8 +5,8 @@ const BtnDownload = ({classes})=>{
 
     const saveFile = () => {
         saveAs(
-          "https://github.com/RaminMajidi/resumeFile/archive/refs/heads/main.zip",
-          "RaminMajidi.zip"
+          "/images/resume.png",
+          "RaminMajidi.png"
         );
       };
 
