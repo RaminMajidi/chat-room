@@ -10,6 +10,7 @@
         "packeages":["Next-js","Tailwind css","animate.css"],
         "url":"https://ramin-majidi.netlify.app/",
         "coverImg":"/images/portfolio/my-site.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -21,6 +22,7 @@
         "packeages":["React-js","react-signature-canvas"],
         "url":"https://signature-maker.netlify.app/",
         "coverImg":"/images/portfolio/signature-maker.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -32,6 +34,7 @@
         "packeages":["React-js","API","axios"],
         "url":"https://onlineazmon.netlify.app/",
         "coverImg":"/images/portfolio/onlineazmon.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -43,6 +46,7 @@
         "packeages":["animate.css"],
         "url":"https://pelates.netlify.app/",
         "coverImg":"/images/portfolio/pelatesSite.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -54,6 +58,7 @@
         "packeages":[],
         "url":"https://bmi-app-js.netlify.app/",
         "coverImg":"/images/portfolio/bmiApp.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -65,6 +70,7 @@
         "packeages":[],
         "url":"https://noghteh-khat.netlify.app/",
         "coverImg":"/images/portfolio/noghteGame.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -76,6 +82,7 @@
         "packeages":["API"],
         "url":"https://abohava-js.netlify.app/",
         "coverImg":"/images/portfolio/abohavaApp.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -87,6 +94,7 @@
         "packeages":[],
         "url":"https://todo-ad.netlify.app/",
         "coverImg":"/images/portfolio/todolistApp.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -98,6 +106,7 @@
         "packeages":["formik","animate.css","axios"],
         "url":"https://dozgame.netlify.app/",
         "coverImg":"/images/portfolio/dozGame.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -109,6 +118,7 @@
         "packeages":["BootStrap"],
         "url":"https://cargalley.netlify.app/",
         "coverImg":"/images/portfolio/car-gallery.png",
+        "desc":"",
         "images":[]
     },
     {
@@ -120,6 +130,19 @@
         "packeages":["BootStrap"],
         "url":"https://motorgallery.netlify.app/",
         "coverImg":"/images/portfolio/motor-gallery.png",
+        "desc":"",
+        "images":[]
+    },
+    {
+        "id":11,
+        "title":"aks-kadeh",
+        "category":"Tempelate",
+        "yearOf":"2022",
+        "languages":["jsx","CSS"],
+        "packeages":["BootStrap","react-js","axios","formik","API"],
+        "url":"https://akskadeh.netlify.app/",
+        "coverImg":"/images/portfolio/aks-kadeh.jpg",
+        "desc":"سایت عکس کده یک سایت برای دانلود عکس های با کیفیت در زمینه های مختلف است . این سایت به عنوان یکی از پروژه های عملی دوره ری اکت سایت کدیاد توسط رامین مجیدی طراحی و کدنویسی شده است .",
         "images":[]
     }
 ]

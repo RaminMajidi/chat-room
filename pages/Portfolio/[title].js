@@ -41,34 +41,40 @@ const PortfolioPage = (props)=>{
            <article className=" w-full max-w-4xl mx-auto flex flex-col justify-start px-1  flex-wrap lg:px-4 py-2">
             <div className="px-1 flex flex-wrap w-full justify-start items-center">
                <div className="p-1 my-2 w-full h-10 flex items-center md:max-w-max text-[var(--color-text)]">
-                 <i className='bx bxl-sketch text-2xl text-red-600 ml-1'></i>
+                 <i className='bx bxl-sketch text-2xl text-red-600 ml-3'></i>
                  <p className="my-2 text-base "><span> عنوان : </span><span>{item.title}</span></p>
                </div>
                <div className="p-1 my-2 w-full h-10 flex items-center md:max-w-max text-[var(--color-text)]">
-                 <i className='bx bxs-category text-2xl text-red-600 ml-1'></i>
+                 <i className='bx bxs-category text-2xl text-red-600 ml-3'></i>
                  <p className="my-2 text-base "><span>دسته بندی : </span><span>{item.category}</span></p>
                </div>
                <div className="p-1 my-2 w-full h-10 flex items-center md:max-w-max text-[var(--color-text)]">
-                 <i className='bx bx-calendar text-2xl text-red-600 ml-1'></i>
+                 <i className='bx bx-calendar text-2xl text-red-600 ml-3'></i>
                  <p className="my-2 text-base "><span>سال ساخت : </span><span>{item.yearOf}</span></p>
                </div>
                <div className="p-1 my-2 w-full h-10 flex items-center md:max-w-max text-[var(--color-text)]">
-                 <i className='bx bx-link-alt text-2xl text-red-600 ml-1'></i>
+                 <i className='bx bx-link-alt text-2xl text-red-600 ml-3'></i>
                  <p className="my-2 text-base "><span>لینک برنامه : </span><Link className="text-left text-[var(--color-orange)]" href={item.url} target={"_blank"}>برای مشاهده کلیک کنید</Link></p>
                </div>
             </div>
 
             <div className="p-2 my-2 w-full h-10 flex items-center text-[var(--color-text)]">
-            <i className='bx bx-code-alt text-2xl text-red-600 ml-1'></i>
+            <i className='bx bx-code-alt text-2xl text-red-600 ml-3'></i>
             <p className="my-2 text-base "><span>زبانها : </span><span>{item.languages?.length ? item.languages.join(' , ') :"فاقد آیتم!"}</span></p>
             </div>
             {item.packeages?.length ? (
                 <div className="p-2 my-2 w-full h-10 flex items-center text-[var(--color-text)]">
-                <i className='bx bxs-notepad text-2xl text-red-600 ml-1'></i>
+                <i className='bx bxs-notepad text-2xl text-red-600 ml-3'></i>
                 <p className="my-2 text-base "><span>وابستگیها : </span><span>{item.packeages.join(' , ')}</span></p>
                 </div>
             ) : (null)}
-            <BtnBack/>
+            {item.desc &&
+            <div className=" p-2 my-2 w-full h-10 flex justify-center items-start text-[var(--color-text)]">
+            <i className='bx bxs-receipt text-2xl text-red-600 ml-3'></i>
+            <p className="my-2 text-base "><span>توضیحات : </span><span>{item.desc}</span></p>
+            </div>
+            }
+            <BtnBack />
            </article>
            </section>
         ) : (<NotItem/>)}
