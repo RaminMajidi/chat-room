@@ -2,6 +2,18 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
+        "id":14,
+        "title":"Shoping-Card",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["TypeScript"],
+        "packeages":["React-js","React-BootStarp"],
+        "url":"https://goldshopcard.netlify.app/",
+        "coverImg":"/images/portfolio/gold-shop-card.png",
+        "desc":"",
+        "images":[]
+    },
+    {
         "id":0,
         "title":"My-Resume",
         "category":"Tempelate",

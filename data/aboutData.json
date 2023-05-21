@@ -16,7 +16,7 @@
             "id":2,
             "sub":"age",
             "title":"سن",
-            "text":"27 سال"
+            "text":"26 سال"
         },
         {
             "id":3,
@@ -58,7 +58,7 @@
         {
             "id":1,
             "title":"پروژه انجام شده",
-            "value":10
+            "value":11
         },
         {
             "id":2,
@@ -68,14 +68,14 @@
         {
             "id":3,
             "title":"ساعت کدنویسی",
-            "value":1550
+            "value":1750
         }
     ],
     "skills":[
         {
             "id":0,
             "title":"html",
-            "percent":98
+            "percent":95
         },
         {
             "id":2,
@@ -100,12 +100,18 @@
         {
             "id":6,
             "title":"react-js",
-            "percent":85
+            "percent":80
         },
         {
             "id":7,
             "title":"next-js",
-            "percent":50
+            "percent":40
+        }
+        ,
+        {
+            "id":8,
+            "title":"TypeScript",
+            "percent":40
         }
     ],
     "subskills":[
