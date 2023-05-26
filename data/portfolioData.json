@@ -7,7 +7,7 @@
         "category":"Tempelate",
         "yearOf":"2023",
         "languages":["TypeScript"],
-        "packeages":["React-js","React-BootStarp"],
+        "packeages":["React-js","React-BootStrap"],
         "url":"https://goldshopcard.netlify.app/",
         "coverImg":"/images/portfolio/gold-shop-card.png",
         "desc":"",
