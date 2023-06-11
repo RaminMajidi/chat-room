@@ -132,6 +132,18 @@
         "coverImg":"/images/portfolio/aks-kadeh.jpg",
         "desc":"سایت عکس کده یک سایت برای دانلود عکس های با کیفیت در زمینه های مختلف است . این سایت به عنوان یکی از پروژه های عملی دوره ری اکت سایت کدیاد توسط رامین مجیدی طراحی و کدنویسی شده است .",
         "images":[]
+    },
+    {
+        "id":11,
+        "title":"Modern-Design",
+        "category":"Tempelate",
+        "yearOf":"2022",
+        "languages":["HTML","CSS","JS"],
+        "packeages":["animate.css"],
+        "url":"https://raminmajidi.github.io/ChallengeProject/",
+        "coverImg":"/images/portfolio/Modern-Design.png",
+        "desc":"",
+        "images":[]
     }
 ]
 }
