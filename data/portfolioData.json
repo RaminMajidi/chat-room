@@ -2,7 +2,7 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
-        "id":14,
+        "id":0,
         "title":"Shoping-Card",
         "category":"Tempelate",
         "yearOf":"2023",
@@ -14,7 +14,7 @@
         "images":[]
     },
     {
-        "id":0,
+        "id":1,
         "title":"My-Resume",
         "category":"Tempelate",
         "yearOf":"2023",
@@ -26,7 +26,7 @@
         "images":[]
     },
     {
-        "id":1,
+        "id":2,
         "title":"signature-maker",
         "category":"App",
         "yearOf":"2023",
@@ -38,7 +38,7 @@
         "images":[]
     },
     {
-        "id":2,
+        "id":3,
         "title":"online-azmon",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -50,7 +50,7 @@
         "images":[]
     },
     {
-        "id":3,
+        "id":4,
         "title":"multi-calendar",
         "category":"App",
         "yearOf":"2023",
@@ -62,43 +62,19 @@
         "images":[]
     },
     {
-        "id":4,
+        "id":5,
         "title":"pelates-studio",
         "category":"Tempelate",
         "yearOf":"2022",
         "languages":["HTML","CSS","JavaScript"],
         "packeages":["animate.css"],
-        "url":"https://pelates.netlify.app/",
+        "url":"https://raminmajidi.github.io/PilatesStudio/",
         "coverImg":"/images/portfolio/pelatesSite.png",
         "desc":"",
         "images":[]
     },
     {
-        "id":5,
-        "title":"bmi-App",
-        "category":"App",
-        "yearOf":"2021",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://bmi-app-js.netlify.app/",
-        "coverImg":"/images/portfolio/bmiApp.png",
-        "desc":"",
-        "images":[]
-    },
-    {
         "id":6,
-        "title":"noghteh-khat-Game",
-        "category":"MiniProject",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://noghteh-khat.netlify.app/",
-        "coverImg":"/images/portfolio/noghteGame.png",
-        "desc":"",
-        "images":[]
-    },
-    {
-        "id":7,
         "title":"abohava-App",
         "category":"App",
         "yearOf":"2022",
@@ -110,7 +86,7 @@
         "images":[]
     },
     {
-        "id":8,
+        "id":7,
         "title":"ToDoList-App",
         "category":"App",
         "yearOf":"2022",
@@ -122,19 +98,7 @@
         "images":[]
     },
     {
-        "id":9,
-        "title":"doz-Game",
-        "category":"MiniProject",
-        "yearOf":"2021",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["formik","animate.css","axios"],
-        "url":"https://dozgame.netlify.app/",
-        "coverImg":"/images/portfolio/dozGame.png",
-        "desc":"",
-        "images":[]
-    },
-    {
-        "id":10,
+        "id":8,
         "title":"car-gallery",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -146,7 +110,7 @@
         "images":[]
     },
     {
-        "id":11,
+        "id":9,
         "title":"motor-gallery",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -158,7 +122,7 @@
         "images":[]
     },
     {
-        "id":12,
+        "id":10,
         "title":"aks-kadeh",
         "category":"Tempelate",
         "yearOf":"2022",
