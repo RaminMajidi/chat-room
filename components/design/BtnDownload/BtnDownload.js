@@ -5,8 +5,8 @@ const BtnDownload = ({classes})=>{
 
     const saveFile = () => {
         saveAs(
-          "/Ramin-Majidi-1402.pdf",
-          "Ramin-Majidi-1402.pdf"
+          "/ramin-majidi-1402.pdf",
+          "ramin-majidi-1402.pdf"
         );
       };
 

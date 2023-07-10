@@ -7,6 +7,8 @@ import { useState } from 'react';
 function MyApp({ Component, pageProps }) {
 
   const [activeMode,setActiveMode] = useState("");
+  console.error = ()=>{}
+  console.warn = ()=>{}
 
   return(
     <>
