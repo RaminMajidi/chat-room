@@ -2,6 +2,18 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
+        "id":13,
+        "title":"Gym-App",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["TypeScript"],
+        "packeages":["React-js","Tailwind css","react-hook-form","react-motion"],
+        "url":"https://gym-app-ts.pages.dev/",
+        "coverImg":"/images/portfolio/gym-app.png",
+        "desc":"در این سایت چالشهای استفاده از تایپ اسکریپت در محیط ری اکت را داشتم . همچنین قابلیت ارسال ایمیل بدون نیاز به تعامل با بک اند یکی دیگر از چالشهای آن بود .",
+        "images":[]
+    },
+    {
         "id":12,
         "title":"Movie-App",
         "category":"Tempelate",
@@ -15,18 +27,6 @@
     },
     {
         "id":11,
-        "title":"Shoping-Card",
-        "category":"Tempelate",
-        "yearOf":"2023",
-        "languages":["TypeScript"],
-        "packeages":["React-js","React-BootStrap"],
-        "url":"https://goldshopcard.netlify.app/",
-        "coverImg":"/images/portfolio/gold-shop-card.png",
-        "desc":"",
-        "images":[]
-    },
-    {
-        "id":10,
         "title":"My-Resume",
         "category":"Tempelate",
         "yearOf":"2023",
@@ -34,6 +34,18 @@
         "packeages":["Next-js","Tailwind css","animate.css"],
         "url":"https://ramin-majidi.netlify.app/",
         "coverImg":"/images/portfolio/my-site.png",
+        "desc":"",
+        "images":[]
+    },
+    {
+        "id":10,
+        "title":"Shoping-Card",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["TypeScript"],
+        "packeages":["React-js","React-BootStrap"],
+        "url":"https://goldshopcard.netlify.app/",
+        "coverImg":"/images/portfolio/gold-shop-card.png",
         "desc":"",
         "images":[]
     },

@@ -29,14 +29,14 @@ const PortfolioPage = (props)=>{
         <Layout activeNavItem={""} title={title}>
         {item ? (
            <section>
-            <div className="relative rounded-xl">
+            <div className="relative rounded-2xl">
             <span className={`${imgLoading?"inline-block":"hidden"} rounded-xl absolute w-full h-full transition-all duration-500 ease-in-out  lg:rounded-2xl bg-gradient-to-r from-[var(--color-main)] to-[var(--color-orange)] animate__animated animate__flash animate__slower	2s animate__infinite	infinite`}></span>
            <Image onLoadingComplete={(image)=>{
             setImgLoading(false)
             image.classList.remove("opacity-0")
             }} src={item.coverImg} width={880}
              height={420} alt={item.title}
-            className="opacity-0 mx-auto my-2 p-2 rounded-xl"/>
+            className="opacity-0 mx-auto my-2 p-2 rounded-2xl"/>
             </div>
            <article className=" w-full max-w-4xl mx-auto flex flex-col justify-start px-1  flex-wrap lg:px-4 py-2">
             <div className="px-1 flex flex-wrap w-full justify-start items-center">
@@ -69,9 +69,9 @@ const PortfolioPage = (props)=>{
                 </div>
             ) : (null)}
             {item.desc &&
-            <div className=" p-2 my-2 w-full h-10 flex justify-center items-start text-[var(--color-text)]">
+            <div className=" p-2 my-2 w-full flex justify-center items-center text-[var(--color-text)]">
             <i className='bx bxs-receipt text-2xl text-red-600 ml-3'></i>
-            <p className="my-2 text-base "><span>توضیحات : </span><span>{item.desc}</span></p>
+            <p className="my-2 text-base text-justify"><span>توضیحات : </span><span>{item.desc}</span></p>
             </div>
             }
             <BtnBack />
