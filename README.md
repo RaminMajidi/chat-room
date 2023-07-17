@@ -1,12 +1,14 @@
 Online Link : https://ramin-majidi.netlify.app/
 
-## Learn More
+## My Resume
 
 This web application is made using NextJS version 13.1.2.
 The tailwind css framework is also used for styling.
 Among the packages used in this program are:
 animate.css , file-saver , react-animated-cursor , react-animation-on-scroll .
 
+## Programmer
+Ramin Majidid
 
 ## Getting Started
 
