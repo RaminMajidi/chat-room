@@ -2,6 +2,18 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
+        "id":14,
+        "title":"decoration-group",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["HTML","CSS","JavaScript"],
+        "packeages":["Materialize"],
+        "url":"https://raminmajidi.github.io/decoration-group/",
+        "coverImg":"/images/portfolio/decoration-group.png",
+        "desc":"یک قالب شرکتی مناسب برای معرفی محصولات و خدمات شما. با چارچوب Materialize طراحی شده است.",
+        "images":[]
+    },
+    {
         "id":13,
         "title":"Gym-App",
         "category":"Tempelate",
