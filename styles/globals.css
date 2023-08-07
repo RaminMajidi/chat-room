@@ -26,7 +26,8 @@
     --color-pray:#333333;
     --color-text:#fff;
     --color-gray:#999;
-    --color-orange:#ffb400;
+    /* --color-orange:#ffb400; */
+    --color-orange:#0087ff;
 }
 
 body.light{
@@ -70,7 +71,7 @@ a,.cursor-pointer,button{
   height:12vh;
   top: 0;
   left: 0;
-  background-color: #ffb400;
+  background-color: var(--color-orange);
   clip-path: polygon(0 0, 100% 0, 73% 100%, 27% 100%);
   z-index: 0;
 }

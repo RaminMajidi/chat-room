@@ -2,7 +2,7 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
-        "id":14,
+        "id":16,
         "title":"decoration-group",
         "category":"Tempelate",
         "yearOf":"2023",
@@ -14,19 +14,19 @@
         "images":[]
     },
     {
-        "id":13,
+        "id":15,
         "title":"Gym-App",
         "category":"Tempelate",
         "yearOf":"2023",
         "languages":["TypeScript"],
-        "packeages":["React-js","Tailwind css","react-hook-form","react-motion"],
+        "packeages":["React-js","Tailwind css","react-hook-form","framer-motion"],
         "url":"https://gym-app-ts.pages.dev/",
         "coverImg":"/images/portfolio/gym-app.png",
         "desc":"در این سایت چالشهای استفاده از تایپ اسکریپت در محیط ری اکت را داشتم . همچنین قابلیت ارسال ایمیل بدون نیاز به تعامل با بک اند یکی دیگر از چالشهای آن بود .",
         "images":[]
     },
     {
-        "id":12,
+        "id":14,
         "title":"Movie-App",
         "category":"Tempelate",
         "yearOf":"2023",
@@ -35,6 +35,30 @@
         "url":"https://movie-app-psi-woad.vercel.app/",
         "coverImg":"/images/portfolio/movie-app.png",
         "desc":"این سایت با استفاده از نکست جی اس ورژن 13.4.6 ساخته شده است.  در این سایت چالشهایی همچون رندر سمت کلاینت و رندر سمت سرور وجود داشته ، همچنین سعی شده تا سایت با وجود تعداد بالای رکوئست ها و دیتاها بهترین کارایی و  سرعت لود ممکن را داشته باشد.",
+        "images":[]
+    },
+    {
+        "id":13,
+        "title":"3D-Portfolio",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["JavaScript"],
+        "packeages":["React-js","Tailwind css","framer-motion"],
+        "url":"https://3d-portfolio-tau-gules.vercel.app/",
+        "coverImg":"/images/portfolio/3d-portfolio.png",
+        "desc":"یک سایت سه بعدی با استفاده از کتابخانه ReactJS و three js برای معرفی نمونه کارها و یادگیری کار با کتابخانه طراحی سه بعدی.",
+        "images":[]
+    },
+    {
+        "id":12,
+        "title":"admin-panel",
+        "category":"Tempelate",
+        "yearOf":"2022",
+        "languages":["JavaScript"],
+        "packeages":["react-js","BootStrap","formik","redux"],
+        "url":"https://admin-panel-reactjs-one.vercel.app/",
+        "coverImg":"/images/portfolio/admin-panel.png",
+        "desc":"",
         "images":[]
     },
     {
