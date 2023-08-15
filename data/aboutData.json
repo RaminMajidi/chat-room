@@ -68,82 +68,81 @@
         {
             "id":3,
             "title":"ساعت کدنویسی",
-            "value":1750
+            "value":2250
         }
     ],
     "skills":[
         {
             "id":0,
             "title":"html",
-            "percent":95
+            "img":"/images/teach/html.png"
+        },
+        {
+            "id":1,
+            "title":"css",
+            "img":"/images/teach/css.png"
         },
         {
             "id":2,
-            "title":"css",
-            "percent":85
+            "title":"javascript",
+            "img":"/images/teach/javascript.png"
         },
         {
             "id":3,
-            "title":"javascript",
-            "percent":75
+            "title":"bootstrap",
+            "img":"/images/teach/Bootstrap.png"
         },
         {
             "id":4,
-            "title":"bootstrap",
-            "percent":95
+            "title":"tailwind",
+            "img":"/images/teach/tailwind.png"
         },
         {
             "id":5,
-            "title":"tailwind",
-            "percent":50
+            "title":"react-js",
+            "img":"/images/teach/reactjs.png"
         },
         {
             "id":6,
-            "title":"react-js",
-            "percent":80
+            "title":"Redux",
+            "img":"/images/teach/redux.png"
         },
         {
             "id":7,
             "title":"next-js",
-            "percent":40
-        }
-        ,
+            "img":"/images/teach/nextjs.png"
+        },
         {
             "id":8,
             "title":"TypeScript",
-            "percent":40
+            "img":"/images/teach/typescript.png"
         }
     ],
     "subskills":[
         {
-            "id":0,
-            "title":"PhotoShop",
-            "img":"/images/photoshop.png"
-        },
-        {
             "id":1,
             "title":"postman",
-            "img":"/images/postman.png"
+            "img":"/images/teach/postman.png"
         },
         {
             "id":2,
             "title":"swagger",
-            "img":"/images/swagger.svg"
+            "img":"/images/teach/Swagger-Icon.svg"
         },
         {
             "id":3,
             "title":"my-sql",
-            "img":"/images/mysql.png"
+            "img":"/images/teach/My-Sql.png"
         },
         {
             "id":4,
-            "title":"wordpress",
-            "img":"/images/Wordpress.png"
+            "title":"mongodb",
+            "img":"/images/teach/mongodb.png"
         },
         {
             "id":5,
-            "title":"GitHub",
-            "img":"/images/GitHub.png"
+            "title":"Git",
+            "img":"/images/teach/git.png"
         }
 
     ],
@@ -171,6 +170,14 @@
             "sYear":"اردیبهشت 1401",
             "eYear":"خرداد 1401",
             "desc":"با شرکت در دوره برنامه نویسی React موسسه فن پردازان موفق به یادگیری و اخذ مدرک این دوره React شدم ."
+        },
+        {
+            "id":2,
+            "title":"برنامه نویس فرانت اند",
+            "college":"فریلنسر",
+            "sYear":"فروردین 1401",
+            "eYear":"تا اکنون",
+            "desc":"به صورت دورکار و فریلنسری مشغول به انجام پروژه های مختلف هستم."
         }
     ]
 }

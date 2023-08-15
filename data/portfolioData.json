@@ -2,6 +2,18 @@
 "categorys":["All","App","Tempelate","MiniProject"],
 "portfolio":[
     {
+        "id":17,
+        "title":"Crypto-Coin",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["TypeScript","tsx"],
+        "packeages":["Tailwind css","React-js","axios"],
+        "url":"https://crypto-coin-alpha.vercel.app/",
+        "coverImg":"/images/portfolio/crypto-coin.png",
+        "desc":"وب سایتی برای یادگیری، تجزیه و تحلیل و بررسی بهترین ارزهای دیجیتال و بهترین صرافی های موجود. ساخته شده با استفاده از زبان TypeScript در محیط React JS و چارچوب Tailwind. Axios و Context API نیز استفاده شده است",
+        "images":[]
+    },
+    {
         "id":16,
         "title":"decoration-group",
         "category":"Tempelate",
@@ -183,18 +195,6 @@
     },
     {
         "id":1,
-        "title":"aks-kadeh",
-        "category":"Tempelate",
-        "yearOf":"2022",
-        "languages":["jsx","CSS"],
-        "packeages":["BootStrap","react-js","axios","formik","API"],
-        "url":"https://akskadeh.netlify.app/",
-        "coverImg":"/images/portfolio/aks-kadeh.jpg",
-        "desc":"سایت عکس کده یک سایت برای دانلود عکس های با کیفیت در زمینه های مختلف است . این سایت به عنوان یکی از پروژه های عملی دوره ری اکت سایت کدیاد توسط رامین مجیدی طراحی و کدنویسی شده است .",
-        "images":[]
-    },
-    {
-        "id":0,
         "title":"Modern-Design",
         "category":"Tempelate",
         "yearOf":"2022",
