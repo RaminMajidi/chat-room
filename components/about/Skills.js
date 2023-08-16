@@ -8,8 +8,8 @@ const Skills = ({ data }) => {
             <h2 className='text-[var(--color-text)] font-bold text-center text-2xl p-1 mb-8'>مهارتهای اصلی من</h2>
             <div className="flex flex-wrap justify-center px-2 py-1">
                 {data.map((item, index) => (
-                    <div className='w-40 flex flex-col justify-center items-center m-1 md:m-4'>
-                        <div key={index} className='w-full  lg:w-56 flex flex-col justify-center items-center mx-4 my-2'>
+                    <div key={index} className='w-40 flex flex-col justify-center items-center m-1 md:m-4'>
+                        <div className='w-full  lg:w-56 flex flex-col justify-center items-center mx-4 my-2'>
                             <Image
                                 className='h-[100px] w-[100px]'
                                 width={200}
