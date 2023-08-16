@@ -1,5 +1,4 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+
 
 const Skills = ({ data }) => {
 
@@ -20,7 +19,6 @@ const Skills = ({ data }) => {
                         </div>
                         <h3 className='my-1 text-[var(--color-gray)] text-lg font-[Poppins] uppercase tracking-widest'>{item.title}</h3>
                     </div>
-
                 ))}
             </div>
         </section>
