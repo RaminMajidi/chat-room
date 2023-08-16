@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^4.30.4",
+    "@netlify/plugin-nextjs": "^4.40.0",
     "animate.css": "^4.1.1",
     "file-saver": "^2.0.5",
     "next": "13.1.2",
