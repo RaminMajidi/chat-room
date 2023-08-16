@@ -21,7 +21,7 @@ const PortfolioPage = ()=>{
       const itemData = portfolio.find((item)=>item.title === title)
       setItem(itemData)
       setLoading(false)
-    },[])
+    },[title])
 
     return(
       <>
