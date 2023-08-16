@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 
 const Skills = ({ data }) => {
 
@@ -10,8 +10,10 @@ const Skills = ({ data }) => {
                 {data.map((item, index) => (
                     <div className='w-40 flex flex-col justify-center items-center m-1 md:m-4'>
                         <div key={index} className='w-full  lg:w-56 flex flex-col justify-center items-center mx-4 my-2'>
-                            <img
+                            <Image
                                 className='h-[100px] w-[100px]'
+                                width={200}
+                                height={200}
                                 src={item.img}
                                 alt={item.title}
                                 title={item.title}

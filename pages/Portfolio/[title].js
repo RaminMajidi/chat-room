@@ -9,7 +9,7 @@ import BtnBack from "../../components/design/BtnBack/BtnBack"
 import { useEffect, useState } from "react"
 
 
-const PortfolioPage = (props)=>{
+const PortfolioPage = ()=>{
   const [imgLoading,setImgLoading]=useState(true);
   const [loading,setLoading] = useState(true)
   const {query} = useRouter();
@@ -21,7 +21,7 @@ const PortfolioPage = (props)=>{
       const itemData = portfolio.find((item)=>item.title === title)
       setItem(itemData)
       setLoading(false)
-    },[title])
+    },[])
 
     return(
       <>
