@@ -1,10 +1,22 @@
 {
-"categorys":["All","App","Tempelate","MiniProject"],
+"categorys":["All","App","Tempelate"],
 "portfolio":[
+    {
+        "id":18,
+        "title":"admin-panel",
+        "category":"Tempelate",
+        "yearOf":"2023",
+        "languages":["JavaScript","CSS"],
+        "packeages":["BootStrap","React-js","axios","redux"],
+        "url":"https://tiarazar.com/",
+        "coverImg":"/images/portfolio/admin-tiarazar.png",
+        "desc":"پنل ادمین برای اپلیکیشن فروشگاهی ، به صورت  SPA با اسفاده از  Rract js  و BootStrap . همچنین از پکیج هایی مانند axios , Resdux و ... نیز در این پروژه استفاده شده است.",
+        "images":[]
+    },
     {
         "id":17,
         "title":"Crypto-Coin",
-        "category":"Tempelate",
+        "category":"App",
         "yearOf":"2023",
         "languages":["TypeScript","tsx"],
         "packeages":["Tailwind css","React-js","axios"],
@@ -28,7 +40,7 @@
     {
         "id":15,
         "title":"Gym-App",
-        "category":"Tempelate",
+        "category":"App",
         "yearOf":"2023",
         "languages":["TypeScript"],
         "packeages":["React-js","Tailwind css","react-hook-form","framer-motion"],
@@ -40,7 +52,7 @@
     {
         "id":14,
         "title":"Movie-App",
-        "category":"Tempelate",
+        "category":"App",
         "yearOf":"2023",
         "languages":["JavaScript"],
         "packeages":["Next-js","Tailwind css"],
@@ -88,7 +100,7 @@
     {
         "id":10,
         "title":"Shoping-Card",
-        "category":"Tempelate",
+        "category":"App",
         "yearOf":"2023",
         "languages":["TypeScript"],
         "packeages":["React-js","React-BootStrap"],
@@ -147,30 +159,6 @@
     },
     {
         "id":5,
-        "title":"abohava-App",
-        "category":"App",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":["API"],
-        "url":"https://abohava-js.netlify.app/",
-        "coverImg":"/images/portfolio/abohavaApp.png",
-        "desc":"",
-        "images":[]
-    },
-    {
-        "id":4,
-        "title":"ToDoList-App",
-        "category":"App",
-        "yearOf":"2022",
-        "languages":["HTML","CSS","JavaScript"],
-        "packeages":[],
-        "url":"https://todo-ad.netlify.app/",
-        "coverImg":"/images/portfolio/todolistApp.png",
-        "desc":"",
-        "images":[]
-    },
-    {
-        "id":3,
         "title":"car-gallery",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -182,7 +170,7 @@
         "images":[]
     },
     {
-        "id":2,
+        "id":4,
         "title":"motor-gallery",
         "category":"Tempelate",
         "yearOf":"2022",
@@ -194,7 +182,7 @@
         "images":[]
     },
     {
-        "id":1,
+        "id":3,
         "title":"Modern-Design",
         "category":"Tempelate",
         "yearOf":"2022",
