@@ -11,7 +11,19 @@
         "url":"https://tiarazar.com/",
         "coverImg":"/images/portfolio/admin-tiarazar.png",
         "desc":"پنل ادمین برای اپلیکیشن فروشگاهی ، به صورت  SPA با اسفاده از  Rract js  و BootStrap . همچنین از پکیج هایی مانند axios , Resdux و ... نیز در این پروژه استفاده شده است.",
-        "images":[]
+        "images":[
+            "/images/portfolio/a-p-tiarazar(1)-min.png",
+            "/images/portfolio/a-p-tiarazar(2)-min.png",
+            "/images/portfolio/a-p-tiarazar(3)-min.png",
+            "/images/portfolio/a-p-tiarazar(4)-min.png",
+            "/images/portfolio/a-p-tiarazar(5)-min.png",
+            "/images/portfolio/a-p-tiarazar(6)-min.png",
+            "/images/portfolio/a-p-tiarazar(7)-min.png",
+            "/images/portfolio/a-p-tiarazar(8)-min.png",
+            "/images/portfolio/a-p-tiarazar(9)-min.png",
+            "/images/portfolio/a-p-tiarazar(10)-min.png",
+            "/images/portfolio/a-p-tiarazar(11)-min.png"
+        ]
     },
     {
         "id":17,

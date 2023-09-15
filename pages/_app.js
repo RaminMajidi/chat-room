@@ -1,8 +1,9 @@
 import '../styles/globals.css';
 import "animate.css/animate.min.css";
-import AnimatedCursor from '../components/design/AnimatedCursor/AnimatedCursor';
+// import AnimatedCursor from '../components/design/AnimatedCursor/AnimatedCursor';
 import { ModeContext } from '../context/ModeContext';
 import { useState } from 'react';
+
 
 function MyApp({ Component, pageProps }) {
 

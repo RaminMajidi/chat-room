@@ -11,14 +11,14 @@ const Layout = ({title,children,activeNavItem,classes})=>{
             <meta name="color-scheme" content=""></meta>
             <meta name="robots" content="index, follow" />
             <meta http-equiv="Cache-Control" content="no-cache" />
-            <meta name="designer" content="ramindev01" />
+            <meta name="designer" content="ramin majidi" />
             <meta name="author" content="frontEnd,Ramin Majidi,RaminDev01,رامین مجیدی" />
             <meta name="owner" content="رامین مجیدی" />
             <meta name="url" content="https://ramin-majidi.netlify.app" />
             <meta name="description" content="برنامه ساخته شده توسط رامین مجیدی به وسیله Next js" />
             {/* <!-- end My meta --> */}
             <link rel="icon" href="/favicon.ico" />
-            <title>{`RaminMajidi || ${title}`}</title>
+            <title>{`رامین مجیدی`}</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>     
         </Head>
         <BtnMode/>
