@@ -17,6 +17,7 @@
 }
 
 
+
 /* scrollbars ------------------ */
 ::-webkit-scrollbar {
   width: 5px !important;
@@ -50,6 +51,10 @@ body {
   max-height: 75dvh !important;
 }
 
+.h-75dvh {
+  height: 75dvh !important;
+}
+
 .chat-box {
   min-height: 98dvh !important;
   margin: 1dvh auto !important;
@@ -61,7 +66,7 @@ body {
 .user-list {
   padding: .5rem;
   max-height: 40dvh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .user-list::-webkit-scrollbar {
