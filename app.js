@@ -3,6 +3,7 @@ const http = require("http")
 const path = require("path")
 const socketio = require("socket.io")
 const formatMessage = require('./utils/messgaeFormat')
+const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require("./services/userService")
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -17,16 +18,41 @@ const chatBotName = "ربات چت چی"
 
 
 io.on('connection', (socket) => {
-    console.log('someone connected!');
-    socket.emit('message',formatMessage(chatBotName,"کاربر فلان خوش آمدید"));
-    socket.broadcast.emit('message', formatMessage(chatBotName,"کاربر فلان به چت اضافه شد "));
 
-    socket.on('disconnect', () => {
-        io.emit('message', formatMessage(chatBotName,"کاربر فلان چت را ترک کرد"));
+    socket.on('joinRoom', ({ userName, room }) => {
+        const user = userJoin(socket.id, userName, room);
+        socket.join(user.room)
+
+        socket.emit('message',
+            formatMessage(chatBotName, `${user.userName} خوش آمدید`)
+        );
+
+        socket.broadcast.to(user.room).emit('message',
+            formatMessage(chatBotName, `${user.userName} به چت اضافه شد `)
+        );
+
+        socket.on('disconnect', () => {
+            const user = userLeave(socket.id);
+            if (user) {
+                io.to(user.room).emit('message',
+                    formatMessage(chatBotName, `${user.userName} چت را ترک کرد`)
+                );
+                io.to(user.room).emit('roomUsers', {
+                    room: user.room,
+                    users: getRoomUsers(user.room)
+                })
+            }
+        });
+
+        io.to(user.room).emit('roomUsers', {
+            room: user.room,
+            users: getRoomUsers(user.room)
+        })
     });
 
     socket.on('chatMessage', (message) => {
-        io.emit('message', formatMessage("کاربرفلان", message))
+        const user = getCurrentUser(socket.id)
+        io.to(user.room).emit('message', formatMessage(user.userName, message))
     })
 
 });
