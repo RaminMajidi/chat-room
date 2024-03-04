@@ -61,8 +61,30 @@ export const signup = async (req, res, next) => {
 }
 
 export const login = async (req, res, next) => {
+    try {
+        const { userName, password } = req.body;
+        const user = await User.findOne({ userName })
+        const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
 
-    res.send("login route")
+        if (!user || !isPasswordCorrect) {
+            const error = new Error();
+            error.message = "Invalid UserName Or Password!"
+            error.status = 400
+            throw error
+        }
+
+
+        genearteTokenAndSetCookie(user._id, res);
+        res.status(200).json({
+            _id: user._id,
+            fullName: user.fullName,
+            userName: user.userName,
+            profilePic: user.profilePic
+        })
+
+    } catch (error) {
+        next(error)
+    }
 }
 
 
