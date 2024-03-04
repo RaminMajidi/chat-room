@@ -10,7 +10,7 @@ export const signup = async (req, res, next) => {
         if (password !== confirmPassword) {
             const error = new Error()
             error.message = "Password dont match";
-            error.status = 400;
+            error.statusCode = 400;
             throw error
         }
 
@@ -18,7 +18,7 @@ export const signup = async (req, res, next) => {
         if (user) {
             const error = new Error()
             error.message = "UserName already exists !";
-            error.status = 400;
+            error.statusCode = 400;
             throw error
         }
 
@@ -51,7 +51,7 @@ export const signup = async (req, res, next) => {
         } else {
             const error = new Error()
             error.message = "Invalid User Data !";
-            error.status = 400;
+            error.statusCode = 400;
             throw error
         }
 
@@ -69,12 +69,12 @@ export const login = async (req, res, next) => {
         if (!user || !isPasswordCorrect) {
             const error = new Error();
             error.message = "Invalid UserName Or Password!"
-            error.status = 400
+            error.statusCode = 400
             throw error
         }
 
 
-        genearteTokenAndSetCookie(user._id, res);
+        await genearteTokenAndSetCookie(user._id, res);
         res.status(200).json({
             _id: user._id,
             fullName: user.fullName,
