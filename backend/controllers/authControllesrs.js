@@ -88,6 +88,11 @@ export const login = async (req, res, next) => {
 }
 
 
-export const logout = async (req, res, next) => {
-
+export const logout = (req, res, next) => {
+    try {
+        res.cookie('Jwt', '', { maxAge: 0 })
+        res.status(200).json({ message: 'Logged Out Successfully' })
+    } catch (error) {
+        next(error)
+    }
 }
