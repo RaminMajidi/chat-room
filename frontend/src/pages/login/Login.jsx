@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import useLogin from '../../hooks/useLogin'
+import DotsLoading from '../../components/custom/DotsLoading'
 
 const Login = () => {
+
+    const [inputs, setInputs] = useState({
+        userName: '',
+        password: ''
+    })
+
+    const { loading, login } = useLogin();
+
+
+    const submitHandler = async (e) => {
+        e.preventDefault()
+        await login(inputs)
+    }
+
     return (
         <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
             <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding 
@@ -11,7 +27,7 @@ const Login = () => {
                     <span className="text-blue-500">ChatApp</span>
                 </h1>
 
-                <form>
+                <form onSubmit={submitHandler}>
                     <div>
                         <label className="label p-2">
                             <span className="text-base label-text">
@@ -22,6 +38,8 @@ const Login = () => {
                             type="text"
                             placeholder="Enter UserName"
                             className="input input-bordered w-full h-10"
+                            value={inputs.userName}
+                            onChange={(e) => setInputs({ ...inputs, userName: e.target.value })}
                         />
                     </div>
 
@@ -35,6 +53,8 @@ const Login = () => {
                             type="password"
                             placeholder="Enter Password"
                             className="input input-bordered w-full h-10"
+                            value={inputs.password}
+                            onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
                         />
                     </div>
 
@@ -43,7 +63,9 @@ const Login = () => {
                     </Link>
 
                     <div>
-                        <button className="btn btn-block btn-sm mt-2">Login</button>
+                        <button disabled={loading} className="btn btn-block btn-sm mt-2">
+                            {!loading ? ("Login") : (<DotsLoading />)}
+                        </button>
                     </div>
                 </form>
             </div>
