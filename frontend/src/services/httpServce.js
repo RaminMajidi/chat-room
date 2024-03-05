@@ -12,12 +12,13 @@ export const httpInterceptedService = axios.create(
 
 httpInterceptedService.interceptors.request.use(
     async (config) => {
-        // const token = localStorage.getItem('token');
-        // if (token) {
-        //     config.headers = {
-        //         authorization: `Bearer ${token}`
-        //     }
-        // }
+        const userData = JSON.parse(localStorage.getItem('chat-user'));
+        const token = userData.token
+        if (token) {
+            config.headers = {
+                authorization: `Bearer ${token}`
+            }
+        }
         return config;
     },
     (error) => Promise.reject(error)
@@ -26,9 +27,6 @@ httpInterceptedService.interceptors.request.use(
 httpInterceptedService.interceptors.response.use(
     (response) => response,
     async (error) => {
-        if (error.response.status === 401) {
-            window.location.href = '/login'
-        }
         return Promise.reject(error)
     }
 )

@@ -2,9 +2,12 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
 const protectRoute = async (req, res, next) => {
+
+
     try {
         //check Token
-        const token = req.cookies.Jwt;
+        const authHeader = req.headers["authorization"];
+        const token = req.cookies.Jwt || authHeader.split(" ")[1] || null ;
         if (!token) {
             const error = new Error();
             error.message = "Unauthorized - No Token Provided !"

@@ -1,7 +1,7 @@
 
 const SpinnerLoading = () => {
     return (
-        <span className={`loading  loading-spinner`}></span>
+        <span className={`loading  loading-spinner mx-auto`}></span>
     )
 }
 

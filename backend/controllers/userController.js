@@ -8,10 +8,6 @@ export const getUsersForSidbar = async (req, res, next) => {
             { _id: { $ne: loggedInUserId } }
         ).select('-password');
         res.status(200).json(filteredUsers)
-
-
-
-
     } catch (error) {
         next(error)
     }

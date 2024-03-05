@@ -40,13 +40,14 @@ export const signup = async (req, res, next) => {
         })
 
         if (newUser) {
-            await genearteTokenAndSetCookie(newUser._id, res)
+            const token = await genearteTokenAndSetCookie(newUser._id, res)
             await newUser.save();
             res.status(201).json({
                 _id: newUser._id,
                 fullName: newUser.fullName,
                 userName: newUser.userName,
-                profilePic: newUser.profilePic
+                profilePic: newUser.profilePic,
+                token
             })
         } else {
             const error = new Error()
@@ -74,12 +75,13 @@ export const login = async (req, res, next) => {
         }
 
 
-        await genearteTokenAndSetCookie(user._id, res);
+        const token = await genearteTokenAndSetCookie(user._id, res);
         res.status(200).json({
             _id: user._id,
             fullName: user.fullName,
             userName: user.userName,
-            profilePic: user.profilePic
+            profilePic: user.profilePic,
+            token
         })
 
     } catch (error) {
