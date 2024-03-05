@@ -1,3 +1,4 @@
+// start imports ----->
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -5,21 +6,28 @@ import authRoutes from "./routes/authRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import corse from "cors"
+// end imports <-----
 
-
+// start variables ----->
 const app = express();
 const PORT = process.env.PORT || 5000;
+// end variables <-----
 
 
+// start use and config for app ----->
 dotenv.config();
-
-
 app.use(express.json()); // to prse the incoming requests with json payloads (from req.body)
 app.use(cookieParser());
+app.use(corse());
+// end use and config for app <-----
 
+
+// start use Routes for app ----->
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/users', userRoutes);
+// end use Routes for app <-----
 
 
 
@@ -29,7 +37,7 @@ app.use('/api/users', userRoutes);
 // });
 
 
-// middleware for set Error handling
+// middleware for set next() Error handling
 app.use((error, req, res, next) => {
     const status = error.statusCode || 500;
     const message = error.message || 'Internal Server Error !';
