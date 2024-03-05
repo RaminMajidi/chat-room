@@ -1,6 +1,7 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
-import { httpInterceptedService } from "../services/httpServce";
+import { httpService } from "../services/httpServce";
+import { feachErrorAlert } from "../utils/Alerts";
 
 
 const useSignUp = () => {
@@ -10,10 +11,15 @@ const useSignUp = () => {
         if (!succcess) return;
         setLoading(true);
         try {
-
-
+            const res = await httpService.post('/api/auth/signup', {
+                fullName, userName, password, confirmPassword, gender
+            });
+            if (res.status === 201) {
+                const data = await res.data;
+                console.log(data);
+            }
         } catch (error) {
-            toast.error(error.message)
+            feachErrorAlert(error);
         } finally {
             setLoading(false)
         }

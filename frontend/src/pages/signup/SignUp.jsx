@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import GenderCheckbox from './GenderCheckbox'
 import { Link } from 'react-router-dom';
 import useSignUp from '../../hooks/useSignUp';
+import DotsLoading from '../../components/custom/DotsLoading';
 
 const SignUp = () => {
 
@@ -106,7 +107,11 @@ const SignUp = () => {
                     </Link>
 
                     <div>
-                        <button className="btn btn-block btn-sm mt-2">Sign Up</button>
+                        <button
+                            disabled={loading}
+                            className="btn btn-block btn-sm mt-2">
+                            {!loading ? ("Sign Up") : (<DotsLoading />)}
+                        </button>
                     </div>
                 </form>
             </div>
