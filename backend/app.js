@@ -7,10 +7,11 @@ import messageRoutes from "./routes/messageRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import corse from "cors"
+import {app, server} from "./socket/socket.js"
 // end imports <-----
 
 // start variables ----->
-const app = express();
+
 const PORT = process.env.PORT || 5000;
 // end variables <-----
 
@@ -46,7 +47,7 @@ app.use((error, req, res, next) => {
 })
 //*********************
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectToMongoDB();
     console.log(`server is runing on http://localhost:${PORT}`);
 })
