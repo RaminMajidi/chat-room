@@ -1,5 +1,6 @@
 // start imports ----->
 import express from "express";
+import path from 'path'
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js"
@@ -11,8 +12,8 @@ import {app, server} from "./socket/socket.js"
 // end imports <-----
 
 // start variables ----->
-
 const PORT = process.env.PORT || 5000;
+const __dirname = path.resolve();
 // end variables <-----
 
 
@@ -21,6 +22,7 @@ dotenv.config();
 app.use(express.json()); // to prse the incoming requests with json payloads (from req.body)
 app.use(cookieParser());
 app.use(corse());
+app.use(express.static(path.join(__dirname,'/frontend/dist')))
 // end use and config for app <-----
 
 
@@ -32,10 +34,9 @@ app.use('/api/users', userRoutes);
 
 
 
-// app.get('/', (req, res) => {
-//     // root route http://localhost:5000
-//     res.send("Hello Ramin!")
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname,'frontend','dist','index.html'))
+});
 
 
 // middleware for set next() Error handling
