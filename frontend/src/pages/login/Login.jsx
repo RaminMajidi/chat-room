@@ -6,7 +6,7 @@ import DotsLoading from '../../components/custom/DotsLoading'
 const Login = () => {
 
     const [inputs, setInputs] = useState({
-        userName: '',
+        phoneNumber: '',
         password: ''
     })
 
@@ -31,15 +31,15 @@ const Login = () => {
                     <div>
                         <label className="label p-2">
                             <span className="text-base label-text">
-                                UserName
+                                phoneNumber
                             </span>
                         </label>
                         <input
                             type="text"
-                            placeholder="Enter UserName"
+                            placeholder="Enter phoneNumber"
                             className="input input-bordered w-full h-10"
-                            value={inputs.userName}
-                            onChange={(e) => setInputs({ ...inputs, userName: e.target.value })}
+                            value={inputs.phoneNumber}
+                            onChange={(e) => setInputs({ ...inputs, phoneNumber: e.target.value })}
                         />
                     </div>
 

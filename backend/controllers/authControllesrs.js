@@ -6,7 +6,7 @@ import genearteTokenAndSetCookie from "../utils/generateToken.js";
 export const signup = async (req, res, next) => {
 
     try {
-        const { fullName, userName, password, confirmPassword, gender } = req.body;
+        const { fullName, phoneNumber, password, confirmPassword, gender } = req.body;
         if (password !== confirmPassword) {
             const error = new Error()
             error.message = "Password dont match";
@@ -14,10 +14,10 @@ export const signup = async (req, res, next) => {
             throw error
         }
 
-        const user = await User.findOne({ userName });
+        const user = await User.findOne({ phoneNumber });
         if (user) {
             const error = new Error()
-            error.message = "UserName already exists !";
+            error.message = "phoneNumber already exists !";
             error.statusCode = 400;
             throw error
         }
@@ -27,13 +27,13 @@ export const signup = async (req, res, next) => {
         const hashPassword = await bcrypt.hash(password, salt);
 
         // https://avatar.iran.liara.run/public
-        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${userName}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${userName}`;
+        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?phoneNumber=${fullName}`;
+        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?phoneNumber=${fullName}`;
 
         //create New User
         const newUser = new User({
             fullName,
-            userName,
+            phoneNumber,
             password: hashPassword,
             gender,
             profilePic: gender === "male" ? boyProfilePic : girlProfilePic
@@ -45,7 +45,7 @@ export const signup = async (req, res, next) => {
             res.status(201).json({
                 _id: newUser._id,
                 fullName: newUser.fullName,
-                userName: newUser.userName,
+                phoneNumber: newUser.phoneNumber,
                 profilePic: newUser.profilePic,
                 token
             })
@@ -63,13 +63,13 @@ export const signup = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
     try {
-        const { userName, password } = req.body;
-        const user = await User.findOne({ userName })
+        const { phoneNumber, password } = req.body;
+        const user = await User.findOne({ phoneNumber })
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
 
         if (!user || !isPasswordCorrect) {
             const error = new Error();
-            error.message = "Invalid UserName Or Password!"
+            error.message = "Invalid phoneNumber Or Password!"
             error.statusCode = 400
             throw error
         }
@@ -79,7 +79,7 @@ export const login = async (req, res, next) => {
         res.status(200).json({
             _id: user._id,
             fullName: user.fullName,
-            userName: user.userName,
+            phoneNumber: user.phoneNumber,
             profilePic: user.profilePic,
             token
         })

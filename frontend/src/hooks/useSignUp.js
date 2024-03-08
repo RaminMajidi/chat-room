@@ -7,17 +7,17 @@ import { useAuthContext } from "../context/AuthContext";
 
 const useSignUp = () => {
     const [loading, setLoading] = useState(false);
-    const { authUser, setAuthUser } = useAuthContext()
+    const { setAuthUser } = useAuthContext()
 
 
 
-    const signup = async ({ fullName, userName, password, confirmPassword, gender }) => {
-        const succcess = inputErrosHandler({ fullName, userName, password, confirmPassword, gender });
+    const signup = async ({ fullName, phoneNumber, password, confirmPassword, gender }) => {
+        const succcess = inputErrosHandler({ fullName, phoneNumber, password, confirmPassword, gender });
         if (!succcess) return;
         setLoading(true);
         try {
             const res = await httpService.post('/api/auth/signup', {
-                fullName, userName, password, confirmPassword, gender
+                fullName, phoneNumber, password, confirmPassword, gender
             });
 
             if (res.status === 201) {
@@ -38,8 +38,8 @@ const useSignUp = () => {
 export default useSignUp
 
 // error handler for signup inputs value
-function inputErrosHandler({ fullName, userName, password, confirmPassword, gender }) {
-    if (!fullName || !userName || !password || !confirmPassword || !gender) {
+function inputErrosHandler({ fullName, phoneNumber, password, confirmPassword, gender }) {
+    if (!fullName || !phoneNumber || !password || !confirmPassword || !gender) {
         toast.error("Please fill in all fiels !");
         return false;
     }
@@ -49,6 +49,10 @@ function inputErrosHandler({ fullName, userName, password, confirmPassword, gend
     }
     if (password.length < 6) {
         toast.error("Password must be at least 6 characters !");
+        return false;
+    }
+    if (phoneNumber.length < 11 || phoneNumber.length > 11) {
+        toast.error("Phone Number must be at least 11 characters !");
         return false;
     }
 

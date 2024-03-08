@@ -11,13 +11,13 @@ const useLogin = () => {
 
 
 
-    const login = async ({ userName, password }) => {
-        const succcess = inputErrosHandler({ userName, password });
+    const login = async ({ phoneNumber, password }) => {
+        const succcess = inputErrosHandler({ phoneNumber, password });
         if (!succcess) return;
         setLoading(true);
         try {
             const res = await httpService.post('/api/auth/login', {
-                userName, password
+                phoneNumber, password
             });
 
             if (res.status === 200) {
@@ -38,8 +38,8 @@ const useLogin = () => {
 export default useLogin
 
 // error handler for login inputs value
-function inputErrosHandler({ userName, password }) {
-    if (!userName || !password) {
+function inputErrosHandler({ phoneNumber, password }) {
+    if (!phoneNumber || !password) {
         toast.error("Please fill in all fiels !");
         return false;
     }

@@ -21,7 +21,7 @@ const MessageContainer = () => {
                 <NoChatSelected/>
             ) : (
                 <>
-                    <MessagesHeader userName={selectedConversation?.fullName} />
+                    <MessagesHeader fullName={selectedConversation?.fullName} />
                     <Messages />
                     <MessageInput />
                 </>

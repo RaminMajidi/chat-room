@@ -8,7 +8,7 @@ const SignUp = () => {
 
     const [inputs, setInputs] = useState({
         fullName: '',
-        userName: '',
+        phoneNumber: '',
         password: '',
         confirmPassword: '',
         gender: ''
@@ -55,15 +55,15 @@ const SignUp = () => {
                     <div>
                         <label className="label p-2">
                             <span className="text-base label-text">
-                                UserName
+                                phoneNumber
                             </span>
                         </label>
                         <input
                             type="text"
-                            placeholder="ramindev01"
+                            placeholder="09120001234"
                             className="input input-bordered w-full h-10"
-                            value={inputs.userName}
-                            onChange={(e) => setInputs({ ...inputs, userName: e.target.value })}
+                            value={inputs.phoneNumber}
+                            onChange={(e) => setInputs({ ...inputs, phoneNumber: e.target.value })}
                         />
                     </div>
 
