@@ -1,7 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import genearteTokenAndSetCookie from "../utils/generateToken.js";
-
+import { io } from "../socket/socket.js";
 
 export const signup = async (req, res, next) => {
 
@@ -43,6 +43,7 @@ export const signup = async (req, res, next) => {
         if (newUser) {
             const token = await genearteTokenAndSetCookie(newUser._id, res)
             await newUser.save();
+            io.emit('newUser',newUser);
             res.status(201).json({
                 _id: newUser._id,
                 fullName: newUser.fullName,
