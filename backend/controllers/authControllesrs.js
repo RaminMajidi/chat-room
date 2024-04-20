@@ -5,7 +5,7 @@ import genearteTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async (req, res, next) => {
 
-    
+
     try {
         const { fullName, userName, password, confirmPassword, gender } = req.body;
         if (password !== confirmPassword) {
@@ -58,6 +58,7 @@ export const signup = async (req, res, next) => {
         }
 
     } catch (error) {
+        console.log(error);
         next(error)
     }
 }
