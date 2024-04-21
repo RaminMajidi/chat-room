@@ -6,7 +6,7 @@ import SpinnerLoading from '../custom/SpinnerLoading'
 
 const Sidebar = () => {
     return (
-        <div className='border-r border-slate-500 p-4 flex flex-col'>
+        <div className='border-r h-[35dvh] sm:h-[100%] border-slate-500 p-4 flex flex-col'>
             <SearchInput />
             <div className="divider px-3"></div>
             <Suspense fallback={<SpinnerLoading />}>
