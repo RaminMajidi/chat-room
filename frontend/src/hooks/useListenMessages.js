@@ -26,7 +26,7 @@ const useListenMessages = () => {
             }
             if (newMessage.receiverId === authUser._id && selectedConversation?._id !== newMessage.senderId) {
 
-                const sender = conversations.find(item => item._id === newMessage.senderId);
+                const sender =  conversations.find(item => item._id === newMessage.senderId);
                 messageAlert(sender.fullName)
                 const sound = new Audio(notificationSound);
                 sound.play();

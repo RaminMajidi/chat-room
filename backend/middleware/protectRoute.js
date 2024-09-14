@@ -7,7 +7,15 @@ const protectRoute = async (req, res, next) => {
     try {
         //check Token
         const authHeader = req.headers["authorization"];
-        const token = req.cookies.Jwt || authHeader.split(" ")[1] || null ;
+        let token = null;
+        if (authHeader) {
+            token = authHeader.split(" ")[1];
+        } else if (req.cookies.Jwt) {
+            token = req.cookies.Jwt;
+        }
+
+        // const token = req.cookies.Jwt || authHeader.split(" ")[1] || null;
+
         if (!token) {
             const error = new Error();
             error.message = "Unauthorized - No Token Provided !"
@@ -17,6 +25,7 @@ const protectRoute = async (req, res, next) => {
 
         //check Verify Token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
         if (!decoded) {
             const error = new Error();
             error.message = "Unauthorized - Invalid Token !"
@@ -29,7 +38,7 @@ const protectRoute = async (req, res, next) => {
         if (!decoded) {
             const error = new Error();
             error.message = "User Not Found !"
-            error.statusCode = 404;
+            error.statusCode = 401;
             throw error
         }
 
@@ -37,7 +46,12 @@ const protectRoute = async (req, res, next) => {
         next();
 
     } catch (error) {
-        next(error)
+        if (error == "TokenExpiredError: jwt expired") {
+            error.message = 'jwt expired';
+            error.statusCode = 401;
+            next(error);
+        }
+        next(error);
     }
 
 }
