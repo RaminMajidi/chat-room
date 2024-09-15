@@ -5,7 +5,7 @@ import notificationSound from "../assets/sounds/notification.mp3"
 import { useAuthContext } from '../context/AuthContext'
 import useGetConversation from './useGetConversation'
 import { messageAlert } from '../utils/Alerts'
-import { notifyMe } from '../utils/Notification'
+import { notifyMe,showNotification } from '../utils/Notification'
 
 
 const useListenMessages = () => {
@@ -21,7 +21,8 @@ const useListenMessages = () => {
         newMessage.shouldShake = true;
         const sound = new Audio(notificationSound);
         sound.play();
-        setMessages([...messages, newMessage])
+        setMessages([...messages, newMessage]);
+        showNotification();
         return
       }
       if (newMessage.receiverId === authUser._id && selectedConversation?._id !== newMessage.senderId) {
@@ -29,7 +30,8 @@ const useListenMessages = () => {
         const sound = new Audio(notificationSound);
         sound.play();
         messageAlert(sender.fullName)
-        notifyMe(sender.fullName,sender.profilePic);
+        // notifyMe(sender.fullName,sender.profilePic);
+        showNotification();
         return
       }
     });

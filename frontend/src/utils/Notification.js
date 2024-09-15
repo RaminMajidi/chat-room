@@ -24,3 +24,21 @@ export function notifyMe(fullName, image = null) {
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
 }
+
+
+navigator.serviceWorker.register("sw.js");
+
+export function showNotification() {
+  Notification.requestPermission().then((result) => {
+    if (result === "granted") {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.showNotification("Vibration Sample", {
+          body: "Buzz! Buzz!",
+          icon: "../images/touch/chrome-touch-icon-192x192.png",
+          vibrate: [200, 100, 200, 100, 200, 100, 200],
+          tag: "vibration-sample",
+        });
+      });
+    }
+  });
+}
