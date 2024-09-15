@@ -5,6 +5,8 @@ import MessageInput from "./MessageInput"
 import Messages from "./Messages"
 import NoChatSelected from "./NoChatSelected";
 
+
+
 const MessageContainer = () => {
     const { selectedConversation, setSelectedConversation } = useConversation();
 
@@ -16,7 +18,7 @@ const MessageContainer = () => {
     }, [setSelectedConversation])
 
     return (
-        <div className="h-[64dvh] sm:h-[100%] md:min-w-[450px] flex flex-col">
+        <div className="flex flex-col w-full h-full">
             {!selectedConversation ? (
                 <NoChatSelected/>
             ) : (

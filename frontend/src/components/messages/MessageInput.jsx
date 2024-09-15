@@ -32,7 +32,7 @@ const MessageInput = () => {
                     {loading ? (
                         <DotsLoading />
                     ) : (
-                        <BsSend />
+                        <BsSend className='text-white' />
                     )}
                 </button>
             </div>
