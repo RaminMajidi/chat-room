@@ -31,7 +31,7 @@ const SearchInput = () => {
     }
 
     return (
-        <form className="flex items-center gap-2" onSubmit={submitHandler}>
+        <form className="flex items-center gap-2 w-full max-w-[280px] mx-auto" onSubmit={submitHandler}>
             <input
                 type="text"
                 placeholder="Search..."
@@ -43,7 +43,7 @@ const SearchInput = () => {
                 type="submit"
                 className="btn btn-circle bg-sky-500 text-white"
             >
-                <IoSearchSharp className="w-6 h-6 outline-none" />
+                <IoSearchSharp className="w-5 h-5 outline-none" />
             </button>
         </form>
     )
