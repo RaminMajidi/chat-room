@@ -31,11 +31,11 @@ const SearchInput = () => {
     }
 
     return (
-        <form className="flex items-center gap-2 w-full max-w-[280px] mx-auto" onSubmit={submitHandler}>
+        <form className="flex justify-center items-center gap-2 w-full max-w-[280px] mx-auto" onSubmit={submitHandler}>
             <input
                 type="text"
                 placeholder="Search..."
-                className="input input-bordered rounded-full"
+                className="input input-bordered rounded-full w-40 md:w-full max-w-[200px]"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
