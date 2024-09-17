@@ -3,6 +3,7 @@ import SearchInput from './SearchInput'
 import SpinnerLoading from '../custom/SpinnerLoading'
 import LogoutButton from './LogoutButton'
 import Conversations from './Conversations'
+import FullScreen from './FullScreen'
 
 const Desktop = () => {
     return (
@@ -14,7 +15,10 @@ const Desktop = () => {
             <Suspense fallback={<SpinnerLoading />}>
                 <Conversations />
             </Suspense>
-            <LogoutButton />
+            <div className='flex gap-4'>
+                <LogoutButton />
+                <FullScreen />
+            </div>
         </div>
     )
 }

@@ -14,11 +14,6 @@ function App() {
   const { authUser } = useAuthContext();
   useListenMessages();
 
-
-  useEffect(() => {
-    document.getElementById('my_modal_1').showModal();
-  }, [])
-
   return (
     <div className="p-2  h-screen flex items-center justify-center">
       <Modal/>

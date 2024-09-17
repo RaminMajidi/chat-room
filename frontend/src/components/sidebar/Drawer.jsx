@@ -3,7 +3,8 @@ import SearchInput from './SearchInput'
 import SpinnerLoading from '../custom/SpinnerLoading'
 import Conversations from './Conversations'
 import LogoutButton from './LogoutButton'
-import {IoMdMenu} from "react-icons/io"
+import { IoMdMenu } from "react-icons/io"
+import FullScreen from './FullScreen'
 
 const Drawer = () => {
     return (
@@ -11,11 +12,11 @@ const Drawer = () => {
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* Page content here */}
-                
+
                 <label
                     htmlFor="my-drawer-4"
                     className="absolute right-0">
-                   <IoMdMenu className='w-12 h-12 mr-2 text-white'/>
+                    <IoMdMenu className='w-12 h-12 mr-2 text-white' />
                 </label>
             </div>
             <div className="drawer-side">
@@ -29,7 +30,10 @@ const Drawer = () => {
                     <Suspense fallback={<SpinnerLoading />}>
                         <Conversations />
                     </Suspense>
-                    <LogoutButton />
+                    <div className='flex gap-4'>
+                        <LogoutButton />
+                        <FullScreen />
+                    </div>
                 </ul>
             </div>
         </div>
