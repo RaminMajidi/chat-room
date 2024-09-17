@@ -5,13 +5,13 @@ import SpinnerLoading from "../custom/SpinnerLoading"
 const LogoutButton = () => {
     const { loading, logOut } = useLogOut()
     return (
-        <div className="mt-auto pt-2">
+        <div className="mt-4">
             {
                 !loading ? (
                     <BiLogOut
                         title="Log Out"
                         onClick={logOut}
-                        className="w-6 h-6 text-white cursor-pointer"
+                        className="w-6 h-6 text-white cursor-pointer "
                     />
                 ) : (
                     <SpinnerLoading />

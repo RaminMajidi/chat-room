@@ -23,7 +23,7 @@ const Drawer = () => {
                     htmlFor="my-drawer-4"
                     aria-label="close sidebar"
                     className="drawer-overlay"></label>
-                <ul className="menu bg-gray-950 text-base-content min-h-full w-80 px-6 py-16">
+                <ul className="menu bg-gray-950 text-base-content  min-h-full w-80 px-6 py-16">
                     <SearchInput />
                     <div className="divider px-3"></div>
                     <Suspense fallback={<SpinnerLoading />}>
