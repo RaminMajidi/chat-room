@@ -15,7 +15,8 @@ const MessageInput = () => {
     }
 
     return (
-        <form className='px-4 mb-1 mt-2 h-12 ' onSubmit={submitHandler}>
+        <form className='flex justify-center items-center px-4 mb-1 mt-2 h-[8%] '
+            onSubmit={submitHandler}>
             <div className="w-full relative">
                 <input
                     type="text"

@@ -13,7 +13,7 @@ const FullScreen = () => {
 
 
   return (
-    <div className="mt-4" onClick={toggleFullScreen}>
+    <div className="mt-4" onClick={toggleFullScreen} title="Full Screen">
         <MdOutlineFullscreen className="w-6 h-6 text-white cursor-pointer"/>
     </div>
   )
