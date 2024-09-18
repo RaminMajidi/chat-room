@@ -15,7 +15,7 @@ function App() {
   useListenMessages();
 
   return (
-    <div className="p-2  h-screen flex items-center justify-center">
+    <div className="w-full h-screen flex items-center justify-center">
       <Modal/>
       <Routes>
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />

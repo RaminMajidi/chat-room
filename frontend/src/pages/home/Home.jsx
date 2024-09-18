@@ -1,12 +1,11 @@
 import Sidebar from '../../components/sidebar/Sidebar'
 import MessageContainer from '../../components/messages/MessageContainer'
-  
+
 
 const Home = () => {
   return (
-    <div className=" bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-lg 
-    bg-opacity-60 w-[95dvw] h-[90dvh] md:max-w-4xl rounded-lg overflow-hidden 
-    flex flex-col md:flex-row">
+    <div className='bg-gray-950 bg-clip-padding backdrop-filter backdrop-blur-lg 
+    bg-opacity-60 w-full h-full md:max-w-screen-lg md:flex'>
       <Sidebar />
       <MessageContainer />
     </div>

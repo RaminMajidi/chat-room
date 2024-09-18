@@ -1,10 +1,5 @@
-import React, { Suspense } from 'react'
-import SearchInput from './SearchInput'
-import SpinnerLoading from '../custom/SpinnerLoading'
-import Conversations from './Conversations'
-import LogoutButton from './LogoutButton'
 import { IoMdMenu } from "react-icons/io"
-import FullScreen from './FullScreen'
+import Joint from './Joint'
 
 const Drawer = () => {
     return (
@@ -25,15 +20,7 @@ const Drawer = () => {
                     aria-label="close sidebar"
                     className="drawer-overlay"></label>
                 <ul className="menu bg-gray-950 text-base-content  min-h-full w-80 px-6 py-16">
-                    <SearchInput />
-                    <div className="divider px-3"></div>
-                    <Suspense fallback={<SpinnerLoading />}>
-                        <Conversations />
-                    </Suspense>
-                    <div className='flex gap-4'>
-                        <LogoutButton />
-                        <FullScreen />
-                    </div>
+                    <Joint />
                 </ul>
             </div>
         </div>
