@@ -3,7 +3,7 @@ import SpinnerLoading from "../custom/SpinnerLoading"
 import Conversations from "./Conversations"
 import SearchInput from "./SearchInput"
 import LogoutButton from "./LogoutButton"
-import FullScreen from "./FullScreen"
+// import FullScreen from "./FullScreen"
 
 
 const Joint = () => {
@@ -16,7 +16,7 @@ const Joint = () => {
             </Suspense>
             <div className='flex gap-4'>
                 <LogoutButton />
-                <FullScreen />
+                {/* <FullScreen /> */}
             </div>
         </>
     )

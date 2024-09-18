@@ -5,8 +5,7 @@ import SignUp from "../pages/signup/SignUp"
 import { Toaster } from "react-hot-toast"
 import { useAuthContext } from "../context/AuthContext"
 import useListenMessages from "../hooks/useListenMessages"
-import { useEffect } from "react"
-import Modal from "./custom/Modal"
+// import Modal from "./custom/Modal"
 
 
 
@@ -16,7 +15,7 @@ function App() {
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <Modal/>
+      {/* <Modal/> */}
       <Routes>
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path="/login" element={authUser ? <Navigate to={'/'} /> : <Login />} />
