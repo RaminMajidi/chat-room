@@ -14,7 +14,7 @@ const Joint = () => {
             <Suspense fallback={<SpinnerLoading />}>
                 <Conversations />
             </Suspense>
-            <div className='flex gap-4'>
+            <div className='absolute bottom-8 left-8 z-10'>
                 <LogoutButton />
                 {/* <FullScreen /> */}
             </div>

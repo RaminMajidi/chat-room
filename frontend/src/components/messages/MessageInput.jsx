@@ -15,7 +15,7 @@ const MessageInput = () => {
     }
 
     return (
-        <form className='flex justify-center items-center px-4 mb-1 mt-2 h-[8%] '
+        <form className='flex justify-center items-center px-4 my-2'
             onSubmit={submitHandler}>
             <div className="w-full relative">
                 <input
