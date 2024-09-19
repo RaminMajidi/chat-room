@@ -12,13 +12,11 @@ const Conversations = () => {
             {conversations?.map((item, idx) => (
                 <Suspense key={item._id} fallback={<SpinnerLoading />}>
                     <Conversation
-                        
                         conversation={item}
                         emoji={getRandomEmoji()}
                         lastIdx={idx === conversations.length - 1}
                     />
                 </Suspense>
-
             ))}
         </div>
     )
