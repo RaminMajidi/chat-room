@@ -1,7 +1,10 @@
 import { IoMdMenu } from "react-icons/io"
+import { IoMdClose } from "react-icons/io"
 import Joint from './Joint'
+import { useState } from "react"
 
 const Drawer = () => {
+    const [showModal, setShowModal] = useState(false);
     return (
         <div className="drawer drawer-end md:hidden z-50">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -10,8 +13,19 @@ const Drawer = () => {
 
                 <label
                     htmlFor="my-drawer-4"
-                    className="absolute right-0">
-                    <IoMdMenu className='w-12 h-12 mr-2 text-white sticky top-0 z-50' />
+                    className="fixed right-1 top-1 z-40">
+                    {showModal ? (
+                        <IoMdClose
+                            onClick={() => setShowModal(v => !v)}
+                            className='w-12 h-12 mr-2 text-white'
+                        />
+                    ) : (
+                        <IoMdMenu
+                            onClick={() => setShowModal(v => !v)}
+                            className='w-12 h-12 mr-2 text-white'
+                        />
+                    )
+                    }
                 </label>
             </div>
             <div className="drawer-side">

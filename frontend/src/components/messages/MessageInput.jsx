@@ -7,14 +7,11 @@ const MessageInput = () => {
     const [message, setMessage] = useState('')
     const { sendMessage, loading } = useSendMessage()
 
-    const refInp = useRef()
-
     const submitHandler = async (e) => {
         e.preventDefault();
         if (!message) return;
         await sendMessage(message);
         setMessage('');
-        refInp.current.focus();
     }
 
     return (
@@ -22,7 +19,6 @@ const MessageInput = () => {
             onSubmit={submitHandler}>
             <div className="w-full relative">
                 <input
-                    ref={refInp}
                     type="text"
                     className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700
                      border-gray-600 text-white"
