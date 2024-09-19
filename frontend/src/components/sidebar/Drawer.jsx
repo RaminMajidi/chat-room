@@ -11,7 +11,7 @@ const Drawer = () => {
                 <label
                     htmlFor="my-drawer-4"
                     className="absolute right-0">
-                    <IoMdMenu className='w-12 h-12 mr-2 text-white sticky top-0' />
+                    <IoMdMenu className='w-12 h-12 mr-2 text-white sticky top-0 z-50' />
                 </label>
             </div>
             <div className="drawer-side">
