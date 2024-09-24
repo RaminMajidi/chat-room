@@ -8,7 +8,7 @@ import LogoutButton from "./LogoutButton"
 
 const Joint = () => {
     return (
-        <>
+        <div>
             <SearchInput />
             <div className="divider px-3"></div>
             <Suspense fallback={<SpinnerLoading />}>
@@ -18,7 +18,7 @@ const Joint = () => {
                 <LogoutButton />
                 {/* <FullScreen /> */}
             </div>
-        </>
+        </div>
     )
 }
 

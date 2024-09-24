@@ -19,6 +19,7 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
                         <img
                             src={conversation.profilePic}
                             alt={conversation.fullName + "Avatar"}
+                            onError={(e)=>e.target.src = "./public/user.png"}
                         />
                     </div>
                 </div>

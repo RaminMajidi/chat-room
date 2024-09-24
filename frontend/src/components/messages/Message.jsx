@@ -18,8 +18,10 @@ const Message = ({ message }) => {
             <div className="chat-image avatar">
                 <div className="w-10 rounded-full">
                     <img
-                        alt={`Tailwind CSS chat bubble component`}
-                        src={profilePic} />
+                        alt={`No-Image`}
+                        src={profilePic} 
+                        onError={(e)=>e.target.src = "./public/user.png"}
+                        />
                 </div>
             </div>
             <div className={`chat-bubble text-wrap text-white pb-2 ${bubbleBgColor} ${shakeClass}`}>
