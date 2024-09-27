@@ -14,7 +14,7 @@ const io = new Server(server, {
     }
 });
 
-export const getReceiverScketId = (receiverId)=>{
+export const getReceiverScketId = (receiverId) => {
     return userSocketMap[receiverId];
 }
 
@@ -28,6 +28,15 @@ io.on('connection', (socket) => {
 
     // io.emit() is used to send events to all the connected clients
     io.emit('getOnlineUsers', Object.keys(userSocketMap));
+
+    socket.on("callUser", (data) => {
+        console.log(data);
+        io.to(data.userToCall)
+            .emit("callUser", {
+                signal: data.signalData,
+                from: data.from, name: data.name
+            })
+    });
 
 
     // socket.on() is used to listen to events. can be used both on client and server side

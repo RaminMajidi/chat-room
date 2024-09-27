@@ -18,12 +18,12 @@ const MessageContainer = () => {
     }, [setSelectedConversation])
 
     return (
-        <div className="relative flex flex-col justify-between w-full h-full"> 
+        <div className="relative flex flex-col justify-between w-full h-full">
             {!selectedConversation ? (
-                <NoChatSelected/>
+                <NoChatSelected />
             ) : (
                 <>
-                    <MessagesHeader userName={selectedConversation?.fullName} />
+                    <MessagesHeader />
                     <Messages />
                     <MessageInput />
                 </>

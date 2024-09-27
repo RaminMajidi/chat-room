@@ -5,6 +5,8 @@ import SignUp from "../pages/signup/SignUp"
 import { Toaster } from "react-hot-toast"
 import { useAuthContext } from "../context/AuthContext"
 import useListenMessages from "../hooks/useListenMessages"
+import VideoCall from "../pages/videoCall/VideoCall"
+import Calling from "../pages/videoCall/Calling"
 // import Modal from "./custom/Modal"
 
 
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path="/login" element={authUser ? <Navigate to={'/'} /> : <Login />} />
         <Route path="/signup" element={authUser ? <Navigate to={'/'} /> : <SignUp />} />
+        <Route path="/videoCall" element={authUser ? <VideoCall /> : <Navigate to={'/'} />} />
+        <Route path="/calling" element={authUser ? <Calling /> : <Navigate to={'/'} />} />
       </Routes>
       <Toaster />
     </div>

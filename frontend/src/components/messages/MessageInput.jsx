@@ -3,6 +3,7 @@ import useSendMessage from '../../hooks/useSendMessage';
 import { useState, useRef } from 'react';
 import DotsLoading from "../custom/DotsLoading"
 
+
 const MessageInput = () => {
     const [message, setMessage] = useState('')
     const { sendMessage, loading } = useSendMessage()
@@ -26,6 +27,7 @@ const MessageInput = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
+              
                 <button
                     type='submit'
                     className='absolute inset-y-0 end-0 flex items-center pe-3'
@@ -36,6 +38,9 @@ const MessageInput = () => {
                         <BsSend className='text-white' />
                     )}
                 </button>
+
+                
+
             </div>
         </form>
     )
