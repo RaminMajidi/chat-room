@@ -7,13 +7,23 @@ import { useAuthContext } from "../context/AuthContext"
 import useListenMessages from "../hooks/useListenMessages"
 import VideoCall from "../pages/videoCall/VideoCall"
 import Calling from "../pages/videoCall/Calling"
+import { useEffect } from "react"
+import { useSocketContext } from "../context/SocketContext"
 // import Modal from "./custom/Modal"
 
 
 
 function App() {
   const { authUser } = useAuthContext();
+  const {socket} = useSocketContext()
   useListenMessages();
+
+
+  useEffect(()=>{
+    socket?.on("receiveCall", (data) => {
+      console.log(data);
+  })
+  },[socket])
 
   return (
     <div className="w-full h-screen flex items-center justify-center">

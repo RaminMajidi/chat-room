@@ -12,7 +12,11 @@ const MessagesHeader = () => {
             <span className="text-gray-100 font-bold">
                 {selectedConversation?.fullName}
             </span>
-            <VideoCallBtn />
+            <VideoCallBtn
+                _id={selectedConversation?._id}
+                fullName={selectedConversation?.fullName}
+                profilePic={selectedConversation.profilePic}
+            />
         </div>
     )
 }

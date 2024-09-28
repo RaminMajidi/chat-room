@@ -29,6 +29,29 @@ io.on('connection', (socket) => {
     // io.emit() is used to send events to all the connected clients
     io.emit('getOnlineUsers', Object.keys(userSocketMap));
 
+    socket.on('calling', (data) => {
+        console.log(data);
+
+        const senderId = data.sender._id;
+        const receiverId = data.receiver._id;
+        const senderSocketId = getReceiverScketId(senderId);
+        const receiverSocketId = getReceiverScketId(receiverId);
+
+        if (!receiverSocketId) {
+            io.to(senderSocketId).emit("calling", { error: "user offline" });
+        } else {
+            const test = { senderId, receiverId };
+            io.to(senderSocketId).emit("calling", test);
+            io.to(receiverSocketId).emit("receiveCall", data.sender)
+        }
+
+
+    });
+
+    // io.emit("receiveCall")
+
+
+
     socket.on("callUser", (data) => {
         console.log(data);
         io.to(data.userToCall)

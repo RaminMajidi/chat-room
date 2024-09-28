@@ -1,18 +1,24 @@
 import { useEffect } from "react";
+import { useSocketContext } from "../../context/SocketContext";
 import useConversation from "../../zustand/useConversation";
+import { useAuthContext } from "../../context/AuthContext";
 
 
 const VideoCall = () => {
-  const { stream, setStream,desableStream, selectedConversation } = useConversation();
+
+  const { socket } = useSocketContext();
+  const { selectedConversation } = useConversation()
+  const { authUser } = useAuthContext()
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then((stream) => {
-        setStream(stream)
-        console.log();
+        console.log(stream);
       });
+
+    // socket.emit('calling', { receiver: selectedConversation, sender: authUser })
+
     return () => {
-      desableStream()
       // stream?.getTracks().forEach((track) => {
       //   console.log(track);
       //   track.stop();
@@ -20,12 +26,6 @@ const VideoCall = () => {
     }
   }, [])
 
-
-
-  useEffect(() => {
-    console.log(selectedConversation);
-    console.log(stream);
-  }, [stream])
 
   return (
     <div>VideoCall</div>

@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom"
 
 
 
-const VideoCallBtn = () => {
+const VideoCallBtn = ({ _id, fullName, profilePic }) => {
 
     const navigate = useNavigate()
 
     const getCalling = () => {
-        navigate("/calling", { state: { callSender: true } })
+        navigate("/calling", {
+            state: {
+                callSender: true,
+                user: { _id, fullName, profilePic }
+            }
+        })
     }
 
     return (
