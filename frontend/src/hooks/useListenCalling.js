@@ -1,3 +1,47 @@
+import { useEffect } from 'react'
+import { useSocketContext } from '../context/SocketContext'
+import useCallData from '../zustand/useCallData'
+
+
+const useListenCalling = () => {
+
+    const { socket } = useSocketContext()
+    const {setCalling,setUserCaller} = useCallData();
+
+    useEffect(() => {
+        console.log("useListen Calling");
+        socket?.on("receiveCall", (user) => {
+            setCalling(true);
+            setUserCaller(user)
+            console.log(data);
+        })
+
+        return () => socket?.off('receiveCall');
+    }, [socket])
+
+}
+
+export default useListenCalling;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { useEffect, useState } from 'react'
 // import { useSocketContext } from '../context/SocketContext'
 // import useConversation from '../zustand/useConversation'
@@ -36,3 +80,13 @@
 // }
 
 // export default useListenVideoCall
+
+
+
+// if (active) {
+
+// } else {
+//     stream?.getTracks().forEach((track) => {
+//         track.stop();
+//     });
+// }

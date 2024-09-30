@@ -7,27 +7,23 @@ import { useAuthContext } from "../context/AuthContext"
 import useListenMessages from "../hooks/useListenMessages"
 import VideoCall from "../pages/videoCall/VideoCall"
 import Calling from "../pages/videoCall/Calling"
-import { useEffect } from "react"
-import { useSocketContext } from "../context/SocketContext"
-// import Modal from "./custom/Modal"
+import useListenCalling from "../hooks/useListenCalling"
+import CallingModal from "./custom/CallingModal"
+
 
 
 
 function App() {
   const { authUser } = useAuthContext();
-  const {socket} = useSocketContext()
   useListenMessages();
+  useListenCalling();
 
 
-  useEffect(()=>{
-    socket?.on("receiveCall", (data) => {
-      console.log(data);
-  })
-  },[socket])
+
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      {/* <Modal/> */}
+      <CallingModal />
       <Routes>
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path="/login" element={authUser ? <Navigate to={'/'} /> : <Login />} />

@@ -21,6 +21,7 @@ export const getReceiverScketId = (receiverId) => {
 const userSocketMap = {}; // {userId:socketId}
 
 io.on('connection', (socket) => {
+
     console.log("a user connected id :", socket.id);
 
     const userId = socket.handshake.query.userId;
@@ -41,8 +42,9 @@ io.on('connection', (socket) => {
             io.to(senderSocketId).emit("calling", { error: "user offline" });
         } else {
             const test = { senderId, receiverId };
+            const userCaller = data.sender;
             io.to(senderSocketId).emit("calling", test);
-            io.to(receiverSocketId).emit("receiveCall", data.sender)
+            io.to(receiverSocketId).emit("receiveCall",userCaller)
         }
 
 
