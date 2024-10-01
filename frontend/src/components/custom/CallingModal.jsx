@@ -3,27 +3,44 @@ import useCallData from '../../zustand/useCallData';
 
 const CallingModal = () => {
     const { calling, setCalling, userCaller, setUserCaller } = useCallData();
+    console.log(calling);
+    console.log(userCaller);
     return (
-        <section className='absolute bg-black w-full h-full z-[1000]
-        backdrop-filter backdrop-blur-lg bg-opacity-60 p-4 flex 
-        justify-center items-center'>
 
+        <section className='absolute bg-black w-full h-full z-[1000]
+             backdrop-filter backdrop-blur-lg bg-opacity-60 p-4 flex 
+             justify-center items-center'>
             <article className='w-full h-full max-w-80 p-2 rounded-2xl
-            max-h-80 border flex flex-col justify-start items-center
-            gap-3'>
-                <div className="avatar">
+                 max-h-80 border flex flex-col justify-evenly items-center
+                 gap-3'>
+                <div className="avatar mt-2">
                     <div className="w-12 rounded-full">
                         <img
                             onError={(e) => e.target.src = "./public/user.png"}
-                            src="" />
+                            src={userCaller?.profilePic} />
                     </div>
                 </div>
 
-                <h3 className='font-bold'>Receiving a call from</h3>
-                <h5 className='font-bold'>user test</h5>
-            </article>
+                <div>
+                    <h3 className='font-bold text-center mt-3'>
+                        Receiving a call from
+                    </h3>
+                    <h5 className='font-bold text-center mt-3'>
+                        {userCaller?.fullName}
+                    </h5>
+                </div>
 
+                <div className='w-full px-2 flex justify-evenly gap-2 mt-4'>
+                    <button className="btn btn-accent" title=''>
+                        Accept
+                    </button>
+                    <button className="btn btn-active btn-error">
+                        Reject
+                    </button>
+                </div>
+            </article>
         </section>
+
     )
 }
 

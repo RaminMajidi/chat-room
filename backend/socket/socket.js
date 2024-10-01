@@ -44,24 +44,22 @@ io.on('connection', (socket) => {
             const test = { senderId, receiverId };
             const userCaller = data.sender;
             io.to(senderSocketId).emit("calling", test);
-            io.to(receiverSocketId).emit("receiveCall",userCaller)
+            io.to(receiverSocketId).emit("receivingCall", userCaller);
         }
-
-
     });
 
-    // io.emit("receiveCall")
 
 
 
-    socket.on("callUser", (data) => {
-        console.log(data);
-        io.to(data.userToCall)
-            .emit("callUser", {
-                signal: data.signalData,
-                from: data.from, name: data.name
-            })
-    });
+
+    // socket.on("callUser", (data) => {
+    //     console.log(data);
+    //     io.to(data.userToCall)
+    //         .emit("callUser", {
+    //             signal: data.signalData,
+    //             from: data.from, name: data.name
+    //         })
+    // });
 
 
     // socket.on() is used to listen to events. can be used both on client and server side

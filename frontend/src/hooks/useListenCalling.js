@@ -1,22 +1,24 @@
 import { useEffect } from 'react'
 import { useSocketContext } from '../context/SocketContext'
 import useCallData from '../zustand/useCallData'
-
+import callingSound from "../assets/sounds/calling-sound.mp3"
 
 const useListenCalling = () => {
 
     const { socket } = useSocketContext()
-    const {setCalling,setUserCaller} = useCallData();
+    const { setCalling, setUserCaller } = useCallData();
 
     useEffect(() => {
         console.log("useListen Calling");
-        socket?.on("receiveCall", (user) => {
+        socket?.on("receivingCall", (user) => {
             setCalling(true);
-            setUserCaller(user)
-            console.log(data);
+            setUserCaller(user);
+            const sound = new Audio(callingSound);
+            sound.loop = true;
+            sound.play();
         })
 
-        return () => socket?.off('receiveCall');
+        return () => socket?.off('receivingCall');
     }, [socket])
 
 }

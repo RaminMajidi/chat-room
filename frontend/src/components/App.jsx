@@ -9,12 +9,14 @@ import VideoCall from "../pages/videoCall/VideoCall"
 import Calling from "../pages/videoCall/Calling"
 import useListenCalling from "../hooks/useListenCalling"
 import CallingModal from "./custom/CallingModal"
+import useCallData from "../zustand/useCallData"
 
 
 
 
 function App() {
   const { authUser } = useAuthContext();
+  const { calling } = useCallData();
   useListenMessages();
   useListenCalling();
 
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <CallingModal />
+      {calling && <CallingModal />}
       <Routes>
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path="/login" element={authUser ? <Navigate to={'/'} /> : <Login />} />
