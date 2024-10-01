@@ -1,10 +1,10 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react"
-import NotFound from '../../components/errors/NotFound';
-import GlassContainer from '../../components/custom/GlassContainer';
-import { useSocketContext } from '../../context/SocketContext';
-import useConversation from '../../zustand/useConversation';
-import { useAuthContext } from '../../context/AuthContext';
+import NotFound from '../../../components/errors/NotFound';
+import GlassContainer from '../../../components/custom/GlassContainer';
+import { useSocketContext } from '../../../context/SocketContext';
+import useConversation from '../../../zustand/useConversation';
+import { useAuthContext } from '../../../context/AuthContext';
 
 
 const Calling = () => {

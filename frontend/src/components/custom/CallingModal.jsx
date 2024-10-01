@@ -1,10 +1,12 @@
 import React from 'react'
 import useCallData from '../../zustand/useCallData';
+import useCallHandlers from '../../hooks/useCallHandlers';
+import callingSound from "../../assets/sounds/calling-sound.mp3"
 
 const CallingModal = () => {
     const { calling, setCalling, userCaller, setUserCaller } = useCallData();
-    console.log(calling);
-    console.log(userCaller);
+    const { rejectIncomingCall } = useCallHandlers()
+
     return (
 
         <section className='absolute bg-black w-full h-full z-[1000]
@@ -34,11 +36,19 @@ const CallingModal = () => {
                     <button className="btn btn-accent" title=''>
                         Accept
                     </button>
-                    <button className="btn btn-active btn-error">
+                    <button className="btn btn-active btn-error"
+                        onClick={rejectIncomingCall}
+                    >
                         Reject
                     </button>
                 </div>
             </article>
+            <audio
+                className='hidden'
+                autoPlay={true}
+                loop={true}
+                src={callingSound}
+            ></audio>
         </section>
 
     )

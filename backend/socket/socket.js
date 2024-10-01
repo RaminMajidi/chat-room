@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
     io.emit('getOnlineUsers', Object.keys(userSocketMap));
 
     socket.on('calling', (data) => {
-        console.log(data);
+        console.log("calling", data);
 
         const senderId = data.sender._id;
         const receiverId = data.receiver._id;
@@ -46,6 +46,10 @@ io.on('connection', (socket) => {
             io.to(senderSocketId).emit("calling", test);
             io.to(receiverSocketId).emit("receivingCall", userCaller);
         }
+    });
+
+    socket.on("rejectCall", (data) => {
+        console.log('rejectCall', data);
     });
 
 
