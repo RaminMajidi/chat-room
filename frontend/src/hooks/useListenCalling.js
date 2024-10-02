@@ -9,6 +9,7 @@ const useListenCalling = () => {
     const { setIncomingCall } = useCallHandlers();
 
     useEffect(() => {
+        console.log("useListenCalling");
         socket?.on("receivingCall", user => setIncomingCall(user))
         return () => socket?.off('receivingCall');
     }, [socket])

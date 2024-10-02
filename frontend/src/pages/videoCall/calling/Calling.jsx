@@ -5,6 +5,7 @@ import GlassContainer from '../../../components/custom/GlassContainer';
 import { useSocketContext } from '../../../context/SocketContext';
 import useConversation from '../../../zustand/useConversation';
 import { useAuthContext } from '../../../context/AuthContext';
+import CallingModal from '../../../components/custom/CallingModal';
 
 
 const Calling = () => {
@@ -20,17 +21,21 @@ const Calling = () => {
     const { authUser } = useAuthContext();
 
     useEffect(() => {
+        console.log(location.state);
+        if (location.state.callSender) {
+            const receiver = location.state.receiverUser;
+            const { token, userName, ...sender } = authUser;
+            socket?.emit('calling', { receiver, sender })
+            setTimeout(() => {
+                setCalling(false)
+            }, 60000)
+        }
 
-        const receiver = location.state.user;
-        const { token, userName, ...sender } = authUser;
-        socket?.emit('calling', { receiver, sender })
-        setTimeout(() => {
-            setCalling(false)
-        }, 60000)
+
 
 
         return window.history.replaceState({}, '');
-    }, [])
+    }, [location.state])
 
 
     useEffect(() => {
@@ -42,9 +47,7 @@ const Calling = () => {
 
 
     return (
-        <GlassContainer>
-            {calling ? "Calling" : "Call End"}
-        </GlassContainer>
+        <CallingModal />
     )
 }
 

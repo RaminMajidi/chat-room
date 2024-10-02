@@ -1,7 +1,8 @@
 import React from 'react'
-import useCallData from '../../zustand/useCallData';
-import useCallHandlers from '../../hooks/useCallHandlers';
-import callingSound from "../../assets/sounds/calling-sound.mp3"
+import useCallData from '@src/zustand/useCallData';
+import useCallHandlers from '@src/hooks/useCallHandlers';
+import callingSound from "@src/assets/sounds/calling-sound.mp3"
+import sendCallingSound from "@src/assets/sounds/Phone-Ringing.mp3"
 
 const CallingModal = () => {
     const { calling, setCalling, userCaller, setUserCaller } = useCallData();
