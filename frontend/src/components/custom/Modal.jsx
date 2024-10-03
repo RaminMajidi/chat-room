@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import useCallData from '../../zustand/useCallData';
+import useCallData from '@src/zustand/useCallData';
 
 const Modal = () => {
     const [screen, SetScreen] = useState(false);

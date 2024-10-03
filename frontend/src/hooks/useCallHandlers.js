@@ -1,31 +1,42 @@
 import { useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 import useCallData from "../zustand/useCallData";
 import { useNavigate } from "react-router-dom";
 import useConversation from "../zustand/useConversation";
+import { useSocketContext } from "../context/SocketContext";
 
 
 const useCallHandlers = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { calling, setCalling, setUserCaller, setReceiverUser } = useCallData();
   const { selectedConversation } = useConversation();
+  const { onlineUsers } = useSocketContext();
 
-  const senderCalling = () => {
+  // send call
+  const sendCall = () => {
 
-    const receiverUser = {
-      _id: selectedConversation._id,
-      fullName: selectedConversation.fullName,
-      profilePic: selectedConversation.profilePic
-    };
-    setReceiverUser(receiverUser);
+    const isOnline = onlineUsers.includes(selectedConversation._id);
 
-    navigate("/calling", {
-      state: {
-        callSender: true,
-        callReceiver: false,
-      }
-    })
+    if (isOnline) {
+      const receiverUser = {
+        _id: selectedConversation._id,
+        fullName: selectedConversation.fullName,
+        profilePic: selectedConversation.profilePic
+      };
+      setReceiverUser(receiverUser);
+
+      navigate("/calling", {
+        state: {
+          callSender: true,
+          callReceiver: false,
+        }
+      })
+
+    } else {
+      toast.error("It is not possible to contact the offline user !");
+    }
   }
 
   const receiveCalling = () => {
@@ -55,7 +66,7 @@ const useCallHandlers = () => {
   }
 
   return {
-    senderCalling,
+    sendCall,
     setIncomingCall,
     rejectIncomingCall,
     cancelOutgoingCall

@@ -26,7 +26,7 @@ const CallSenderModal = () => {
                 <div>
                     <h3 className='font-bold text-center mt-3 flex gap-2 
                      justify-center items-center'>
-                        Calling...
+                        Calling
                         <span className="loading loading-bars loading-xs"></span>
                     </h3>
                     <h5 className='font-bold text-center mt-3'>

@@ -1,19 +1,29 @@
 import { useEffect } from 'react'
 import { useSocketContext } from '../context/SocketContext'
 import useCallHandlers from './useCallHandlers';
+import useCallData from '../zustand/useCallData';
+import { useAuthContext } from '../context/AuthContext';
 
 
 const useListenCalling = () => {
 
     const { socket } = useSocketContext();
     const { setIncomingCall } = useCallHandlers();
+    const { receiverUser } = useCallData();
+    const { authUser } = useAuthContext();
 
     useEffect(() => {
-        console.log("useListenCalling");
-        socket?.on("receivingCall", user => setIncomingCall(user))
+        socket?.on("receivingCall", user => setIncomingCall(user));
         return () => socket?.off('receivingCall');
     }, [socket])
 
+    useEffect(() => {
+        if (receiverUser) {
+            const { token, userName, ...sender } = authUser;
+            socket?.emit('sendCalling', { receiver: receiverUser, sender });
+        }
+        return () => socket?.off('sendCalling');
+    }, [receiverUser])
 }
 
 export default useListenCalling;

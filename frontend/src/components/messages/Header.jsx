@@ -1,5 +1,5 @@
-import useConversation from "../../zustand/useConversation";
-import VideoCallBtn from "./VideoCallBtn";
+import useConversation from "@src/zustand/useConversation";
+import VideoCallBtn from "@components/calls/VideoCallBtn";
 
 const MessagesHeader = () => {
     const { selectedConversation } = useConversation();
