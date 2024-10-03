@@ -3,12 +3,11 @@ import Home from "@pages/home/Home"
 import Login from "@pages/login/Login"
 import SignUp from "@pages/signup/SignUp"
 import VideoCall from "@pages/videoCall/VideoCall"
-import Calling from "@pages/videoCall/calling/Calling"
+import Calling from "@pages/calling/Calling"
 import { useAuthContext } from "@src/context/AuthContext"
 import useListenMessages from "@src/hooks/useListenMessages"
 import useListenCalling from "@src/hooks/useListenCalling"
 import useCallData from "@src/zustand/useCallData"
-import CallingModal from "@components/custom/CallingModal"
 import { Toaster } from "react-hot-toast"
 
 

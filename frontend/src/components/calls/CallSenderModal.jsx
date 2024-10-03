@@ -1,12 +1,11 @@
 import React from 'react'
 import useCallData from '@src/zustand/useCallData';
 import useCallHandlers from '@src/hooks/useCallHandlers';
-import callingSound from "@src/assets/sounds/calling-sound.mp3"
 import sendCallingSound from "@src/assets/sounds/Phone-Ringing.mp3"
 
-const CallingModal = () => {
-    const { calling, setCalling, userCaller, setUserCaller } = useCallData();
-    const { rejectIncomingCall } = useCallHandlers()
+const CallSenderModal = () => {
+    const { receiverUser } = useCallData();
+    const { cancelOutgoingCall } = useCallHandlers()
 
     return (
 
@@ -20,27 +19,27 @@ const CallingModal = () => {
                     <div className="w-12 rounded-full">
                         <img
                             onError={(e) => e.target.src = "./public/user.png"}
-                            src={userCaller?.profilePic} />
+                            src={receiverUser?.profilePic} />
                     </div>
                 </div>
 
                 <div>
-                    <h3 className='font-bold text-center mt-3'>
-                        Receiving a call from
+                    <h3 className='font-bold text-center mt-3 flex gap-2 
+                     justify-center items-center'>
+                        Calling...
+                        <span className="loading loading-bars loading-xs"></span>
                     </h3>
                     <h5 className='font-bold text-center mt-3'>
-                        {userCaller?.fullName}
+                        {receiverUser?.fullName}
                     </h5>
                 </div>
 
                 <div className='w-full px-2 flex justify-evenly gap-2 mt-4'>
-                    <button className="btn btn-accent" title=''>
-                        Accept
-                    </button>
+
                     <button className="btn btn-active btn-error"
-                        onClick={rejectIncomingCall}
+                        onClick={cancelOutgoingCall}
                     >
-                        Reject
+                        Cancel
                     </button>
                 </div>
             </article>
@@ -48,11 +47,11 @@ const CallingModal = () => {
                 className='hidden'
                 autoPlay={true}
                 loop={true}
-                src={callingSound}
+                src={sendCallingSound}
             ></audio>
         </section>
 
     )
 }
 
-export default CallingModal;
+export default CallSenderModal;

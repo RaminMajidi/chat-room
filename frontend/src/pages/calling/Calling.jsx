@@ -1,11 +1,13 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react"
-import NotFound from '../../../components/errors/NotFound';
-import GlassContainer from '../../../components/custom/GlassContainer';
-import { useSocketContext } from '../../../context/SocketContext';
-import useConversation from '../../../zustand/useConversation';
-import { useAuthContext } from '../../../context/AuthContext';
-import CallingModal from '../../../components/custom/CallingModal';
+import NotFound from '@components/errors/NotFound';
+import GlassContainer from '@components/custom/GlassContainer';
+import CallReceiverModal from '@components/calls/CallReceiverModal';
+import { useSocketContext } from '@src/context/SocketContext';
+import useConversation from '@src/zustand/useConversation';
+import { useAuthContext } from '@src/context/AuthContext';
+import CallSenderModal from '../../components/calls/CallSenderModal';
+import useCallData from '../../zustand/useCallData';
 
 
 const Calling = () => {
@@ -15,7 +17,7 @@ const Calling = () => {
         return <NotFound />
     }
 
-
+    const { receiverUser } = useCallData();
     const [calling, setCalling] = useState(true);
     const { socket } = useSocketContext();
     const { authUser } = useAuthContext();
@@ -23,7 +25,7 @@ const Calling = () => {
     useEffect(() => {
         console.log(location.state);
         if (location.state.callSender) {
-            const receiver = location.state.receiverUser;
+            const receiver = receiverUser;
             const { token, userName, ...sender } = authUser;
             socket?.emit('calling', { receiver, sender })
             setTimeout(() => {
@@ -47,8 +49,12 @@ const Calling = () => {
 
 
     return (
-        <CallingModal />
-    )
+        <>
+            {location.state.callReceiver && <CallReceiverModal />}
+            {location.state.callSender && <CallSenderModal />}
+        </>
+
+    );
 }
 
 export default Calling

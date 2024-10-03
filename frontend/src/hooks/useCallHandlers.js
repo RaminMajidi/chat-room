@@ -8,7 +8,7 @@ import useConversation from "../zustand/useConversation";
 const useCallHandlers = () => {
 
   const navigate = useNavigate()
-  const { calling, setCalling, setUserCaller } = useCallData();
+  const { calling, setCalling, setUserCaller, setReceiverUser } = useCallData();
   const { selectedConversation } = useConversation();
 
   const senderCalling = () => {
@@ -18,17 +18,22 @@ const useCallHandlers = () => {
       fullName: selectedConversation.fullName,
       profilePic: selectedConversation.profilePic
     };
+    setReceiverUser(receiverUser);
 
     navigate("/calling", {
       state: {
         callSender: true,
         callReceiver: false,
-        receiverUser,
       }
     })
   }
 
   const receiveCalling = () => {
+
+  }
+
+  const cancelOutgoingCall = () => {
+    console.log("cancel Call");
 
   }
 
@@ -49,7 +54,12 @@ const useCallHandlers = () => {
     })
   }
 
-  return { senderCalling, setIncomingCall, rejectIncomingCall }
+  return {
+    senderCalling,
+    setIncomingCall,
+    rejectIncomingCall,
+    cancelOutgoingCall
+  }
 }
 
 export default useCallHandlers;
