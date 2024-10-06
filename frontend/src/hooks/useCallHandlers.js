@@ -90,7 +90,7 @@ const useCallHandlers = () => {
   }
   // ***
 
-  // هندلر تنظیم اعلان رد تماس 
+  // هندلر تنظیم اعلان رد تماس برای تماس گیرنده
   const rejectOutgoingCall = () => {
     toast('The call was rejected!', {
       icon: '🔔',
@@ -101,10 +101,7 @@ const useCallHandlers = () => {
   // ***
 
 
-  const receiveCalling = () => {
-
-  }
-
+  // هندلر رد تماس ورودی
   const rejectIncomingCall = () => {
     socket?.emit('rejectCall', {
       senderId: userCaller?._id,
@@ -112,6 +109,13 @@ const useCallHandlers = () => {
     });
     clearCallingData();
     navigate("/");
+  }
+  // ***
+
+
+
+  const receiveCalling = () => {
+
   }
 
 
