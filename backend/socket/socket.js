@@ -21,8 +21,10 @@ export const getReceiverScketId = (receiverId) => {
 const userSocketMap = {}; // {userId:socketId}
 
 io.on('connection', (socket) => {
-    // io.emit() is used to send events to all the connected clients
-    // socket.on() is used to listen to events. can be used both on client and server side
+    /* io.emit() is used to send events to all the connected clients. */
+    /* socket.on() is used to listen to events.
+    can be used both on client and server side */
+
     console.log("a user connected id :", socket.id);
 
 
@@ -41,8 +43,11 @@ io.on('connection', (socket) => {
     socket.on('sendCalling', (data) => {
         const { receiverId, userCaller } = data;
         const receiverSocketId = getReceiverScketId(receiverId);
-        // ارسال اعلان تماس برای دریافت کننده تماس
-        receiverSocketId && io.to(receiverSocketId).emit("receivingCall", userCaller);
+        // ارسال اعلان تماس برای دریافت کننده تماس در صورت آنلاین بودن
+        receiverSocketId &&
+            io.to(receiverSocketId)
+                .emit("receivingCall", userCaller);
+        // *
     });
     // ***
 
@@ -51,13 +56,17 @@ io.on('connection', (socket) => {
     socket.on("cancelCall", (data) => {
         const { receverId } = data;
         const receiverSocketId = getReceiverScketId(receverId);
+        // ارسال رویداد لغو تماس برای دریافت کننده تماس در صورت آنلاین بودن
         receiverSocketId && io.to(receiverSocketId).emit("cancelCall");
+        // *
     });
     // ***
 
 
     socket.on("rejectCall", (data) => {
-        console.log('rejectCall', data);
+        const { senderId, receverId } = data;
+        const senderSocketId = getReceiverScketId(senderId);
+        senderSocketId && io.to(senderSocketId).emit("rejectCall");
     });
 
 

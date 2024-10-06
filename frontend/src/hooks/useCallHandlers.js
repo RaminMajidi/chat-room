@@ -4,6 +4,7 @@ import useCallData from "../zustand/useCallData";
 import { useNavigate } from "react-router-dom";
 import useConversation from "../zustand/useConversation";
 import { useSocketContext } from "../context/SocketContext";
+import { useAuthContext } from "../context/AuthContext";
 
 
 
@@ -14,6 +15,7 @@ const useCallHandlers = () => {
   const { calling, setCalling, userCaller, setUserCaller, receiverUser, setReceiverUser } = useCallData();
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
+  const { authUser } = useAuthContext();
 
 
   // هندلر پاکسازی مقادیر تماس
@@ -66,6 +68,9 @@ const useCallHandlers = () => {
 
   // هندلر لغو تماس ورودی از طرف تماس گیرنده
   const cancelIncomingCall = () => {
+    toast('The call was cancelled!', {
+      icon: '🔔',
+    });
     clearCallingData();
     navigate("/");
   }
@@ -85,6 +90,15 @@ const useCallHandlers = () => {
   }
   // ***
 
+  // هندلر تنظیم اعلان رد تماس 
+  const rejectOutgoingCall = () => {
+    toast('The call was rejected!', {
+      icon: '🔔',
+    });
+    clearCallingData();
+    navigate('/');
+  }
+  // ***
 
 
   const receiveCalling = () => {
@@ -92,6 +106,10 @@ const useCallHandlers = () => {
   }
 
   const rejectIncomingCall = () => {
+    socket?.emit('rejectCall', {
+      senderId: userCaller?._id,
+      receverId: authUser?._id
+    });
     clearCallingData();
     navigate("/");
   }
@@ -102,7 +120,8 @@ const useCallHandlers = () => {
     setIncomingCall,
     rejectIncomingCall,
     cancelOutgoingCall,
-    cancelIncomingCall
+    cancelIncomingCall,
+    rejectOutgoingCall
   }
 }
 
