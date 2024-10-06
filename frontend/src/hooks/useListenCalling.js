@@ -12,6 +12,7 @@ const useListenCalling = () => {
     const { receiverUser } = useCallData();
     const { authUser } = useAuthContext();
 
+
     // دریافت تماس
     useEffect(() => {
         socket?.on("receivingCall", user => setIncomingCall(user));
@@ -19,7 +20,11 @@ const useListenCalling = () => {
         socket?.on("rejectCall", _ => rejectOutgoingCall());
 
 
-        return () => socket?.off('receivingCall');
+        return () => {
+            socket?.off('receivingCall');
+            socket?.off('cancelCall');
+            socket?.off('rejectCall');
+        }
     }, [socket]);
     // ***
 

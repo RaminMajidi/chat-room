@@ -63,9 +63,11 @@ io.on('connection', (socket) => {
     // ***
 
 
+    // گوش دادن به رویداد رد تماس از طرف دریافت کننده
     socket.on("rejectCall", (data) => {
         const { senderId, receverId } = data;
         const senderSocketId = getReceiverScketId(senderId);
+        // ارسال رویداد رد تماس برای تماس گیرنده در صورت آنلاین بودن
         senderSocketId && io.to(senderSocketId).emit("rejectCall");
     });
 
