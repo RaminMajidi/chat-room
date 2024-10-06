@@ -21,32 +21,44 @@ export const getReceiverScketId = (receiverId) => {
 const userSocketMap = {}; // {userId:socketId}
 
 io.on('connection', (socket) => {
-
+    // io.emit() is used to send events to all the connected clients
+    // socket.on() is used to listen to events. can be used both on client and server side
     console.log("a user connected id :", socket.id);
 
+
+    // ساخت آیدی کاربر و افزودن به لیست کاربران آنلاین
     const userId = socket.handshake.query.userId;
     if (userId != "undifind") userSocketMap[userId] = socket.id;
+    // ***
 
-    // io.emit() is used to send events to all the connected clients
+
+    // ارسال لیست کاربران آنلاین
     io.emit('getOnlineUsers', Object.keys(userSocketMap));
+    // ***
 
+
+    // گوش کردن به رویداد ارسال تماس
     socket.on('sendCalling', (data) => {
-        console.log("sendCalling", data);
-
-        const senderId = data.sender._id;
-        const receiverId = data.receiver._id;
-        const senderSocketId = getReceiverScketId(senderId);
+        const { receiverId, userCaller } = data;
         const receiverSocketId = getReceiverScketId(receiverId);
-        const userCaller = data.sender;
-
+        // ارسال اعلان تماس برای دریافت کننده تماس
         receiverSocketId && io.to(receiverSocketId).emit("receivingCall", userCaller);
     });
+    // ***
+
+
+    // گوش کردن به رویداد لغو تماس از طرف تماس گیرنده
+    socket.on("cancelCall", (data) => {
+        const { receverId } = data;
+        const receiverSocketId = getReceiverScketId(receverId);
+        receiverSocketId && io.to(receiverSocketId).emit("cancelCall");
+    });
+    // ***
+
 
     socket.on("rejectCall", (data) => {
         console.log('rejectCall', data);
     });
-
-
 
 
 
@@ -60,7 +72,7 @@ io.on('connection', (socket) => {
     // });
 
 
-    // socket.on() is used to listen to events. can be used both on client and server side
+
     socket.on('disconnect', () => {
         console.log('user disconnected id : ', socket.id);
         delete userSocketMap[userId];

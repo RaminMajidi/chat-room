@@ -8,17 +8,16 @@ const Calling = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    if (!location.state) {
-        return navigate('/404');
-    }
-
     useEffect(() => {
+        if (!location.state) {
+            return navigate('/404');
+        }
         return window.history.replaceState({}, '');
     }, []);
 
     return (<>
-        {location.state.callReceiver && <CallReceiverModal />}
-        {location.state.callSender && <CallSenderModal />}
+        {location.state?.callReceiver && <CallReceiverModal />}
+        {location.state?.callSender && <CallSenderModal />}
     </>);
 }
 

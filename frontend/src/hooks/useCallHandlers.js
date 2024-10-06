@@ -1,20 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-
 import useCallData from "../zustand/useCallData";
 import { useNavigate } from "react-router-dom";
 import useConversation from "../zustand/useConversation";
 import { useSocketContext } from "../context/SocketContext";
 
 
+
 const useCallHandlers = () => {
 
   const navigate = useNavigate();
-  const { calling, setCalling, setUserCaller, setReceiverUser } = useCallData();
+  const { socket } = useSocketContext();
+  const { calling, setCalling, userCaller, setUserCaller, receiverUser, setReceiverUser } = useCallData();
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
 
-  // send call
+
+  // هندلر پاکسازی مقادیر تماس
+  const clearCallingData = () => {
+    setCalling(false);
+    setUserCaller(null);
+    setReceiverUser(null);
+  }
+  // ***
+
+
+  // هندلر ارسال تماس
   const sendCall = () => {
 
     const isOnline = onlineUsers.includes(selectedConversation._id);
@@ -38,22 +49,30 @@ const useCallHandlers = () => {
       toast.error("It is not possible to contact the offline user !");
     }
   }
+  // ***
 
-  const receiveCalling = () => {
 
-  }
-
+  // هندلر لغو تماس خروجی
   const cancelOutgoingCall = () => {
-    console.log("cancel Call");
-
-  }
-
-  const rejectIncomingCall = () => {
-    setCalling(false);
-    setUserCaller(null);
+    clearCallingData();
+    socket?.emit('cancelCall', {
+      senderId: userCaller?._id,
+      receverId: receiverUser?._id
+    });
     navigate("/");
   }
+  // ***
 
+
+  // هندلر لغو تماس ورودی از طرف تماس گیرنده
+  const cancelIncomingCall = () => {
+    clearCallingData();
+    navigate("/");
+  }
+  // ***
+
+
+  // هندلر تنظیم اعلان های تماس دریافتی
   const setIncomingCall = (user) => {
     setCalling(true);
     setUserCaller(user);
@@ -64,12 +83,26 @@ const useCallHandlers = () => {
       }
     })
   }
+  // ***
+
+
+
+  const receiveCalling = () => {
+
+  }
+
+  const rejectIncomingCall = () => {
+    clearCallingData();
+    navigate("/");
+  }
+
 
   return {
     sendCall,
     setIncomingCall,
     rejectIncomingCall,
-    cancelOutgoingCall
+    cancelOutgoingCall,
+    cancelIncomingCall
   }
 }
 

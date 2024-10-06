@@ -8,22 +8,33 @@ import { useAuthContext } from '../context/AuthContext';
 const useListenCalling = () => {
 
     const { socket } = useSocketContext();
-    const { setIncomingCall } = useCallHandlers();
+    const { setIncomingCall, cancelIncomingCall } = useCallHandlers();
     const { receiverUser } = useCallData();
     const { authUser } = useAuthContext();
 
+    // دریافت تماس
     useEffect(() => {
         socket?.on("receivingCall", user => setIncomingCall(user));
-        return () => socket?.off('receivingCall');
-    }, [socket])
+        socket?.on("cancelCall", _ => cancelIncomingCall());
 
+
+        return () => socket?.off('receivingCall');
+    }, [socket]);
+    // ***
+
+    // ارسال تماس
     useEffect(() => {
         if (receiverUser) {
             const { token, userName, ...sender } = authUser;
-            socket?.emit('sendCalling', { receiver: receiverUser, sender });
+            socket?.emit('sendCalling', {
+                receiverId: receiverUser._id,
+                userCaller: sender
+            });
         }
         return () => socket?.off('sendCalling');
-    }, [receiverUser])
+    }, [receiverUser]);
+    // ***
+
 }
 
 export default useListenCalling;
