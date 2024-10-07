@@ -70,6 +70,15 @@ io.on('connection', (socket) => {
         // ارسال رویداد رد تماس برای تماس گیرنده در صورت آنلاین بودن
         senderSocketId && io.to(senderSocketId).emit("rejectCall");
     });
+    // ***
+
+
+    socket.on("answerIncomingCall", (data) => {
+        console.log("answerIncomingCall", data);
+        const { senderId } = data;
+        const senderSocketId = getReceiverScketId(senderId);
+        senderSocketId && io.to(senderSocketId).emit("answerCall", data);
+    });
 
 
 

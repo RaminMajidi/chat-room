@@ -8,7 +8,7 @@ import { useAuthContext } from '../context/AuthContext';
 const useListenCalling = () => {
 
     const { socket } = useSocketContext();
-    const { setIncomingCall, cancelIncomingCall, rejectOutgoingCall } = useCallHandlers();
+    const { setIncomingCall, cancelIncomingCall, rejectOutgoingCall,answerOutgoingCall } = useCallHandlers();
     const { receiverUser } = useCallData();
     const { authUser } = useAuthContext();
 
@@ -18,6 +18,7 @@ const useListenCalling = () => {
         socket?.on("receivingCall", user => setIncomingCall(user));
         socket?.on("cancelCall", _ => cancelIncomingCall());
         socket?.on("rejectCall", _ => rejectOutgoingCall());
+        socket?.on("answerCall", data => answerOutgoingCall(data));
 
 
         return () => {

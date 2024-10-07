@@ -8,6 +8,7 @@ const Calling = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+
     useEffect(() => {
         if (!location.state) {
             return navigate('/404');

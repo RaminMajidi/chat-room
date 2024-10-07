@@ -12,7 +12,8 @@ const useCallHandlers = () => {
 
   const navigate = useNavigate();
   const { socket } = useSocketContext();
-  const { calling, setCalling, userCaller, setUserCaller, receiverUser, setReceiverUser } = useCallData();
+  const { calling, setCalling, userCaller, setUserCaller,
+    receiverUser, setReceiverUser, callId, setCallId } = useCallData();
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
   const { authUser } = useAuthContext();
@@ -23,6 +24,7 @@ const useCallHandlers = () => {
     setCalling(false);
     setUserCaller(null);
     setReceiverUser(null);
+    setCallId(null);
   }
   // ***
 
@@ -114,8 +116,36 @@ const useCallHandlers = () => {
 
 
 
-  const receiveCalling = () => {
+  const acceptIncomingCall = () => {
 
+    const senderId = userCaller?._id;
+    const callId = userCaller?._id + "-" + authUser?._id;
+    setCallId(callId);
+
+    socket?.emit('answerIncomingCall', {
+      callId,
+      senderId,
+      callAnswer: true,
+    });
+    navigate(`/videoCall/${callId}`, {
+      state: {
+        sender: false,
+        callId
+      }
+    });
+  }
+
+
+  const answerOutgoingCall = (data) => {
+    console.log(data);
+    const { callId, callAnswer } = data;
+    setCallId(callId);
+    navigate(`/videoCall/${data.callId}`, {
+      state: {
+        sender: true,
+        callId
+      }
+    });
   }
 
 
@@ -125,7 +155,9 @@ const useCallHandlers = () => {
     rejectIncomingCall,
     cancelOutgoingCall,
     cancelIncomingCall,
-    rejectOutgoingCall
+    rejectOutgoingCall,
+    acceptIncomingCall,
+    answerOutgoingCall
   }
 }
 

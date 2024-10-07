@@ -6,7 +6,7 @@ import sendCallingSound from "@src/assets/sounds/Phone-Ringing.mp3"
 
 const CallReceiverModal = () => {
     const { calling, setCalling, userCaller, setUserCaller } = useCallData();
-    const { rejectIncomingCall } = useCallHandlers()
+    const { rejectIncomingCall,acceptIncomingCall } = useCallHandlers()
 
     return (
 
@@ -34,10 +34,12 @@ const CallReceiverModal = () => {
                 </div>
 
                 <div className='w-full px-2 flex justify-evenly gap-2 mt-4'>
-                    <button className="btn btn-accent" title=''>
+                    <button className="btn btn-accent"
+                        onClick={acceptIncomingCall}
+                    >
                         Accept
                     </button>
-                    <button className="btn btn-active btn-error"
+                    <button className="btn btn-error"
                         onClick={rejectIncomingCall}
                     >
                         Reject
