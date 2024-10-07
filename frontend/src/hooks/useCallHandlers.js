@@ -24,7 +24,6 @@ const useCallHandlers = () => {
     setCalling(false);
     setUserCaller(null);
     setReceiverUser(null);
-    setCallId(null);
   }
   // ***
 
@@ -116,6 +115,7 @@ const useCallHandlers = () => {
 
 
 
+  // هندلر قبول کردن تماس دریافتی
   const acceptIncomingCall = () => {
 
     const senderId = userCaller?._id;
@@ -125,8 +125,8 @@ const useCallHandlers = () => {
     socket?.emit('answerIncomingCall', {
       callId,
       senderId,
-      callAnswer: true,
     });
+
     navigate(`/videoCall/${callId}`, {
       state: {
         sender: false,
@@ -134,12 +134,15 @@ const useCallHandlers = () => {
       }
     });
   }
+  // ***
 
 
+  // هندلر قبول شدن تماس خروجی
   const answerOutgoingCall = (data) => {
     console.log(data);
-    const { callId, callAnswer } = data;
+    const { callId } = data;
     setCallId(callId);
+
     navigate(`/videoCall/${data.callId}`, {
       state: {
         sender: true,
@@ -147,6 +150,8 @@ const useCallHandlers = () => {
       }
     });
   }
+  // ***
+
 
 
   return {

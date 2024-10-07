@@ -8,8 +8,8 @@ import { useAuthContext } from '../context/AuthContext';
 const useListenCalling = () => {
 
     const { socket } = useSocketContext();
-    const { setIncomingCall, cancelIncomingCall, rejectOutgoingCall,answerOutgoingCall } = useCallHandlers();
-    const { receiverUser } = useCallData();
+    const { setIncomingCall, cancelIncomingCall, rejectOutgoingCall, answerOutgoingCall } = useCallHandlers();
+    const { receiverUser, callId } = useCallData();
     const { authUser } = useAuthContext();
 
 
@@ -25,13 +25,14 @@ const useListenCalling = () => {
             socket?.off('receivingCall');
             socket?.off('cancelCall');
             socket?.off('rejectCall');
+            socket?.off('answerCall');
         }
     }, [socket]);
     // ***
 
     // ارسال تماس
     useEffect(() => {
-        if (receiverUser) {
+        if (receiverUser && !callId) {
             const { token, userName, ...sender } = authUser;
             socket?.emit('sendCalling', {
                 receiverId: receiverUser._id,
