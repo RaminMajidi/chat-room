@@ -74,12 +74,17 @@ io.on('connection', (socket) => {
 
 
     socket.on("answerIncomingCall", (data) => {
-        console.log("answerIncomingCall", data);
         const { senderId } = data;
         const senderSocketId = getReceiverScketId(senderId);
         senderSocketId && io.to(senderSocketId).emit("answerCall", data);
     });
 
+    socket.on("callWasMade", (data) => {
+        console.log(data);
+        const { peerId, senderId } = data;
+        const senderSocketId = getReceiverScketId(senderId);
+        senderSocketId && io.to(senderSocketId).emit("callWasMade", peerId);
+    })
 
 
     // socket.on("callUser", (data) => {
@@ -90,7 +95,6 @@ io.on('connection', (socket) => {
     //             from: data.from, name: data.name
     //         })
     // });
-
 
 
     socket.on('disconnect', () => {

@@ -130,7 +130,8 @@ const useCallHandlers = () => {
     navigate(`/videoCall/${callId}`, {
       state: {
         sender: false,
-        callId
+        callId,
+        senderId
       }
     });
   }
