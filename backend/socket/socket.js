@@ -69,15 +69,20 @@ io.on('connection', (socket) => {
         const senderSocketId = getReceiverScketId(senderId);
         // ارسال رویداد رد تماس برای تماس گیرنده در صورت آنلاین بودن
         senderSocketId && io.to(senderSocketId).emit("rejectCall");
+        // *
     });
     // ***
 
 
+    // گوش کردن به رویداد قبول کردن تماس ورودی
     socket.on("answerIncomingCall", (data) => {
         const { senderId } = data;
         const senderSocketId = getReceiverScketId(senderId);
+        // ارسال رویداد قبول شدن تماس به تماس گیرنده
         senderSocketId && io.to(senderSocketId).emit("answerCall", data);
+        // *
     });
+    // ***
 
     socket.on("callWasMade", (data) => {
         console.log(data);

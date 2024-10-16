@@ -5,7 +5,7 @@ import useCallData from '../zustand/useCallData';
 import { useAuthContext } from '../context/AuthContext';
 
 
-const useListenCalling = () => {
+const useCallListening = () => {
 
     const { socket } = useSocketContext();
     const { setIncomingCall, cancelIncomingCall, rejectOutgoingCall, answerOutgoingCall } = useCallHandlers();
@@ -45,7 +45,7 @@ const useListenCalling = () => {
 
 }
 
-export default useListenCalling;
+export default useCallListening;
 
 
 

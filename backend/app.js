@@ -9,6 +9,14 @@ import userRoutes from "./routes/userRoutes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import corse from "cors"
 import {app, server} from "./socket/socket.js"
+
+import { PeerServer } from "peer";
+
+const peerServer = PeerServer({ port: 9000, path: "/myapp" });
+
+
+
+
 // end imports <-----
 
 // start variables ----->

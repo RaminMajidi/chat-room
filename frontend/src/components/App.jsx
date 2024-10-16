@@ -6,16 +6,18 @@ import VideoCall from "@pages/videoCall/VideoCall"
 import Calling from "@pages/calling/Calling"
 import { useAuthContext } from "@src/context/AuthContext"
 import useListenMessages from "@src/hooks/useListenMessages"
-import useListenCalling from "@src/hooks/useListenCalling"
 import { Toaster } from "react-hot-toast"
 import NotFound from "@components/errors/NotFound";
+import usePeerConection from "@src/hooks/usePeerConection"
+import useCallListening from "@src/hooks/useCallListening"
 
 
 function App() {
 
   const { authUser } = useAuthContext();
   useListenMessages();
-  useListenCalling();
+  useCallListening();
+  usePeerConection();
 
   return (
     <div className="w-full h-screen flex items-center justify-center">

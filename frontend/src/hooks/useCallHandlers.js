@@ -12,7 +12,7 @@ const useCallHandlers = () => {
 
   const navigate = useNavigate();
   const { socket } = useSocketContext();
-  const { calling, setCalling, userCaller, setUserCaller,
+  const { setCalling, userCaller, setUserCaller,
     receiverUser, setReceiverUser, callId, setCallId } = useCallData();
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
@@ -28,8 +28,8 @@ const useCallHandlers = () => {
   // ***
 
 
-  // هندلر ارسال تماس
-  const sendCall = () => {
+  // هندلر رفتن به صفحه شروع تماس
+  const getCalling = () => {
 
     const isOnline = onlineUsers.includes(selectedConversation._id);
 
@@ -39,6 +39,7 @@ const useCallHandlers = () => {
         fullName: selectedConversation.fullName,
         profilePic: selectedConversation.profilePic
       };
+      setCalling(true);
       setReceiverUser(receiverUser);
 
       navigate("/calling", {
@@ -120,20 +121,24 @@ const useCallHandlers = () => {
 
     const senderId = userCaller?._id;
     const callId = userCaller?._id + "-" + authUser?._id;
+    const receverId = authUser?._id;
     setCallId(callId);
 
     socket?.emit('answerIncomingCall', {
       callId,
       senderId,
+      receverId
     });
-
-    navigate(`/videoCall/${callId}`, {
-      state: {
-        sender: false,
-        callId,
-        senderId
-      }
-    });
+    setTimeout(() => {
+      navigate(`/videoCall/${callId}`, {
+        state: {
+          sender: false,
+          callId,
+          senderId,
+          receverId
+        }
+      });
+    }, 200);
   }
   // ***
 
@@ -144,7 +149,7 @@ const useCallHandlers = () => {
     const { callId } = data;
     setCallId(callId);
 
-    navigate(`/videoCall/${data.callId}`, {
+    navigate(`/videoCall/${callId}`, {
       state: {
         sender: true,
         callId
@@ -156,7 +161,7 @@ const useCallHandlers = () => {
 
 
   return {
-    sendCall,
+    getCalling,
     setIncomingCall,
     rejectIncomingCall,
     cancelOutgoingCall,
