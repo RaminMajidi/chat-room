@@ -13,7 +13,9 @@ const useCallHandlers = () => {
   const navigate = useNavigate();
   const { socket } = useSocketContext();
   const { setCalling, userCaller, setUserCaller,
-    receiverUser, setReceiverUser, callId, setCallId } = useCallData();
+    receiverUser, setReceiverUser, setRemoteStream,
+    localStream, setLocalStream, peer } = useCallData();
+
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
   const { authUser } = useAuthContext();
@@ -117,44 +119,26 @@ const useCallHandlers = () => {
 
 
   // هندلر قبول کردن تماس دریافتی
-  const acceptIncomingCall = () => {
+  const acceptIncomingCall = async () => {
 
     const senderId = userCaller?._id;
-    const callId = userCaller?._id + "-" + authUser?._id;
     const receverId = authUser?._id;
-    setCallId(callId);
+
 
     socket?.emit('answerIncomingCall', {
-      callId,
       senderId,
-      receverId
+      receverId,
+      localStream
     });
-    setTimeout(() => {
-      navigate(`/videoCall/${callId}`, {
-        state: {
-          sender: false,
-          callId,
-          senderId,
-          receverId
-        }
-      });
-    }, 200);
+    setCalling(false);
   }
   // ***
 
 
   // هندلر قبول شدن تماس خروجی
   const answerOutgoingCall = (data) => {
-    console.log(data);
     const { callId } = data;
-    setCallId(callId);
-
-    navigate(`/videoCall/${callId}`, {
-      state: {
-        sender: true,
-        callId
-      }
-    });
+    setCalling(false);
   }
   // ***
 

@@ -9,13 +9,10 @@ const usePeerConection = () => {
     const { authUser } = useAuthContext();
 
     useEffect(() => {
-        if (authUser) {
+        if (authUser && !peer) {
             const id = authUser._id;
             const newPeer = new Peer(id);
             setPeer(newPeer);
-        } else if (!authUser && peer) {
-            peer.distroy();
-            setPeer(null);
         }
     }, [authUser]);
 }

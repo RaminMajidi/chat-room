@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import Home from "@pages/home/Home"
 import Login from "@pages/login/Login"
 import SignUp from "@pages/signup/SignUp"
-import VideoCall from "@pages/videoCall/VideoCall"
 import Calling from "@pages/calling/Calling"
 import { useAuthContext } from "@src/context/AuthContext"
 import useListenMessages from "@src/hooks/useListenMessages"
@@ -16,8 +15,8 @@ function App() {
 
   const { authUser } = useAuthContext();
   useListenMessages();
-  useCallListening();
   usePeerConection();
+  useCallListening();
 
   return (
     <div className="w-full h-screen flex items-center justify-center">
@@ -25,7 +24,6 @@ function App() {
         <Route path="/" element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path="/login" element={authUser ? <Navigate to={'/'} /> : <Login />} />
         <Route path="/signup" element={authUser ? <Navigate to={'/'} /> : <SignUp />} />
-        <Route path="/videoCall/:id" element={authUser ? <VideoCall /> : <Navigate to={'/'} />} />
         <Route path="/calling" element={authUser ? <Calling /> : <Navigate to={'/'} />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

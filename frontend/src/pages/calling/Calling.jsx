@@ -9,14 +9,14 @@ const Calling = () => {
 
     const location = useLocation();
 
-    const { peer, callId } = useCallData();
+    const { calling } = useCallData();
 
 
     const { refLocalVideo, refRemoteVideo } = useCallEffects();
 
     return (<>
-        {(location.state?.callReceiver && !callId) && <CallReceiverModal />}
-        {(location.state?.callSender && !callId) && <CallSenderModal />}
+        {(location.state?.callReceiver && calling) && <CallReceiverModal />}
+        {(location.state?.callSender && calling) && <CallSenderModal />}
 
         <section className=" w-60 rounded-xl">
             <video width="100%"
