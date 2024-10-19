@@ -12,8 +12,10 @@ const useCallHandlers = () => {
 
   const navigate = useNavigate();
   const { socket } = useSocketContext();
-  const { calling, setCalling, userCaller, setUserCaller,
-    receiverUser, setReceiverUser, callId, setCallId } = useCallData();
+  const { setCalling, userCaller, setUserCaller,
+    receiverUser, setReceiverUser, setRemoteStream,
+    localStream, setLocalStream, peer } = useCallData();
+
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
   const { authUser } = useAuthContext();
@@ -28,8 +30,8 @@ const useCallHandlers = () => {
   // ***
 
 
-  // هندلر ارسال تماس
-  const sendCall = () => {
+  // هندلر رفتن به صفحه شروع تماس
+  const getCalling = () => {
 
     const isOnline = onlineUsers.includes(selectedConversation._id);
 
@@ -39,6 +41,7 @@ const useCallHandlers = () => {
         fullName: selectedConversation.fullName,
         profilePic: selectedConversation.profilePic
       };
+      setCalling(true);
       setReceiverUser(receiverUser);
 
       navigate("/calling", {
@@ -116,47 +119,33 @@ const useCallHandlers = () => {
 
 
   // هندلر قبول کردن تماس دریافتی
-  const acceptIncomingCall = () => {
+  const acceptIncomingCall = async () => {
 
     const senderId = userCaller?._id;
-    const callId = userCaller?._id + "-" + authUser?._id;
-    setCallId(callId);
+    const receverId = authUser?._id;
+
 
     socket?.emit('answerIncomingCall', {
-      callId,
       senderId,
+      receverId,
+      localStream
     });
-
-    navigate(`/videoCall/${callId}`, {
-      state: {
-        sender: false,
-        callId,
-        senderId
-      }
-    });
+    setCalling(false);
   }
   // ***
 
 
   // هندلر قبول شدن تماس خروجی
   const answerOutgoingCall = (data) => {
-    console.log(data);
     const { callId } = data;
-    setCallId(callId);
-
-    navigate(`/videoCall/${data.callId}`, {
-      state: {
-        sender: true,
-        callId
-      }
-    });
+    setCalling(false);
   }
   // ***
 
 
 
   return {
-    sendCall,
+    getCalling,
     setIncomingCall,
     rejectIncomingCall,
     cancelOutgoingCall,
