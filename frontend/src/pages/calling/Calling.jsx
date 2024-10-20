@@ -23,10 +23,7 @@ const Calling = () => {
         {(location.state?.callReceiver && calling) && <CallReceiverModal />}
         {(location.state?.callSender && calling) && <CallSenderModal />}
         <section className="w-full max-w-[450px]  flex flex-col justify-around px-2">
-            {!remoteStream && <h3>Loading...</h3>
-
-            }
-
+            {!remoteStream && <h3>Loading...</h3>}
             <video
                 onLoad={(e) => { console.log(e) }}
                 onError={(e) => console.log(e)}
