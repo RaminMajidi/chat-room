@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSocketContext } from "../context/SocketContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCallData from "../zustand/useCallData";
+
 
 
 const useCallEffects = () => {
@@ -11,17 +12,38 @@ const useCallEffects = () => {
     const navigate = useNavigate();
     const refLocalVideo = useRef();
     const refRemoteVideo = useRef();
-    const { calling, setCalling, peer, localStream,
-        setLocalStream, remoteStream, setRemoteStream,
-        receiverUser } = useCallData();
+    const { calling, setCalling, peer, localStream, setLocalStream, remoteStream, setRemoteStream, receiverUser } = useCallData();
+    const [deviceWidth, setDeviceWidth] = useState(0)
+    const [deviceHeight, setDeviceHeight] = useState(0)
 
+    useLayoutEffect(() => {
+        setDeviceWidth(window.innerWidth);
+        setDeviceHeight(window.innerHeight);
+    });
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setDeviceWidth(window.innerWidth);
+            setDeviceHeight(window.innerHeight);
+        });
+        return () => window.removeEventListener("resize", () => {
+            setDeviceWidth(window.innerWidth);
+            setDeviceHeight(window.innerHeight);
+        })
+    }, [])
+
+
+
+    // چک کردن مقادیر ورودی از لوکیشن وهندل کردن خطا    
     useEffect(() => {
         if (!location.state) {
             return navigate('/404');
         }
         return () => window.history.replaceState({}, '');
     }, [location]);
+    // ***
 
+    // درخواست از کاربر برای درسترسی به دوربین ومیکروفن محلی
     useEffect(() => {
         const constraints = {
             audio: true,
@@ -30,9 +52,7 @@ const useCallEffects = () => {
                 height: { min: 576, ideal: 720, max: 1080 },
             },
         };
-
         let myStream;
-
         navigator.mediaDevices.getUserMedia(constraints)
             .then(stream => {
                 setLocalStream(stream);
@@ -40,22 +60,34 @@ const useCallEffects = () => {
             }).catch(error => { console.log(error); });
 
 
-        return () => myStream?.getTracks().forEach((track) => track.stop());
+        // پاکسازی دسترسی به مدیا و مقادیر
+        return () => {
+            if (location.pathname != "calling") {
+                myStream?.getTracks().forEach((track) => track.stop());
+                setLocalStream(null);
+                setRemoteStream(null);
+            }
+        }
+        // ***
 
-    }, [])
+    }, [location]);
+    // ***
 
 
+    // نمایش مدیا داخلی و هندل کردن تماس
     useEffect(() => {
         try {
+            // نمایش مدیا داخلی
             if (localStream) {
                 refLocalVideo.current.srcObject = localStream;
                 refLocalVideo.current.onloadedmetadata = async () => {
-                    await refRemoteVideo.current.play();
+                    await refLocalVideo.current.play();
                 }
             }
+            // ***
 
-
-            if (localStream && location.state.callReceiver) {
+            // پاسخ به تماس دریافتی و ارسال و دریافت مدیا
+            if (localStream && location.state.callReceiver && !calling) {
                 peer.on("call", call => {
                     call.answer(localStream);
                     call.on('stream', async (rStream) => {
@@ -63,9 +95,10 @@ const useCallEffects = () => {
                     });
                 });
             }
+            // ***
 
-
-            if (localStream && location.state.callSender) {
+            // ارسال تماس و دریافت مدیا خارجی
+            if (localStream && location.state.callSender && !calling) {
                 const call = peer.call(receiverUser?._id, localStream);
                 call.on('stream', async (rStream) => {
                     if (await rStream) {
@@ -77,23 +110,34 @@ const useCallEffects = () => {
                     }
                 });
             }
+            // ***
 
         } catch (error) {
             console.log(error);
         }
     }, [localStream, calling]);
+    // ***
 
 
+    // نمایش مدیا خارجی
     useEffect(() => {
-        if (remoteStream) {
+        if (remoteStream && !calling) {
             refRemoteVideo.current.srcObject = remoteStream;
-            refRemoteVideo.current.onloadedmetadata = async () => {
-                await refRemoteVideo.current.play();
+            refRemoteVideo.current.onloadedmetadata = () => {
+                refRemoteVideo.current.play();
             }
         }
-    }, [remoteStream])
+    }, [remoteStream, calling]);
+    // ***
 
-    return { localStream, refLocalVideo, refRemoteVideo };
+    return {
+        localStream,
+        remoteStream,
+        refLocalVideo,
+        refRemoteVideo,
+        deviceWidth,
+        deviceHeight
+    };
 }
 
 export default useCallEffects;

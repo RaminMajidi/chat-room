@@ -1,9 +1,14 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useEffect, useRef, useState } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
 import CallReceiverModal from '@components/calls/CallReceiverModal';
 import CallSenderModal from '@components/calls/CallSenderModal';
 import useCallData from '@src/zustand/useCallData';
 import useCallEffects from '../../hooks/useCallEffects';
+import { FaPhoneSlash } from "react-icons/fa";
+import { CiMicrophoneOn } from "react-icons/ci";
+import { HiOutlineVideoCamera } from "react-icons/hi";
+
+
 
 const Calling = () => {
 
@@ -12,28 +17,35 @@ const Calling = () => {
     const { calling } = useCallData();
 
 
-    const { refLocalVideo, refRemoteVideo } = useCallEffects();
+    const { refLocalVideo, refRemoteVideo, remoteStream } = useCallEffects();
 
     return (<>
         {(location.state?.callReceiver && calling) && <CallReceiverModal />}
         {(location.state?.callSender && calling) && <CallSenderModal />}
+        <section className="w-full max-w-[450px]  flex flex-col justify-around px-2">
+            {!remoteStream && <h3>Loading...</h3>
 
-        <section className=" w-60 rounded-xl">
-            <video width="100%"
+            }
+
+            <video
+                onLoad={(e) => { console.log(e) }}
+                onError={(e) => console.log(e)}
                 autoPlay={true}
                 ref={refRemoteVideo}
-                className=" aspect-auto rounded-t-xl border"
+                className={`w-full rounded-t-xl`}
             ></video>
 
             <video
+                onLoad={(e) => { console.log(e) }}
+                onError={(e) => console.log(e)}
                 autoPlay={true}
                 muted={true}
-                width="100%"
                 ref={refLocalVideo}
-                className=" aspect-auto"
+                className={`w-full  border-red-500`}
             ></video>
 
-            {/* <div className="w-full h-[10%] bg-slate-700 flex gap-3 justify-evenly items-center rounded-b-xl">
+            <div className="w-full bg-slate-700 flex p-2 
+        justify-center gap-x-10 items-center rounded-b-xl">
                 <FaPhoneSlash
                     size={32}
                     className="bg-blue-500 text-white w-10 h-10 rounded-full p-2 cursor-pointer" />
@@ -43,7 +55,7 @@ const Calling = () => {
                 <HiOutlineVideoCamera
                     size={32}
                     className="bg-blue-500 text-white w-10 h-10 rounded-full p-2 cursor-pointer" />
-            </div> */}
+            </div>
         </section >
 
 
