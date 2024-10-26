@@ -1,50 +1,28 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useSocketContext } from "../context/SocketContext";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCallData from "../zustand/useCallData";
-
+import toast from "react-hot-toast";
 
 
 const useCallEffects = () => {
 
-    const { socket } = useSocketContext();
+
     const location = useLocation();
     const navigate = useNavigate();
     const refLocalVideo = useRef();
     const refRemoteVideo = useRef();
-    const { calling, setCalling, peer, localStream, setLocalStream, remoteStream, setRemoteStream, receiverUser } = useCallData();
-    const [deviceWidth, setDeviceWidth] = useState(0)
-    const [deviceHeight, setDeviceHeight] = useState(0)
+    const {
+        calling, peer, setUserCaller,
+        receiverUser, setReceiverUser,
+        localStream, setLocalStream,
+        remoteStream, setRemoteStream, } = useCallData();
 
-    useLayoutEffect(() => {
-        setDeviceWidth(window.innerWidth);
-        setDeviceHeight(window.innerHeight);
-    });
-
-    useEffect(() => {
-        window.addEventListener('resize', () => {
-            setDeviceWidth(window.innerWidth);
-            setDeviceHeight(window.innerHeight);
-        });
-        return () => window.removeEventListener("resize", () => {
-            setDeviceWidth(window.innerWidth);
-            setDeviceHeight(window.innerHeight);
-        })
-    }, [])
-
-
-
-    // چک کردن مقادیر ورودی از لوکیشن وهندل کردن خطا    
+    // درخواست از کاربر برای درسترسی به دوربین ومیکروفن محلی
     useEffect(() => {
         if (!location.state) {
             return navigate('/404');
         }
-        return () => window.history.replaceState({}, '');
-    }, [location]);
-    // ***
 
-    // درخواست از کاربر برای درسترسی به دوربین ومیکروفن محلی
-    useEffect(() => {
         const constraints = {
             audio: true,
             video: {
@@ -53,24 +31,31 @@ const useCallEffects = () => {
             },
         };
         let myStream;
+
         navigator.mediaDevices.getUserMedia(constraints)
             .then(stream => {
                 setLocalStream(stream);
                 myStream = stream;
-            }).catch(error => { console.log(error); });
-
+            }).catch(error => {
+                toast.error("Please check the level of camera and microphone!")
+            });
 
         // پاکسازی دسترسی به مدیا و مقادیر
         return () => {
             if (location.pathname != "calling") {
-                myStream?.getTracks().forEach((track) => track.stop());
+                window.history.replaceState({}, '');
                 setLocalStream(null);
                 setRemoteStream(null);
+                myStream?.getTracks().forEach((track) => track.stop());
+                refLocalVideo.current = null;
+                refRemoteVideo.current = null;
+                setUserCaller(null);
+                setReceiverUser(null)
             }
         }
         // ***
 
-    }, [location]);
+    }, []);
     // ***
 
 
@@ -78,7 +63,7 @@ const useCallEffects = () => {
     useEffect(() => {
         try {
             // نمایش مدیا داخلی
-            if (localStream) {
+            if (localStream && location.state) {
                 refLocalVideo.current.srcObject = localStream;
                 refLocalVideo.current.onloadedmetadata = async () => {
                     await refLocalVideo.current.play();
@@ -135,8 +120,6 @@ const useCallEffects = () => {
         remoteStream,
         refLocalVideo,
         refRemoteVideo,
-        deviceWidth,
-        deviceHeight
     };
 }
 

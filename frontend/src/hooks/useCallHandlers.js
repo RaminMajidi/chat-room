@@ -13,8 +13,7 @@ const useCallHandlers = () => {
   const navigate = useNavigate();
   const { socket } = useSocketContext();
   const { setCalling, userCaller, setUserCaller,
-    receiverUser, setReceiverUser, setRemoteStream,
-    localStream, setLocalStream, peer } = useCallData();
+    receiverUser, setReceiverUser, localStream } = useCallData();
 
   const { selectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
@@ -65,7 +64,7 @@ const useCallHandlers = () => {
       senderId: userCaller?._id,
       receverId: receiverUser?._id
     });
-    navigate("/");
+    navigate("/", { replace: true });
   }
   // ***
 
@@ -76,7 +75,7 @@ const useCallHandlers = () => {
       icon: '🔔',
     });
     clearCallingData();
-    navigate("/");
+    navigate("/", { replace: true });
   }
   // ***
 
@@ -100,7 +99,7 @@ const useCallHandlers = () => {
       icon: '🔔',
     });
     clearCallingData();
-    navigate('/');
+    navigate("/", { replace: true });
   }
   // ***
 
@@ -112,7 +111,7 @@ const useCallHandlers = () => {
       receverId: authUser?._id
     });
     clearCallingData();
-    navigate("/");
+    navigate("/", { replace: true });
   }
   // ***
 
@@ -143,6 +142,23 @@ const useCallHandlers = () => {
   // ***
 
 
+  // 
+  const callEnd = () => {
+    const id = receiverUser?._id || userCaller?._id;
+    socket?.emit('callEnd', { receverId: id });
+    clearCallingData();
+    navigate("/", { replace: true });
+  }
+  // ***
+
+  //
+  const callEnded = () => {
+    clearCallingData();
+    navigate("/", { replace: true });
+  }
+
+  // ***
+
 
   return {
     getCalling,
@@ -152,7 +168,9 @@ const useCallHandlers = () => {
     cancelIncomingCall,
     rejectOutgoingCall,
     acceptIncomingCall,
-    answerOutgoingCall
+    answerOutgoingCall,
+    callEnd,
+    callEnded
   }
 }
 

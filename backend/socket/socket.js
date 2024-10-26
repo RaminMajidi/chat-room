@@ -85,21 +85,19 @@ io.on('connection', (socket) => {
     // ***
 
     socket.on("callWasMade", (data) => {
-        console.log(data);
         const { peerId, senderId } = data;
         const senderSocketId = getReceiverScketId(senderId);
         senderSocketId && io.to(senderSocketId).emit("callWasMade", peerId);
     })
 
 
-    // socket.on("callUser", (data) => {
-    //     console.log(data);
-    //     io.to(data.userToCall)
-    //         .emit("callUser", {
-    //             signal: data.signalData,
-    //             from: data.from, name: data.name
-    //         })
-    // });
+    socket.on("callEnd", (data) => {
+        const { receverId } = data;
+        const receverSocketId = getReceiverScketId(receverId);
+        // ارسال رویداد قبول شدن تماس به تماس گیرنده
+        receverSocketId && io.to(receverSocketId).emit("callEnd");
+        // *
+    });
 
 
     socket.on('disconnect', () => {
