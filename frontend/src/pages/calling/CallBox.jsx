@@ -2,7 +2,9 @@ import React from 'react'
 
 const CallBox = ({ children }) => {
     return (
-        <section className="w-full max-w-[450px] flex flex-col px-2">
+        <section className="w-full h-full max-h-[96svh] 
+        max-w-[300px] flex flex-col justify-center
+        sm:max-w-[375px] md:max-w-[450px] mx-1 relative">
             {children}
         </section >
     )
