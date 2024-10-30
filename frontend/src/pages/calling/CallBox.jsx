@@ -1,10 +1,8 @@
-import React from 'react'
 
 const CallBox = ({ children }) => {
     return (
-        <section className="w-full h-full max-h-[96svh] 
-        max-w-[300px] flex flex-col justify-center
-        sm:max-w-[375px] md:max-w-[450px] mx-1 relative">
+        <section className="w-[100vw] max-w-[1035px] h-[96dvh] 
+        overflow-hidden m-auto relative rounded-lg">
             {children}
         </section >
     )

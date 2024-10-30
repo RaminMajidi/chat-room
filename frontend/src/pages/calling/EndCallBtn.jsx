@@ -6,9 +6,7 @@ const EndCallBtn = () => {
     const { callEnd } = useCallHandlers();
 
     return (
-        <div className="w-full bg-blue-500 flex p-2 
-        justify-center items-center rounded-b-xl
-        border-4 border-t-2 border-blue-500">
+        <div className="absolute top-2 right-2">
             <FaPhoneSlash
                 title="Call End"
                 onClick={callEnd}
